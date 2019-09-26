@@ -35,7 +35,7 @@ public class ContactViewHolder extends RecyclerView.ViewHolder {
                 Integer age = Integer.parseInt(ageView.getText().toString());
                 age = age + 1;
                 ageView.setText(age.toString());
-                new AlertDialog.Builder(itemView.getContext()).setTitle("Incremente contact : "+nomView.getText().toString()).setMessage(ageView.getText().toString()).show();
+                //new AlertDialog.Builder(itemView.getContext()).setTitle("Incremente contact : "+nomView.getText().toString()).setMessage(ageView.getText().toString()).show();
             }});
         bD.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,7 +43,7 @@ public class ContactViewHolder extends RecyclerView.ViewHolder {
                 Integer age = Integer.parseInt(ageView.getText().toString());
                 age = age -1;
                 ageView.setText(age.toString());
-                new AlertDialog.Builder(itemView.getContext()).setTitle("Decremente contact : "+nomView.getText().toString()).setMessage(ageView.getText().toString()).show();
+                //new AlertDialog.Builder(itemView.getContext()).setTitle("Decremente contact : "+nomView.getText().toString()).setMessage(ageView.getText().toString()).show();
             }});
     }
 

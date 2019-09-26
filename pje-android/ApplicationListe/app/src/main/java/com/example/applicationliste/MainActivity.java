@@ -19,10 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Contact c1 = new Contact("Prenom 1","20");
-        Contact c2 = new Contact("Prenom 2","15");
-        contacts.add(c1);
-        contacts.add(c2);
+        createContact();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -31,5 +28,11 @@ public class MainActivity extends AppCompatActivity {
         rv.setAdapter(new ContactListAdapter(contacts));
     }
 
+    public void createContact(){
+        Contact c1 = new Contact("Prenom 1","20");
+        Contact c2 = new Contact("Prenom 2","15");
+        contacts.add(c1);
+        contacts.add(c2);
+    }
 
 }
