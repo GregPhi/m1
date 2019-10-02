@@ -25,7 +25,7 @@
             android:layout_height="wrap_content" />
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
@@ -33,13 +33,13 @@
                 android:id="@+id/decremente"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="-" />
+                android:text="@string/moins" />
 
             <Button
                 android:id="@+id/incremente"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="+" />
+                android:text="@string/plus" />
         </LinearLayout>
 
     </LinearLayout>

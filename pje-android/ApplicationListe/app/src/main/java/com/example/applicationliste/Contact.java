@@ -1,8 +1,15 @@
 package com.example.applicationliste;
 
-public class Contact {
+import java.io.Serializable;
+
+public class Contact implements Serializable {
     private String nom;
     private String age;
+
+    public Contact(){
+        this.nom = "";
+        this.age = "";
+    }
 
     public Contact(String n, String a){
         this.nom = n;
