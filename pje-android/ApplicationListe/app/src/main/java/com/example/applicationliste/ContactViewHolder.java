@@ -14,7 +14,7 @@ public class ContactViewHolder extends RecyclerView.ViewHolder {
     public TextView nomView;
     public TextView ageView;
 
-    //public int click = 0;
+    public int click = 0;
 
     public ContactViewHolder(final View itemView) {
         super(itemView);
@@ -23,12 +23,12 @@ public class ContactViewHolder extends RecyclerView.ViewHolder {
         this.ageView = itemView.findViewById(R.id.age);
         Button bI = itemView.findViewById(R.id.incremente);
         Button bD = itemView.findViewById(R.id.decremente);
-        /*itemView.setOnClickListener(new View.OnClickListener() {
+        itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 click++;
                 new AlertDialog.Builder(itemView.getContext()).setTitle("Click").setMessage(Integer.toString(click)).show();
-                }});*/
+                }});
         bI.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -41,7 +41,9 @@ public class ContactViewHolder extends RecyclerView.ViewHolder {
             @Override
             public void onClick(View view) {
                 Integer age = Integer.parseInt(ageView.getText().toString());
-                age = age -1;
+                if(age > 0){
+                    age = age -1;
+                }
                 ageView.setText(age.toString());
                 //new AlertDialog.Builder(itemView.getContext()).setTitle("Decremente contact : "+nomView.getText().toString()).setMessage(ageView.getText().toString()).show();
             }});
