@@ -30,7 +30,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/decremente"
+                android:id="@+id/delete"
                 android:layout_width="296dp"
                 android:layout_height="wrap_content"
                 android:text="@string/delete" />

@@ -1,18 +1,31 @@
 package com.example.appliccontact;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import androidx.annotation.Nullable;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.Toast;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+
+    private ContactViewModel mContactViewModel;
+    public static final int NEW_CONTACT_ACTIVITY_REQUEST_CODE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,8 +38,27 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(MainActivity.this, NewContactActivity.class);
+                startActivityForResult(intent, NEW_CONTACT_ACTIVITY_REQUEST_CODE);
+            }
+        });
+
+        Button bD = findViewById(R.id.delete);
+        bD.setOnClickListener(new View.OnClickListener(){
+            new AlertDialog.Builder(itemView.getContext()).setTitle("Incremente contact : "+nomView.getText().toString()).setMessage(ageView.getText().toString()).show();
+        });
+
+        RecyclerView recyclerView = findViewById(R.id.recyclerview);
+        final ContactListAdapter adapter = new ContactListAdapter(this);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        mContactViewModel = ViewModelProviders.of(this).get(ContactViewModel.class);
+        mContactViewModel.getmAllContacts().observe(this, new Observer<List<Contact>>() {
+            @Override
+            public void onChanged(@Nullable final List<Contact> contacts) {
+                // Update the cached copy of the words in the adapter.
+                adapter.setContacts(contacts);
             }
         });
     }
@@ -51,5 +83,19 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == NEW_CONTACT_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
+            Contact contact = new Contact(data.getStringExtra(NewContactActivity.EXTRA_PRENOM),data.getStringExtra(NewContactActivity.EXTRA_AGE));
+            mContactViewModel.insert(contact);
+        } else {
+            Toast.makeText(
+                    getApplicationContext(),
+                    R.string.empty_not_saved,
+                    Toast.LENGTH_LONG).show();
+        }
     }
 }

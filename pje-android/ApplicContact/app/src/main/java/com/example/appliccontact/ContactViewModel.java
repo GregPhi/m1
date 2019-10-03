@@ -18,7 +18,7 @@ public class ContactViewModel extends AndroidViewModel {
         mAllContacts = mRepository.getAllWords();
     }
 
-    LiveData<List<Contact>> getAllWords() { return mAllContacts; }
+    LiveData<List<Contact>> getmAllContacts() { return mAllContacts; }
 
     public void insert(Contact contact) { mRepository.insert(contact); }
 

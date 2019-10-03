@@ -4,46 +4,51 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.List;
+import androidx.lifecycle.LiveData;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.ContactViewHolder> {
+    class ContactViewHolder extends RecyclerView.ViewHolder {
+        private final TextView nomItemView;
+        private final TextView ageItemView;
 
-
-    class WordViewHolder extends RecyclerView.ViewHolder {
-        private final TextView wordItemView;
-
-        private WordViewHolder(View itemView) {
+        private ContactViewHolder(View itemView) {
             super(itemView);
-            wordItemView = itemView.findViewById(R.id.textView);
+            nomItemView = itemView.findViewById(R.id.nom);
+            ageItemView = itemView.findViewById(R.id.age);
         }
     }
 
     private final LayoutInflater mInflater;
-    private List<Word> mWords; // Cached copy of words
+    private List<Contact> mContacts; // Cached copy of words
 
-    WordListAdapter(Context context) { mInflater = LayoutInflater.from(context); }
+    ContactListAdapter(Context context) { mInflater = LayoutInflater.from(context); }
 
     @Override
-    public WordViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ContactViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = mInflater.inflate(R.layout.recyclerview_item, parent, false);
-        return new WordViewHolder(itemView);
+        return new ContactViewHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(WordViewHolder holder, int position) {
-        if (mWords != null) {
-            Word current = mWords.get(position);
-            holder.wordItemView.setText(current.getWord());
+    public void onBindViewHolder(ContactViewHolder holder, int position) {
+        if (mContacts != null) {
+            Contact current = mContacts.get(position);
+            holder.nomItemView.setText(current.getNom());
+            holder.ageItemView.setText(current.getAge());
         } else {
             // Covers the case of data not being ready yet.
-            holder.wordItemView.setText("No Word");
+            holder.nomItemView.setText("Prenom");
+            holder.ageItemView.setText("Age");
         }
     }
 
-    void setWords(List<Word> words){
-        mWords = words;
+    void setContacts(List<Contact> words){
+        mContacts = words;
         notifyDataSetChanged();
     }
 
@@ -51,8 +56,8 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
     // mWords has not been updated (means initially, it's null, and we can't return null).
     @Override
     public int getItemCount() {
-        if (mWords != null)
-            return mWords.size();
+        if (mContacts != null)
+            return mContacts.size();
         else return 0;
     }
 
