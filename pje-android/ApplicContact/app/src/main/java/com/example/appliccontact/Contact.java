@@ -35,4 +35,9 @@ public class Contact {
     public String getAge(){
         return this.age;
     }
+
+    @Override
+    public String toString(){
+        return "Prenom -> "+nom+" || Age -> "+age;
+    }
 }

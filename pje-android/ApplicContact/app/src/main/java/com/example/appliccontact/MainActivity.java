@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import androidx.annotation.Nullable;
 import androidx.lifecycle.Observer;
@@ -17,7 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
@@ -26,6 +25,10 @@ public class MainActivity extends AppCompatActivity {
 
     private ContactViewModel mContactViewModel;
     public static final int NEW_CONTACT_ACTIVITY_REQUEST_CODE = 1;
+    public static final int DELETE_CONTACT_ACTIVITY_REQUEST_CODE = 2;
+
+    public static final String EXTRA_NOM = "";
+    public static final String EXTRA_AGE = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +47,12 @@ public class MainActivity extends AppCompatActivity {
         });
 
         /*Button bD = findViewById(R.id.delete);
-        bD.setOnClickListener(new View.OnClickListener(){
-            new AlertDialog.Builder(itemView.getContext()).setTitle("Incremente contact : "+nomView.getText().toString()).setMessage(ageView.getText().toString()).show();
+        bD.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, DeleteContactActivity.class);
+                startActivityForResult(intent, DELETE_CONTACT_ACTIVITY_REQUEST_CODE);
+            }
         });*/
 
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
@@ -89,11 +96,21 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == NEW_CONTACT_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
-            String p = data.getStringExtra(NewContactActivity.EXTRA_PRENOM);
-            String a = data.getStringExtra(NewContactActivity.EXTRA_AGE);
-            System.out.println(p+" -- "+a);
-            Contact contact = new Contact(p,a);
+            String p = data.getStringExtra(NewContactActivity.EXTRA_NOM);
+            System.out.println(p);
+            //String a = data.getStringExtra(NewContactActivity.EXTRA_AGE);
+            //System.out.println(p+" -- "+a);
+            Contact contact = new Contact();
+            contact.setNom(p);
+            contact.setAge("0");
             mContactViewModel.insert(contact);
+        } if(requestCode == DELETE_CONTACT_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK){
+            TextView pre = findViewById(R.id.nom);
+            String p = pre.getText().toString();
+            TextView age = findViewById(R.id.age);
+            String a = age.getText().toString();
+            Contact dC = new Contact(p,a);
+            mContactViewModel.delete(dC);
         } else {
             Toast.makeText(
                     getApplicationContext(),

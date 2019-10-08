@@ -27,7 +27,11 @@ public class ContactRepository {
         new insertAsyncTask(mContactDao).execute(word);
     }
 
-    private static class insertAsyncTask extends AsyncTask<Contact, Void, Void> {
+    public void delete (Contact word) {
+        new deleteAsyncTask(mContactDao).execute(word);
+    }
+
+    private static class insertAsyncTask extends android.os.AsyncTask<Contact, Void, Void> {
 
         private ContactDao mAsyncTaskDao;
 
@@ -37,7 +41,23 @@ public class ContactRepository {
 
         @Override
         protected Void doInBackground(final Contact... params) {
+            System.out.println(params[0].toString());
             mAsyncTaskDao.insert(params[0]);
+            return null;
+        }
+    }
+
+    private static class deleteAsyncTask extends AsyncTask<Contact, Void, Void> {
+
+        private ContactDao mAsyncTaskDao;
+
+        deleteAsyncTask(ContactDao dao) {
+            mAsyncTaskDao = dao;
+        }
+
+        @Override
+        protected Void doInBackground(final Contact... params) {
+            mAsyncTaskDao.delete(params[0]);
             return null;
         }
     }
