@@ -43,10 +43,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button bD = findViewById(R.id.delete);
+        /*Button bD = findViewById(R.id.delete);
         bD.setOnClickListener(new View.OnClickListener(){
             new AlertDialog.Builder(itemView.getContext()).setTitle("Incremente contact : "+nomView.getText().toString()).setMessage(ageView.getText().toString()).show();
-        });
+        });*/
 
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
         final ContactListAdapter adapter = new ContactListAdapter(this);
@@ -89,7 +89,10 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == NEW_CONTACT_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
-            Contact contact = new Contact(data.getStringExtra(NewContactActivity.EXTRA_PRENOM),data.getStringExtra(NewContactActivity.EXTRA_AGE));
+            String p = data.getStringExtra(NewContactActivity.EXTRA_PRENOM);
+            String a = data.getStringExtra(NewContactActivity.EXTRA_AGE);
+            System.out.println(p+" -- "+a);
+            Contact contact = new Contact(p,a);
             mContactViewModel.insert(contact);
         } else {
             Toast.makeText(

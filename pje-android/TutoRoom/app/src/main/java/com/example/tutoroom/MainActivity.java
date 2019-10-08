@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
     private WordViewModel mWordViewModel;
     public static final int NEW_WORD_ACTIVITY_REQUEST_CODE = 1;
-    public static final int DELETE_WORD_REQUEST_CODE = 1;
+    public static final int DELETE_WORD_REQUEST_CODE = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
