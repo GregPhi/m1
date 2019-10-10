@@ -44,7 +44,11 @@ public class Contact {
 
     public void setId(int i){ this.id = i;}
     public void setNom(String n){ this.nom = n;}
+    public void setPrenom(String p){ this.prenom = p;}
     public void setAge(String a){ this.age = a;}
+
+
+
 
     public String getNom(){
         return this.nom;
@@ -57,6 +61,6 @@ public class Contact {
     @NonNull
     @Override
     public String toString(){
-        return "Prenom -> "+nom+" || Age -> "+age;
+        return "nom -> "+nom+"Prenom -> "+prenom+" || Age -> "+age + "";
     }
 }
