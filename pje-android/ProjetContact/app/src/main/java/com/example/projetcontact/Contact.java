@@ -1,4 +1,4 @@
-package com.example.appliccontact;
+package com.example.projetcontact;
 
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
