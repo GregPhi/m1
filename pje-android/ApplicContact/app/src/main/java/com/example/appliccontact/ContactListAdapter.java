@@ -1,5 +1,6 @@
 package com.example.appliccontact;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,8 +8,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import android.os.AsyncTask;
+
 import java.util.List;
-import androidx.lifecycle.LiveData;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.ContactViewHolder> {
@@ -16,10 +18,20 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
         private final TextView nomItemView;
         private final TextView ageItemView;
 
-        private ContactViewHolder(View itemView) {
+        private ContactViewHolder(final View itemView) {
             super(itemView);
             nomItemView = itemView.findViewById(R.id.nom);
             ageItemView = itemView.findViewById(R.id.age);
+            Button bD = itemView.findViewById(R.id.delete);
+            bD.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    ContactViewModel cV = MainActivity.mContactViewModel;
+                    new AlertDialog.Builder(itemView.getContext()).setTitle("Delete").setMessage("deleted").show();
+                    Contact dC = new Contact(nomItemView.getText().toString(),ageItemView.getText().toString());
+                    cV.delete(dC);
+                }
+            });
         }
     }
 

@@ -23,12 +23,16 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ContactViewModel mContactViewModel;
+    public static ContactViewModel mContactViewModel;
+
+    public static final String EXTRA_NOM = "nom";
+    public static final String EXTRA_AGE = "0";
+
     public static final int NEW_CONTACT_ACTIVITY_REQUEST_CODE = 1;
     public static final int DELETE_CONTACT_ACTIVITY_REQUEST_CODE = 2;
 
-    public static final String EXTRA_NOM = "";
-    public static final String EXTRA_AGE = "";
+    public static String prenom;
+    public static String age;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,15 +50,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        /*Button bD = findViewById(R.id.delete);
-        bD.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, DeleteContactActivity.class);
-                startActivityForResult(intent, DELETE_CONTACT_ACTIVITY_REQUEST_CODE);
-            }
-        });*/
-
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
         final ContactListAdapter adapter = new ContactListAdapter(this);
         recyclerView.setAdapter(adapter);
@@ -68,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
                 adapter.setContacts(contacts);
             }
         });
+
     }
 
     @Override
@@ -96,13 +92,14 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == NEW_CONTACT_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
-            String p = data.getStringExtra(NewContactActivity.EXTRA_NOM);
-            System.out.println(p);
+            //String p = data.getStringExtra(NewContactActivity.EXTRA_NOM);
             //String a = data.getStringExtra(NewContactActivity.EXTRA_AGE);
-            //System.out.println(p+" -- "+a);
+            String p = getIntent().getStringExtra(EXTRA_NOM);
+            String a = getIntent().getStringExtra(EXTRA_AGE);
+            System.out.println("pre : "+p+" | age :"+a);
             Contact contact = new Contact();
-            contact.setNom(p);
-            contact.setAge("0");
+            contact.setNom(prenom);
+            contact.setAge(age);
             mContactViewModel.insert(contact);
         } if(requestCode == DELETE_CONTACT_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK){
             TextView pre = findViewById(R.id.nom);
