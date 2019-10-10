@@ -41,7 +41,6 @@ public class ContactRepository {
 
         @Override
         protected Void doInBackground(final Contact... params) {
-            System.out.println(params[0].toString());
             mAsyncTaskDao.insert(params[0]);
             return null;
         }

@@ -17,21 +17,14 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
     class ContactViewHolder extends RecyclerView.ViewHolder {
         private final TextView nomItemView;
         private final TextView ageItemView;
+        public Button bD;
 
         private ContactViewHolder(final View itemView) {
             super(itemView);
             nomItemView = itemView.findViewById(R.id.nom);
             ageItemView = itemView.findViewById(R.id.age);
-            Button bD = itemView.findViewById(R.id.delete);
-            bD.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    ContactViewModel cV = MainActivity.mContactViewModel;
-                    new AlertDialog.Builder(itemView.getContext()).setTitle("Delete").setMessage("deleted").show();
-                    Contact dC = new Contact(nomItemView.getText().toString(),ageItemView.getText().toString());
-                    cV.delete(dC);
-                }
-            });
+            bD = itemView.findViewById(R.id.delete);
+            bD.setActivated(true);
         }
     }
 
@@ -49,9 +42,16 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
     @Override
     public void onBindViewHolder(ContactViewHolder holder, int position) {
         if (mContacts != null) {
-            Contact current = mContacts.get(position);
+            final Contact current = mContacts.get(position);
             holder.nomItemView.setText(current.getNom());
             holder.ageItemView.setText(current.getAge());
+            holder.bD.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View view){
+                    System.out.println("button");
+                    removeContact(current);
+                }
+            });
         } else {
             // Covers the case of data not being ready yet.
             holder.nomItemView.setText("Prenom");
@@ -59,8 +59,12 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
         }
     }
 
-    void setContacts(List<Contact> words){
-        mContacts = words;
+    public void removeContact(Contact contact){
+        MainActivity.mContactViewModel.delete(contact);
+    }
+
+    void setContacts(List<Contact> contacts){
+        mContacts = contacts;
         notifyDataSetChanged();
     }
 

@@ -16,7 +16,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
@@ -29,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
     private static final String EXTRA_AGE = "age";
 
     public static final int NEW_CONTACT_ACTIVITY_REQUEST_CODE = 1;
-    public static final int DELETE_CONTACT_ACTIVITY_REQUEST_CODE = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,13 +93,6 @@ public class MainActivity extends AppCompatActivity {
             contact.setNom(p);
             contact.setAge(a);
             mContactViewModel.insert(contact);
-        } if(requestCode == DELETE_CONTACT_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK){
-            TextView pre = findViewById(R.id.nom);
-            String p = pre.getText().toString();
-            TextView age = findViewById(R.id.age);
-            String a = age.getText().toString();
-            Contact dC = new Contact(p,a);
-            mContactViewModel.delete(dC);
         } else {
             Toast.makeText(
                     getApplicationContext(),
