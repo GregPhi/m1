@@ -10,8 +10,8 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class NewContactActivity extends AppCompatActivity {
-    //private static final String EXTRA_NOM = "nom";
-    //private static final String EXTRA_AGE = "0";
+    private static final String EXTRA_NOM = "nom";
+    private static final String EXTRA_AGE = "age";
 
     private  EditText mEditNomView;
     private  EditText mEditAgeView;
@@ -32,10 +32,8 @@ public class NewContactActivity extends AppCompatActivity {
                 } else {
                     String pre = mEditNomView.getText().toString();
                     String age = mEditAgeView.getText().toString();
-                    MainActivity.prenom = pre;
-                    MainActivity.age = age;
-                    //replyIntent.putExtra(EXTRA_NOM, pre);
-                    //replyIntent.putExtra(EXTRA_AGE, age);
+                    replyIntent.putExtra(EXTRA_NOM, pre);
+                    replyIntent.putExtra(EXTRA_AGE, age);
                     setResult(RESULT_OK, replyIntent);
                 }
                 finish();

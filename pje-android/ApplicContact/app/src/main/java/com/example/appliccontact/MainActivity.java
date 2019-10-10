@@ -25,14 +25,11 @@ public class MainActivity extends AppCompatActivity {
 
     public static ContactViewModel mContactViewModel;
 
-    //public static final String EXTRA_NOM = "nom";
-    //public static final String EXTRA_AGE = "0";
+    private static final String EXTRA_NOM = "nom";
+    private static final String EXTRA_AGE = "age";
 
     public static final int NEW_CONTACT_ACTIVITY_REQUEST_CODE = 1;
     public static final int DELETE_CONTACT_ACTIVITY_REQUEST_CODE = 2;
-
-    public static String prenom;
-    public static String age;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,14 +89,11 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == NEW_CONTACT_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
-            //String p = data.getStringExtra(NewContactActivity.EXTRA_NOM);
-            //String a = data.getStringExtra(NewContactActivity.EXTRA_AGE);
-            //String p = getIntent().getStringExtra(EXTRA_NOM);
-            //String a = getIntent().getStringExtra(EXTRA_AGE);
-            //System.out.println("pre : "+p+" | age :"+a);
+            String p = data.getStringExtra(EXTRA_NOM);
+            String a = data.getStringExtra(EXTRA_AGE);
             Contact contact = new Contact();
-            contact.setNom(prenom);
-            contact.setAge(age);
+            contact.setNom(p);
+            contact.setAge(a);
             mContactViewModel.insert(contact);
         } if(requestCode == DELETE_CONTACT_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK){
             TextView pre = findViewById(R.id.nom);
