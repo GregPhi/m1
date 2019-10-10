@@ -1,23 +1,26 @@
 package com.example.appliccontact;
 
-import android.app.AlertDialog;
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import android.os.AsyncTask;
-
 import java.util.List;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.ContactViewHolder> {
+    private static final String EXTRA_NOM = "nom";
+    private static final String EXTRA_AGE = "age";
+
     class ContactViewHolder extends RecyclerView.ViewHolder {
         private final TextView nomItemView;
         private final TextView ageItemView;
-        public Button bD;
+        private final Button bD;
+        private final Button bI;
 
         private ContactViewHolder(final View itemView) {
             super(itemView);
@@ -25,13 +28,19 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
             ageItemView = itemView.findViewById(R.id.age);
             bD = itemView.findViewById(R.id.delete);
             bD.setActivated(true);
+            bI = itemView.findViewById(R.id.infos);
+            bI.setActivated(true);
         }
     }
 
+    private final MainActivity mContext;
     private final LayoutInflater mInflater;
     private List<Contact> mContacts; // Cached copy of words
 
-    ContactListAdapter(Context context) { mInflater = LayoutInflater.from(context); }
+    ContactListAdapter(MainActivity context) {
+        mInflater = LayoutInflater.from(context);
+        mContext = context;
+    }
 
     @Override
     public ContactViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -48,8 +57,13 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
             holder.bD.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View view){
-                    System.out.println("button");
                     removeContact(current);
+                }
+            });
+            holder.bI.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View view){
+                    mContext.infosContact(current);
                 }
             });
         } else {

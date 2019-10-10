@@ -100,4 +100,13 @@ public class MainActivity extends AppCompatActivity {
                     Toast.LENGTH_LONG).show();
         }
     }
+
+    public void infosContact(Contact contact){
+        Intent intent = new Intent(this,InfoContactActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("nom",contact.getNom());
+        bundle.putString("age",contact.getAge());
+        intent.putExtras(bundle);
+        startActivity(intent);
+    }
 }
