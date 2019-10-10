@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.util.ArrayList;
+
 @Entity(tableName = "contact_table")
 public class Contact {
     @PrimaryKey(autoGenerate = true)
@@ -12,7 +14,7 @@ public class Contact {
     private String nom;
     private String prenom;
     private String age;
-    private Numero num;
+    private ArrayList<Numero> num;
     private Address addr;
 
 
@@ -20,7 +22,8 @@ public class Contact {
         this.nom = "";
         this.prenom = "";
         this.age = "";
-        this.num = new Numero();
+        Numero nm = new Numero();
+        this.num.add(nm);
         this.addr = new Address();
 
     }
@@ -30,13 +33,13 @@ public class Contact {
         this.prenom = prenom;
         this.age = age;
         this.addr = addr;
-        this.num = num;
+        this.num.add(num);
     }
 
     public Contact(String nom, Numero num){
         this.nom = nom;
         this.addr = new Address();
-        this.num = num;
+        this.num.add(num);
     }
 
     public void setId(int i){ this.id = i;}
@@ -51,6 +54,7 @@ public class Contact {
         return this.age;
     }
 
+    @NonNull
     @Override
     public String toString(){
         return "Prenom -> "+nom+" || Age -> "+age;
