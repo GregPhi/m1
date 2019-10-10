@@ -60,7 +60,8 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
     }
 
     public void removeContact(Contact contact){
-        MainActivity.mContactViewModel.delete(contact);
+        mContacts.remove(contact);
+        notifyDataSetChanged();
     }
 
     void setContacts(List<Contact> contacts){

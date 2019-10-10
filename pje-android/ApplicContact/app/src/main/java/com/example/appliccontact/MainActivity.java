@@ -22,7 +22,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static ContactViewModel mContactViewModel;
+    private static ContactViewModel mContactViewModel;
 
     private static final String EXTRA_NOM = "nom";
     private static final String EXTRA_AGE = "age";
