@@ -22,7 +22,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static ContactViewModel mContactViewModel;
+    public static ContactViewModel mContactViewModel;
 
     private static final String EXTRA_NOM = "nom";
     private static final String EXTRA_AGE = "age";
@@ -104,6 +104,7 @@ public class MainActivity extends AppCompatActivity {
     public void infosContact(Contact contact){
         Intent intent = new Intent(this,InfoContactActivity.class);
         Bundle bundle = new Bundle();
+        bundle.putInt("id",contact.getId());
         bundle.putString("nom",contact.getNom());
         bundle.putString("age",contact.getAge());
         intent.putExtras(bundle);

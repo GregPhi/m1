@@ -7,4 +7,6 @@
     <string name="button_save">Save</string>
     <string name="empty_not_saved">Contact not saved because it is empty.</string>
     <string name="infos">Infos</string>
+    <string name="modif">Modification</string>
+    <string name="main">Retour main</string>
 </resources>

@@ -6,6 +6,7 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import java.util.List;
 
@@ -14,6 +15,9 @@ public interface ContactDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(Contact contact);
+
+    @Update
+    void updateContact(Contact... contacts);
 
     @Query("DELETE FROM contact_table")
     void deleteAll();

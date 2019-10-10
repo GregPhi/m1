@@ -14,4 +14,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TextView" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/update"
+            android:layout_width="205dp"
+            android:layout_height="wrap_content"
+            android:onClick="updateContact"
+            android:text="@string/modif" />
+
+        <Button
+            android:id="@+id/main"
+            android:layout_width="205dp"
+            android:layout_height="wrap_content"
+            android:onClick="retourMain"
+            android:text="@string/main" />
+    </LinearLayout>
+
 </LinearLayout>
