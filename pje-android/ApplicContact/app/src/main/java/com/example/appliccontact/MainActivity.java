@@ -25,8 +25,8 @@ public class MainActivity extends AppCompatActivity {
 
     public static ContactViewModel mContactViewModel;
 
-    public static final String EXTRA_NOM = "nom";
-    public static final String EXTRA_AGE = "0";
+    //public static final String EXTRA_NOM = "nom";
+    //public static final String EXTRA_AGE = "0";
 
     public static final int NEW_CONTACT_ACTIVITY_REQUEST_CODE = 1;
     public static final int DELETE_CONTACT_ACTIVITY_REQUEST_CODE = 2;
@@ -94,9 +94,9 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == NEW_CONTACT_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
             //String p = data.getStringExtra(NewContactActivity.EXTRA_NOM);
             //String a = data.getStringExtra(NewContactActivity.EXTRA_AGE);
-            String p = getIntent().getStringExtra(EXTRA_NOM);
-            String a = getIntent().getStringExtra(EXTRA_AGE);
-            System.out.println("pre : "+p+" | age :"+a);
+            //String p = getIntent().getStringExtra(EXTRA_NOM);
+            //String a = getIntent().getStringExtra(EXTRA_AGE);
+            //System.out.println("pre : "+p+" | age :"+a);
             Contact contact = new Contact();
             contact.setNom(prenom);
             contact.setAge(age);
