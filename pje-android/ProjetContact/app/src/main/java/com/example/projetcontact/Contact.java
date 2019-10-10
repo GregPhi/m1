@@ -9,19 +9,34 @@ public class Contact {
     @PrimaryKey(autoGenerate = true)
     private int id;
 
-    @NonNull
     private String nom;
-    @NonNull
+    private String prenom;
     private String age;
+    private Numero num;
+    private Address addr;
+
 
     public Contact(){
         this.nom = "";
+        this.prenom = "";
         this.age = "";
+        this.num = new Numero();
+        this.addr = new Address();
+
     }
 
-    public Contact(String n, String a){
-        this.nom = n;
-        this.age = a;
+    public Contact(String nom,String prenom, String age, Numero num, Address addr){
+        this.nom = nom;
+        this.prenom = prenom;
+        this.age = age;
+        this.addr = addr;
+        this.num = num;
+    }
+
+    public Contact(String nom, Numero num){
+        this.nom = nom;
+        this.addr = new Address();
+        this.num = num;
     }
 
     public void setId(int i){ this.id = i;}
