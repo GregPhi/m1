@@ -9,4 +9,6 @@
     <string name="infos">Infos</string>
     <string name="modif">Modification</string>
     <string name="main">Retour main</string>
+    <string name="info_nom">%s</string>
+    <string name="info_age">%s</string>
 </resources>
