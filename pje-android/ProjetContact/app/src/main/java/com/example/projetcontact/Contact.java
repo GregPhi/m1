@@ -1,6 +1,8 @@
 package com.example.projetcontact;
 
 import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
+import androidx.room.Embedded;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -10,12 +12,14 @@ import java.util.ArrayList;
 public class Contact {
     @PrimaryKey(autoGenerate = true)
     private int id;
-
+    @NonNull
     private String nom;
     private String prenom;
     private String age;
+
     private ArrayList<Numero> num;
-    private Address addr;
+
+    @Embedded public Address addr;
 
 
     public Contact(){
