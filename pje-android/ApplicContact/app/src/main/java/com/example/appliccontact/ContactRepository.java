@@ -23,12 +23,12 @@ public class ContactRepository {
     }
 
 
-    public void insert (Contact word) {
-        new insertAsyncTask(mContactDao).execute(word);
+    public void insert (Contact contact) {
+        new insertAsyncTask(mContactDao).execute(contact);
     }
 
-    public void delete (Contact word) {
-        new deleteAsyncTask(mContactDao).execute(word);
+    public void delete (Contact contact) {
+        new deleteAsyncTask(mContactDao).execute(contact);
     }
 
     private static class insertAsyncTask extends android.os.AsyncTask<Contact, Void, Void> {

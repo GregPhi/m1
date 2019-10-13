@@ -4,12 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class InfoContactActivity extends AppCompatActivity {
-
     private EditText nomEdit;
     private EditText ageEdit;
 
@@ -34,15 +33,28 @@ public class InfoContactActivity extends AppCompatActivity {
 
         ageEdit = findViewById(R.id.info_age);
         ageEdit.setText(getString(R.string.info_age,age));
+
+        final Button button = findViewById(R.id.update);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent reply = new Intent();
+                updateContact();
+                Bundle bundle = new Bundle();
+                bundle.putInt("id",current.getId());
+                bundle.putString("nom",current.getNom());
+                bundle.putString("age",current.getAge());
+                reply.putExtras(bundle);
+                finish();
+            }
+        });
     }
 
-    public void updateContact(View view){
+    public void updateContact(){
         String nom = nomEdit.getText().toString();
         String age = ageEdit.getText().toString();
         current.setNom(nom);
         current.setAge(age);
-        MainActivity.mContactViewModel.updateContact(current);
-        retourMain(view);
     }
 
     public void retourMain(View view){

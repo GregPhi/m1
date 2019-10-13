@@ -13,8 +13,6 @@ import java.util.List;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.ContactViewHolder> {
-    private static final String EXTRA_NOM = "nom";
-    private static final String EXTRA_AGE = "age";
 
     class ContactViewHolder extends RecyclerView.ViewHolder {
         private final TextView nomItemView;
@@ -74,7 +72,9 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
     }
 
     public void removeContact(Contact contact){
-        mContacts.remove(contact);
+        if(mContacts.contains(contact)){
+            mContacts.remove(contact);
+        }
         notifyDataSetChanged();
     }
 

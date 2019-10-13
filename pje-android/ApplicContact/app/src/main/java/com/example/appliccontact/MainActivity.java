@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String EXTRA_AGE = "age";
 
     public static final int NEW_CONTACT_ACTIVITY_REQUEST_CODE = 1;
+    public static final int UPDATE_ACTIVITY_REQUEST_CODE = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,6 +94,15 @@ public class MainActivity extends AppCompatActivity {
             contact.setNom(p);
             contact.setAge(a);
             mContactViewModel.insert(contact);
+        }if (requestCode == UPDATE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK){
+            Intent in = getIntent();
+            Bundle currentBundle = in.getExtras();
+            int id = currentBundle.getInt("id");
+            String nom = currentBundle.getString("nom");
+            String age = currentBundle.getString("age");
+            Contact current = new Contact(nom,age);
+            current.setId(id);
+            mContactViewModel.updateContact(current);
         } else {
             Toast.makeText(
                     getApplicationContext(),
@@ -108,6 +118,7 @@ public class MainActivity extends AppCompatActivity {
         bundle.putString("nom",contact.getNom());
         bundle.putString("age",contact.getAge());
         intent.putExtras(bundle);
-        startActivity(intent);
+        //startActivity(intent);
+        startActivityForResult(intent, UPDATE_ACTIVITY_REQUEST_CODE);
     }
 }
