@@ -11,4 +11,6 @@
     <string name="main">Retour main</string>
     <string name="info_nom">%s</string>
     <string name="info_age">%s</string>
+    <string name="text_age">%s</string>
+    <string name="text_nom">%s</string>
 </resources>

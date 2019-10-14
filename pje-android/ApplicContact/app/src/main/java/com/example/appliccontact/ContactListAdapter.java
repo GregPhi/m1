@@ -55,7 +55,7 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
             holder.bD.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View view){
-                    removeContact(current);
+                    mContext.removeContact(current);
                 }
             });
             holder.bI.setOnClickListener(new View.OnClickListener(){
@@ -69,13 +69,6 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
             holder.nomItemView.setText("Prenom");
             holder.ageItemView.setText("Age");
         }
-    }
-
-    public void removeContact(Contact contact){
-        if(mContacts.contains(contact)){
-            mContacts.remove(contact);
-        }
-        notifyDataSetChanged();
     }
 
     void setContacts(List<Contact> contacts){

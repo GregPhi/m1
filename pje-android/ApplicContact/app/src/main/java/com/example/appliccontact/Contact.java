@@ -38,6 +38,6 @@ public class Contact {
 
     @Override
     public String toString(){
-        return "Prenom -> "+nom+" || Age -> "+age;
+        return "ID -> "+id+" || Prenom -> "+nom+" || Age -> "+age;
     }
 }

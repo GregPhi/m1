@@ -2,6 +2,7 @@ package com.example.appliccontact;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Button;
@@ -11,8 +12,9 @@ import androidx.appcompat.app.AppCompatActivity;
 public class InfoContactActivity extends AppCompatActivity {
     private EditText nomEdit;
     private EditText ageEdit;
+    private String nom = "";
+    private String age = "";
 
-    private Contact current;
     private Bundle currentBundle;
 
     @Override
@@ -20,13 +22,8 @@ public class InfoContactActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.infos_contact);
 
-        Intent in = getIntent();
-        currentBundle = in.getExtras();
-        int id = currentBundle.getInt("id");
-        String nom = currentBundle.getString("nom");
-        String age = currentBundle.getString("age");
-        current = new Contact(nom,age);
-        current.setId(id);
+        nom = MainActivity.updateContact.getNom();
+        age = MainActivity.updateContact.getAge();
 
         nomEdit = findViewById(R.id.info_nom);
         nomEdit.setText(getString(R.string.info_nom,nom));
@@ -39,22 +36,18 @@ public class InfoContactActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent reply = new Intent();
-                updateContact();
-                Bundle bundle = new Bundle();
-                bundle.putInt("id",current.getId());
-                bundle.putString("nom",current.getNom());
-                bundle.putString("age",current.getAge());
-                reply.putExtras(bundle);
+                if (TextUtils.isEmpty(nomEdit.getText()) && TextUtils.isEmpty(ageEdit.getText())) {
+                    setResult(RESULT_CANCELED, reply);
+                } else {
+                    nom = nomEdit.getText().toString();
+                    age = ageEdit.getText().toString();
+                    MainActivity.updateContact.setNom(nom);
+                    MainActivity.updateContact.setAge(age);
+                    setResult(RESULT_OK, reply);
+                }
                 finish();
             }
         });
-    }
-
-    public void updateContact(){
-        String nom = nomEdit.getText().toString();
-        String age = ageEdit.getText().toString();
-        current.setNom(nom);
-        current.setAge(age);
     }
 
     public void retourMain(View view){
