@@ -4,9 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.room.PrimaryKey;
 
 public class Address {
-    @PrimaryKey(autoGenerate = true)
+/*    @PrimaryKey(autoGenerate = true)
     private int id;
-
+*/
     private String street;
     private String zipcode;
     private String town;
