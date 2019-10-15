@@ -1,4 +1,21 @@
 <resources>
     <string name="app_name">ProjetContact</string>
     <string name="action_settings">Settings</string>
+    <string name="delete">Delete</string>
+    <string name="hint_nom">Nom...</string>
+    <string name="hint_prenom">Prenom...</string>
+    <string name="hint_age">Age...</string>
+    <string name="button_save">Save</string>
+    <string name="empty_not_saved">Contact not saved because it is empty.</string>
+    <string name="infos">Infos</string>
+    <string name="modif">Modification</string>
+    <string name="main">Retour main</string>
+    <!-- INFOS -->
+    <string name="info_nom">%s</string>
+    <string name="info_prenom">%s</string>
+    <string name="info_age">%s</string>
+    <!-- DELETE -->
+    <string name="text_age">%s</string>
+    <string name="text_prenom">%s</string>
+    <string name="text_nom">%s</string>
 </resources>

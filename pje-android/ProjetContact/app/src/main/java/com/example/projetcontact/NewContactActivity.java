@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class NewContactActivity extends AppCompatActivity {
     public static final String EXTRA_NOM = "nom";
+    public static final String EXTRA_PRENOM = "prenom";
     public static final String EXTRA_AGE = "age";
 
     private EditText mEditNomView;
@@ -25,21 +26,22 @@ public class NewContactActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.new_contact);
-        mEditNomView = findViewById(R.id.edit_prenom);
+        mEditNomView = findViewById(R.id.edit_nom);
+        mEditPrenomView = findViewById(R.id.edit_prenom);
         mEditAgeView = findViewById(R.id.edit_age);
 
         final Button button = findViewById(R.id.button_save);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent replyIntent = new Intent();
-                if (TextUtils.isEmpty(mEditNomView.getText()) || TextUtils.isEmpty(mEditAgeView.getText())) {
+                if (TextUtils.isEmpty(mEditNomView.getText()) || TextUtils.isEmpty(mEditPrenomView.getText()) || TextUtils.isEmpty(mEditAgeView.getText())) {
                     setResult(RESULT_CANCELED, replyIntent);
                 } else {
-                    String pre = mEditNomView.getText().toString();
+                    String nom = mEditNomView.getText().toString();
+                    String pre = mEditPrenomView.getText().toString();
                     String age = mEditAgeView.getText().toString();
-                    System.out.println("pre : "+pre);
-                    System.out.println("age : "+age);
-                    replyIntent.putExtra(EXTRA_NOM, pre);
+                    replyIntent.putExtra(EXTRA_NOM, nom);
+                    replyIntent.putExtra(EXTRA_PRENOM, pre);
                     replyIntent.putExtra(EXTRA_AGE, age);
                     setResult(RESULT_OK, replyIntent);
                 }
