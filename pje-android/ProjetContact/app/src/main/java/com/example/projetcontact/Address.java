@@ -1,21 +1,18 @@
 package com.example.projetcontact;
 
 import androidx.annotation.NonNull;
-import androidx.room.PrimaryKey;
 
 public class Address {
-/*    @PrimaryKey(autoGenerate = true)
-    private int id;
-*/
     private String street;
     private String zipcode;
     private String town;
 
-    public Address(String s,String z,String t){
+    public Address(String s,String t,String z){
         this.street = s;
         this.zipcode = z;
         this.town = t;
     }
+
     public Address(){
         this.street = "";
         this.zipcode = "";

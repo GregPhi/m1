@@ -64,7 +64,7 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
             holder.bI.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View view){
-                    //mContext.infosContact(current);
+                    mContext.infosContact(current);
                 }
             });
         } else {

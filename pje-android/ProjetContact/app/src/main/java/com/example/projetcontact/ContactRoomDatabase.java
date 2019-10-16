@@ -54,6 +54,8 @@ public abstract class ContactRoomDatabase extends RoomDatabase {
             Contact c1 = new Contact("Pelage","FX", "666");
             mDao.insert(c1);
             Contact c2 = new Contact("Philippot","Gregoire", "42");
+            Address a2 = new Address("135 av Tassigny","St-André","59350");
+            c2.setAddr(a2);
             mDao.insert(c2);
             return null;
         }
