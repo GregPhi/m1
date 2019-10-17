@@ -9,7 +9,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-@Database(entities = {Numero.class}, version = 1)
+@Database(entities = {Numero.class, Contact.class}, version = 1)
 public abstract class NumeroRoomDatabase extends RoomDatabase {
     public abstract NumeroDao numeroDao();
 

@@ -10,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class DeleteContactActivity extends AppCompatActivity {
 
+    public static final int CONTACT_DELETED_ACTIVITY_REQUEST_CODE = 666;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +34,7 @@ public class DeleteContactActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent reply = new Intent();
-                setResult(RESULT_OK, reply);
+                setResult(CONTACT_DELETED_ACTIVITY_REQUEST_CODE, reply);
                 finish();
             }
         });

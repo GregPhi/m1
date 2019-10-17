@@ -24,6 +24,9 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     public static ContactViewModel mContactViewModel;
 
+    public static final int RETOUR_MAIN_ACTIVITY_REQUEST_CODE = 42;
+    public static final int CONTACT_DELETED_ACTIVITY_REQUEST_CODE = 666;
+
     public static final int NEW_CONTACT_ACTIVITY_REQUEST_CODE = 1;
     public static Contact newContact;
 
@@ -93,8 +96,10 @@ public class MainActivity extends AppCompatActivity {
             mContactViewModel.insert(newContact);
         }  if (requestCode == UPDATE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK){
             mContactViewModel.updateContact(updateContact);
-        }  if (requestCode == DELETE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK){
+        }  if (requestCode == DELETE_ACTIVITY_REQUEST_CODE && resultCode == CONTACT_DELETED_ACTIVITY_REQUEST_CODE){
             mContactViewModel.delete(removeContact);
+        } if ( requestCode == NEW_CONTACT_ACTIVITY_REQUEST_CODE && resultCode == RETOUR_MAIN_ACTIVITY_REQUEST_CODE){
+
         } else {
             Toast.makeText(
                     getApplicationContext(),

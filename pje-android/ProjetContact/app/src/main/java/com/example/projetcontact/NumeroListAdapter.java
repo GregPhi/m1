@@ -40,7 +40,7 @@ public class NumeroListAdapter extends RecyclerView.Adapter<NumeroListAdapter.Nu
 
     @Override
     public NumeroListAdapter.NumeroViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = mInflater.inflate(R.layout.recyclerview_item, parent, false);
+        View itemView = mInflater.inflate(R.layout.recyclerview_num_item, parent, false);
         return new NumeroListAdapter.NumeroViewHolder(itemView);
     }
 
@@ -49,7 +49,7 @@ public class NumeroListAdapter extends RecyclerView.Adapter<NumeroListAdapter.Nu
         if (mNumeros != null) {
             final Numero current = mNumeros.get(position);
             holder.numeroItemView.setText(current.getNumero());
-            holder.categorieItemView.setText(current.getCategory());
+            holder.categorieItemView.setText(current.getCategorie());
             holder.bD.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View view){
@@ -68,6 +68,8 @@ public class NumeroListAdapter extends RecyclerView.Adapter<NumeroListAdapter.Nu
             holder.categorieItemView.setText("Categorie");
         }
     }
+
+
 
     void setNumeros(List<Numero> numeros){
         mNumeros = numeros;

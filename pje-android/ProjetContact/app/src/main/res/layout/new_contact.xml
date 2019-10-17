@@ -110,6 +110,10 @@
 
             </LinearLayout>
 
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
             <Button
                 android:id="@+id/button_save"
                 android:layout_width="match_parent"
@@ -117,6 +121,12 @@
                 android:background="@color/colorPrimary"
                 android:text="@string/button_save"
                 android:textColor="@color/buttonLabel" />
+
+            <Button
+                android:id="@+id/retour_main"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Retour Contacts" />
 
         </LinearLayout>
     </ScrollView>

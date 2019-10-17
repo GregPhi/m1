@@ -11,7 +11,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 public class NumeroRepository {
-    public static MutableLiveData<List<Numero>> mNumerosForId;
+    public static LiveData<List<Numero>> mNumerosForId;
     private NumeroDao mNumeroDao;
     private LiveData<List<Numero>> mAllNumeros;
 
@@ -25,7 +25,7 @@ public class NumeroRepository {
 
     public void insert (Numero numero){ new insertAsyncTask(mNumeroDao).execute(numero);}
 
-    public MutableLiveData<List<Numero>> getAllNumeroForAContact(Contact contact) {
+    LiveData<List<Numero>> getAllNumeroForAContact(Contact contact) {
         new getNumeroForId(mNumeroDao).execute(contact);
         return mNumerosForId;
     }

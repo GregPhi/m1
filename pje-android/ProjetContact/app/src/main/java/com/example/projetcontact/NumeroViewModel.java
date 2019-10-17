@@ -24,7 +24,5 @@ public class NumeroViewModel extends AndroidViewModel {
 
     public void insert(Numero numero){ mRepository.insert(numero);}
 
-    MutableLiveData<List<Numero>>  getAllNumeroForAContact(int id){ return mRepository.getAllNumeroForAContact(id);}
-
-
+    LiveData<List<Numero>>  getAllNumeroForAContact(Contact contact){ return mRepository.getAllNumeroForAContact(contact);}
 }

@@ -3,7 +3,6 @@ package com.example.projetcontact;
 import java.util.List;
 
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
@@ -28,7 +27,7 @@ public interface NumeroDao {
     LiveData<List<Numero>> getAllNumeros();
 
     @Query("SELECT * FROM numero_table WHERE contact_id LIKE :id")
-    MutableLiveData<List<Numero>>  getAllNumeroForAContact(int id);
+    LiveData<List<Numero>>  getAllNumeroForAContact(int id);
 
     @Delete
     void delete(Numero numero);

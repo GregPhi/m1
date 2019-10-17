@@ -11,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class NewContactActivity extends AppCompatActivity {
 
+    public static final int RETOUR_MAIN_ACTIVITY_REQUEST_CODE = 42;
+
     private EditText mEditNomView;
     private  EditText mEditPrenomView;
     private  EditText mEditAgeView;
@@ -68,6 +70,15 @@ public class NewContactActivity extends AppCompatActivity {
                     MainActivity.newContact.setAddr(adr);
                     setResult(RESULT_OK, replyIntent);
                 }
+                finish();
+            }
+        });
+
+        final Button buttonR = findViewById(R.id.retour_main);
+        buttonR.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent reply = new Intent();
+                setResult(RETOUR_MAIN_ACTIVITY_REQUEST_CODE,reply);
                 finish();
             }
         });

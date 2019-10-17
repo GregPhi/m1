@@ -78,28 +78,30 @@ public class InfoContactActivity extends AppCompatActivity {
             mEditZipcodeContactView.setHint(getString(R.string.hint_zip,cd));
         }
 
-        RecyclerView recyclerView = findViewById(R.id.recyclerview);
+        RecyclerView recyclerView = findViewById(R.id.recyclerview_num);
         final NumeroListAdapter adapter = new NumeroListAdapter(this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         mNumeroViewModel = ViewModelProviders.of(this).get(NumeroViewModel.class);
-        mNumeroViewModel.getAllNumeroForAContact(current.getId()).observe(this, new Observer<List<Numero>>() {
-            @Override
-            public void onChanged(@Nullable final List<Numero> numeros) {
-                // Update the cached copy of the words in the adapter.
-                adapter.setNumeros(numeros);
-            }
-        });
+        if(current!=null){
+            mNumeroViewModel.getAllNumeroForAContact(current).observe(this, new Observer<List<Numero>>() {
+                @Override
+                public void onChanged(@Nullable final List<Numero> numeros) {
+                    // Update the cached copy of the words in the adapter.
+                    adapter.setNumeros(numeros);
+                }
+            });
+        }
 
         final Button button = findViewById(R.id.button_save);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent reply = new Intent();
-                /*if ((TextUtils.isEmpty(mEditNomView.getText()) || TextUtils.isEmpty(mEditPrenomView.getText())) && TextUtils.isEmpty(mEditAgeView.getText())) {
+                if ((TextUtils.isEmpty(mEditNomView.getText()) || TextUtils.isEmpty(mEditPrenomView.getText())) && TextUtils.isEmpty(mEditAgeView.getText())) {
                     setResult(RESULT_CANCELED, reply);
-                } else {*/
+                } else {
                     Address adr = new Address();
                     if(!TextUtils.isEmpty(mEditStreetContactView.getText())){
                         rue = mEditStreetContactView.getText().toString();
@@ -127,7 +129,7 @@ public class InfoContactActivity extends AppCompatActivity {
                     MainActivity.updateContact.setAge(age);
                     MainActivity.updateContact.setAddr(adr);
                     setResult(RESULT_OK, reply);
-                //}
+                }
                 finish();
             }
         });

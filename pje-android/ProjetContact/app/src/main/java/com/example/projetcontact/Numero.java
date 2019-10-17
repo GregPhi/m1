@@ -6,13 +6,15 @@ import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
-@Entity(foreignKeys = @ForeignKey(entity = Contact.class,
+@Entity(tableName = "numero_table",
+        foreignKeys = @ForeignKey(entity = Contact.class,
                                   parentColumns = "id",
                                   childColumns = "contact_id"))
 public class Numero {
     @NonNull
     @PrimaryKey
     private String numero;
+
     private String categorie;
     @ColumnInfo(name = "contact_id") public int contactId;
 
@@ -28,16 +30,13 @@ public class Numero {
         this.contactId = 0;
     }
 
-
-    public String getCategory() {
-        return categorie;
-    }
+    public String getCategorie(){ return categorie; }
 
     public String getNumero() {
         return numero;
     }
 
-    public void setCategory(String category) {
+    public void setCategorie(String category) {
         this.categorie = category;
     }
 
@@ -45,7 +44,7 @@ public class Numero {
         return contactId;
     }
 
-    public void setCategory(int id) {
+    public void setContactId(int id) {
         this.contactId = id;
     }
 
