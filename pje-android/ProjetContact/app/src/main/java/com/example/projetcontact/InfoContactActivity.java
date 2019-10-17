@@ -9,9 +9,19 @@ import android.widget.EditText;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class InfoContactActivity extends AppCompatActivity {
+    public static NumeroViewModel mNumeroViewModel;
+
     private EditText mEditNomView;
     private  EditText mEditPrenomView;
     private  EditText mEditAgeView;
@@ -30,13 +40,13 @@ public class InfoContactActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.infos_contact);
-
-        nom = MainActivity.updateContact.getNom();
-        prenom = MainActivity.updateContact.getPrenom();
-        age = MainActivity.updateContact.getAge();
-        rue = MainActivity.updateContact.getAddr().getStreet();
-        ville = MainActivity.updateContact.getAddr().getTown();
-        cd = MainActivity.updateContact.getAddr().getZipcode();
+        Contact current = MainActivity.updateContact;
+        nom = current.getNom();
+        prenom = current.getPrenom();
+        age = current.getAge();
+        rue = current.getAddr().getStreet();
+        ville = current.getAddr().getTown();
+        cd = current.getAddr().getZipcode();
 
         mEditNomView = findViewById(R.id.info_nom);
         mEditNomView.setHint(getString(R.string.hint_nom,nom));
@@ -67,6 +77,20 @@ public class InfoContactActivity extends AppCompatActivity {
         }else{
             mEditZipcodeContactView.setHint(getString(R.string.hint_zip,cd));
         }
+
+        RecyclerView recyclerView = findViewById(R.id.recyclerview);
+        final NumeroListAdapter adapter = new NumeroListAdapter(this);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        mNumeroViewModel = ViewModelProviders.of(this).get(NumeroViewModel.class);
+        mNumeroViewModel.getAllNumeroForAContact(current.getId()).observe(this, new Observer<List<Numero>>() {
+            @Override
+            public void onChanged(@Nullable final List<Numero> numeros) {
+                // Update the cached copy of the words in the adapter.
+                adapter.setNumeros(numeros);
+            }
+        });
 
         final Button button = findViewById(R.id.button_save);
         button.setOnClickListener(new View.OnClickListener() {

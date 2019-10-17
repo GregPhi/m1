@@ -9,18 +9,18 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-@Database(entities = {Contact.class}, version = 1)
-public abstract class ContactRoomDatabase extends RoomDatabase {
-    public abstract ContactDao contactDao();
+@Database(entities = {Numero.class}, version = 1)
+public abstract class NumeroRoomDatabase extends RoomDatabase {
+    public abstract NumeroDao numeroDao();
 
-    private static volatile ContactRoomDatabase INSTANCE;
+    private static volatile NumeroRoomDatabase INSTANCE;
 
-    static ContactRoomDatabase getDatabase(final Context context) {
-        if (INSTANCE == null) {
-            synchronized (ContactRoomDatabase.class) {
-                if (INSTANCE == null) {
+    static NumeroRoomDatabase getDatabase(final Context context){
+        if(INSTANCE == null){
+            synchronized (NumeroRoomDatabase.class){
+                if(INSTANCE == null){
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                            ContactRoomDatabase.class, "contact_database")
+                            NumeroRoomDatabase.class, "numero_database")
                             .addCallback(sRoomDatabaseCallback)
                             .fallbackToDestructiveMigration()
                             .build();
@@ -42,22 +42,17 @@ public abstract class ContactRoomDatabase extends RoomDatabase {
 
     private static class PopulateDbAsync extends AsyncTask<Void, Void, Void> {
 
-        private final ContactDao mDao;
+        private final NumeroDao mDao;
 
-        PopulateDbAsync(ContactRoomDatabase db) {
-            mDao = db.contactDao();
+        PopulateDbAsync(NumeroRoomDatabase db) {
+            mDao = db.numeroDao();
         }
 
         @Override
         protected Void doInBackground(final Void... params) {
             mDao.deleteAll();
-            Contact c1 = new Contact("Pelage","FX", "666");
-            mDao.insert(c1);
-            Contact c2 = new Contact("Philippot","Gregoire", "42");
-            Address a2 = new Address("135 av Tassigny","St-André","59350");
-            c2.setAddr(a2);
-            c2.setId(1);
-            mDao.insert(c2);
+            Numero n1 = new Numero("0750406728","Moi",1);
+            mDao.insert(n1);
             return null;
         }
     }

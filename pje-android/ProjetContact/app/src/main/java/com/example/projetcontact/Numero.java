@@ -10,7 +10,9 @@ import androidx.room.PrimaryKey;
                                   parentColumns = "id",
                                   childColumns = "contact_id"))
 public class Numero {
-    @PrimaryKey private String numero;
+    @NonNull
+    @PrimaryKey
+    private String numero;
     private String categorie;
     @ColumnInfo(name = "contact_id") public int contactId;
 

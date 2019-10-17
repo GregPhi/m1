@@ -38,4 +38,8 @@ public class DeleteContactActivity extends AppCompatActivity {
         });
     }
 
+    public void retourMain(View view){
+        Intent i = new Intent(this,MainActivity.class);
+        startActivity(i);
+    }
 }

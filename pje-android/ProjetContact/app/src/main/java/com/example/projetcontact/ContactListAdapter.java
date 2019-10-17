@@ -69,7 +69,8 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
             });
         } else {
             // Covers the case of data not being ready yet.
-            holder.nomItemView.setText("Prenom");
+            holder.nomItemView.setText("Nom");
+            holder.prenomItemView.setText("Prenom");
             holder.ageItemView.setText("Age");
         }
     }

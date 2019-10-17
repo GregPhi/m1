@@ -50,13 +50,13 @@ public class NewContactActivity extends AppCompatActivity {
                     String ville = "";
                     String cd = "";
                     Address adr = new Address();
-                    if(TextUtils.isEmpty(mEditStreetContactView.getText())){
+                    if(!TextUtils.isEmpty(mEditStreetContactView.getText())){
                         rue = mEditStreetContactView.getText().toString();
                     }
-                    if(TextUtils.isEmpty(mEditTowContactView.getText())){
+                    if(!TextUtils.isEmpty(mEditTowContactView.getText())){
                         ville = mEditTowContactView.getText().toString();
                     }
-                    if(TextUtils.isEmpty(mEditZipcodeContactView.getText())){
+                    if(!TextUtils.isEmpty(mEditZipcodeContactView.getText())){
                         cd = mEditZipcodeContactView.getText().toString();
                     }
                     adr.setStreet(rue);
