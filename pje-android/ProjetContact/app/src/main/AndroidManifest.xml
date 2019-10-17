@@ -10,7 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".NewContactActivity"></activity>
-        <activity android:name=".DeleteContactActivity"></activity>
         <activity android:name=".InfoContactActivity"></activity>
         <activity
             android:name=".MainActivity"

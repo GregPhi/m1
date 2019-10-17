@@ -31,5 +31,4 @@ public interface NumeroDao {
 
     @Delete
     void delete(Numero numero);
-
 }

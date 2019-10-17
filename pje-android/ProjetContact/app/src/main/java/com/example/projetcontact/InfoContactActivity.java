@@ -23,11 +23,11 @@ public class InfoContactActivity extends AppCompatActivity {
     public static NumeroViewModel mNumeroViewModel;
 
     private EditText mEditNomView;
-    private  EditText mEditPrenomView;
-    private  EditText mEditAgeView;
-    private  EditText mEditStreetContactView;
-    private  EditText mEditZipcodeContactView;
-    private  EditText mEditTowContactView;
+    private EditText mEditPrenomView;
+    private EditText mEditAgeView;
+    private EditText mEditStreetContactView;
+    private EditText mEditZipcodeContactView;
+    private EditText mEditTowContactView;
 
     private String nom = "";
     private String prenom = "";

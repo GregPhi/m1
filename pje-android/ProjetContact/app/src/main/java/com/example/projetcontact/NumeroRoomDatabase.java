@@ -50,7 +50,6 @@ public abstract class NumeroRoomDatabase extends RoomDatabase {
 
         @Override
         protected Void doInBackground(final Void... params) {
-            mDao.deleteAll();
             Numero n1 = new Numero("0750406728","Moi",1);
             mDao.insert(n1);
             return null;
