@@ -23,11 +23,13 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     public static ContactViewModel mContactViewModel;
+    public static NumeroViewModel mNumeroViewModel;
 
     public static final int RETOUR_MAIN_ACTIVITY_REQUEST_CODE = 42;
 
     public static final int NEW_CONTACT_ACTIVITY_REQUEST_CODE = 1;
     public static Contact newContact;
+    public static Numero newNumero = null;
 
     public static final int UPDATE_ACTIVITY_REQUEST_CODE = 2;
     public static Contact updateContact;
@@ -61,6 +63,8 @@ public class MainActivity extends AppCompatActivity {
                 adapter.setContacts(contacts);
             }
         });
+
+        mNumeroViewModel = ViewModelProviders.of(this).get(NumeroViewModel.class);
     }
 
     @Override
@@ -87,18 +91,19 @@ public class MainActivity extends AppCompatActivity {
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
         if (requestCode == NEW_CONTACT_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
             mContactViewModel.insert(newContact);
         }  if (requestCode == UPDATE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK){
             mContactViewModel.updateContact(updateContact);
         }  if ( requestCode == NEW_CONTACT_ACTIVITY_REQUEST_CODE && resultCode == RETOUR_MAIN_ACTIVITY_REQUEST_CODE){
-
         } else {
             Toast.makeText(
                     getApplicationContext(),
                     R.string.empty_not_saved,
                     Toast.LENGTH_LONG).show();
+        }
+        if(newNumero!=null){
+            mNumeroViewModel.insert(newNumero);
         }
     }
 

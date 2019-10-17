@@ -9,6 +9,8 @@
     <string name="hint_street">%s</string>
     <string name="hint_town">%s</string>
     <string name="hint_zip">%s</string>
+    <string name="hint_numero">%s</string>
+    <string name="hint_categotie">%s</string>
     <string name="button_save">Save</string>
     <string name="empty_not_saved">Contact not saved because it is empty.</string>
     <!---->
@@ -26,4 +28,6 @@
     <string name="str_rue">Rue : ...</string>
     <string name="str_ville">Ville : ...</string>
     <string name="str_cd">Code postal : ...</string>
+    <string name="str_num">Numero : ...</string>
+    <string name="str_cate">Categorie : ...</string>
 </resources>

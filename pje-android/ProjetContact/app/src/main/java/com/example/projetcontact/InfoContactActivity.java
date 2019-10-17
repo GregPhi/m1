@@ -83,7 +83,7 @@ public class InfoContactActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        mNumeroViewModel = ViewModelProviders.of(this).get(NumeroViewModel.class);
+        mNumeroViewModel = MainActivity.mNumeroViewModel;
         if(current!=null){
             mNumeroViewModel.getAllNumeroForAContact(current).observe(this, new Observer<List<Numero>>() {
                 @Override
