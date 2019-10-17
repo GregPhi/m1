@@ -3,6 +3,9 @@ package com.example.projetcontact;
 import android.app.Application;
 import android.os.AsyncTask;
 
+import com.example.projetcontact.dao.ContactDao;
+import com.example.projetcontact.objet.Contact;
+
 import java.util.List;
 
 import androidx.lifecycle.LiveData;

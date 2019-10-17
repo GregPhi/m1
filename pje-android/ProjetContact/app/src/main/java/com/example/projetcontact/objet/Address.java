@@ -1,4 +1,4 @@
-package com.example.projetcontact;
+package com.example.projetcontact.objet;
 
 import androidx.annotation.NonNull;
 

@@ -7,15 +7,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import org.w3c.dom.Text;
+import com.example.projetcontact.objet.Address;
+import com.example.projetcontact.objet.Contact;
+import com.example.projetcontact.objet.Numero;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -133,5 +133,9 @@ public class InfoContactActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    public void removeNumero(Numero numero){
+        mNumeroViewModel.delete(numero);
     }
 }

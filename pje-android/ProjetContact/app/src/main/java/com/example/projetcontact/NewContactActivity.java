@@ -7,6 +7,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.projetcontact.objet.Address;
+import com.example.projetcontact.objet.Contact;
+import com.example.projetcontact.objet.Numero;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 public class NewContactActivity extends AppCompatActivity {

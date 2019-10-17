@@ -2,6 +2,8 @@ package com.example.projetcontact;
 
 import android.app.Application;
 
+import com.example.projetcontact.objet.Contact;
+
 import java.util.List;
 
 import androidx.lifecycle.AndroidViewModel;

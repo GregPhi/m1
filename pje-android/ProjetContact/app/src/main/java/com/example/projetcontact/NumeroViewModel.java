@@ -2,11 +2,12 @@ package com.example.projetcontact;
 
 import android.app.Application;
 
-import java.util.ArrayList;
+import com.example.projetcontact.objet.Contact;
+import com.example.projetcontact.objet.Numero;
+
 import java.util.List;
 
 import androidx.lifecycle.AndroidViewModel;
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.LiveData;
 
 public class NumeroViewModel extends AndroidViewModel {
@@ -23,6 +24,7 @@ public class NumeroViewModel extends AndroidViewModel {
     LiveData<List<Numero>> getmAllNumeros(){ return  mAllNumeros;}
 
     public void insert(Numero numero){ mRepository.insert(numero);}
+    public void delete(Numero numero) { mRepository.delete(numero);}
 
     LiveData<List<Numero>>  getAllNumeroForAContact(Contact contact){ return mRepository.getAllNumeroForAContact(contact);}
 }

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/icon"
         android:layout_width="115dp"
-        android:layout_height="fill_parent"
+        android:layout_height="88dp"
         android:src="@drawable/ic_contact_phone_black_24dp" />
 
     <LinearLayout
@@ -14,15 +14,21 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/numero"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/categorie"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            <TextView
+                android:id="@+id/categorie"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/numero"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -30,18 +36,13 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/infos"
-                android:layout_width="128dp"
-                android:layout_height="match_parent"
-                android:text="@string/infos" />
-
-            <Button
                 android:id="@+id/delete"
-                android:layout_width="128dp"
+                android:layout_width="267dp"
                 android:layout_height="match_parent"
                 android:text="@string/delete" />
 
         </LinearLayout>
 
     </LinearLayout>
+
 </LinearLayout>

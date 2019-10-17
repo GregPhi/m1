@@ -6,6 +6,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.projetcontact.objet.Numero;
+
 import java.util.List;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,7 +18,6 @@ public class NumeroListAdapter extends RecyclerView.Adapter<NumeroListAdapter.Nu
         private final TextView numeroItemView;
         private final TextView categorieItemView;
         private final Button bD;
-        private final Button bI;
 
         private NumeroViewHolder(final View itemView) {
             super(itemView);
@@ -24,8 +25,6 @@ public class NumeroListAdapter extends RecyclerView.Adapter<NumeroListAdapter.Nu
             categorieItemView = itemView.findViewById(R.id.categorie);
             bD = itemView.findViewById(R.id.delete);
             bD.setActivated(true);
-            bI = itemView.findViewById(R.id.infos);
-            bI.setActivated(true);
         }
     }
 
@@ -53,13 +52,7 @@ public class NumeroListAdapter extends RecyclerView.Adapter<NumeroListAdapter.Nu
             holder.bD.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View view){
-                    //mContext.removeContact(current);
-                }
-            });
-            holder.bI.setOnClickListener(new View.OnClickListener(){
-                @Override
-                public void onClick(View view){
-                    //mContext.infosContact(current);
+                    mContext.removeNumero(current);
                 }
             });
         } else {

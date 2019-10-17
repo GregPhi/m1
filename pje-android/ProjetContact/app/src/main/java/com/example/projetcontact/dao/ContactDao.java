@@ -1,4 +1,6 @@
-package com.example.projetcontact;
+package com.example.projetcontact.dao;
+
+import com.example.projetcontact.objet.Contact;
 
 import java.util.List;
 

@@ -3,8 +3,9 @@ package com.example.projetcontact;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.projetcontact.objet.Contact;
+import com.example.projetcontact.objet.Numero;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
