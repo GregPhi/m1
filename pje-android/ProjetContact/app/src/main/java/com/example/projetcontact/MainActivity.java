@@ -103,6 +103,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.LENGTH_LONG).show();
         }
         if(newNumero!=null){
+            newNumero.setContactId(newContact.getId());
             mNumeroViewModel.insert(newNumero);
         }
     }

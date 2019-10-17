@@ -82,7 +82,6 @@ public class NewContactActivity extends AppCompatActivity {
 
                     String num = "";
                     String categorie = "";
-                    int id = MainActivity.newContact.getId();
                     if(!TextUtils.isEmpty(mEditStreetContactView.getText())){
                         num = mEditStreetContactView.getText().toString();
                     }
@@ -91,7 +90,6 @@ public class NewContactActivity extends AppCompatActivity {
                     }
                     MainActivity.newNumero.setNumero(num);
                     MainActivity.newNumero.setCategorie(categorie);
-                    MainActivity.newNumero.setContactId(id);
 
                     setResult(RESULT_OK, replyIntent);
                 }
