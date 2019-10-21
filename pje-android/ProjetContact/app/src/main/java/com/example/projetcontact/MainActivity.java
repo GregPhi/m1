@@ -94,22 +94,23 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == NEW_CONTACT_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
             mContactViewModel.insert(newContact);
+            if(newNumero!=null){
+                newNumero.setContactId(newContact.getId());
+                mNumeroViewModel.insert(newNumero);
+            }
         }  if (requestCode == UPDATE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK){
-            mContactViewModel.updateContact(updateContact);
+            mContactViewModel.insert(updateContact);
         }  if ( requestCode == NEW_CONTACT_ACTIVITY_REQUEST_CODE && resultCode == RETOUR_MAIN_ACTIVITY_REQUEST_CODE){
         } else {
             Toast.makeText(
                     getApplicationContext(),
-                    R.string.empty_not_saved,
+                    R.string.contact_not_saved,
                     Toast.LENGTH_LONG).show();
-        }
-        if(newNumero!=null){
-            newNumero.setContactId(newContact.getId());
-            mNumeroViewModel.insert(newNumero);
         }
     }
 
     public void infosContact(Contact contact){
+        //mContactViewModel.delete(contact);
         Intent intent = new Intent(this,InfoContactActivity.class);
         updateContact = contact;
         startActivityForResult(intent, UPDATE_ACTIVITY_REQUEST_CODE);

@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.projetcontact.objet.Address;
 import com.example.projetcontact.objet.Contact;
@@ -21,6 +22,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class InfoContactActivity extends AppCompatActivity {
     public static NumeroViewModel mNumeroViewModel;
+
+    public static final int RETOUR_INFO_ACTIVITY_REQUEST_CODE = 42;
+
+    public static final int NEW_NUMERO_TO_CONTACT_ACTIVITY_REQUEST_CODE = 1;
+    public static Numero newNumero = new Numero();
 
     private EditText mEditNomView;
     private EditText mEditPrenomView;
@@ -40,7 +46,7 @@ public class InfoContactActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.infos_contact);
-        Contact current = MainActivity.updateContact;
+        final Contact current = MainActivity.updateContact;
         nom = current.getNom();
         prenom = current.getPrenom();
         age = current.getAge();
@@ -99,40 +105,58 @@ public class InfoContactActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent reply = new Intent();
-                if ((TextUtils.isEmpty(mEditNomView.getText()) || TextUtils.isEmpty(mEditPrenomView.getText())) && TextUtils.isEmpty(mEditAgeView.getText())) {
-                    setResult(RESULT_CANCELED, reply);
-                } else {
-                    Address adr = new Address();
-                    if(!TextUtils.isEmpty(mEditStreetContactView.getText())){
-                        rue = mEditStreetContactView.getText().toString();
-                    }
-                    if(!TextUtils.isEmpty(mEditTowContactView.getText())){
-                        ville = mEditTowContactView.getText().toString();
-                    }
-                    if(!TextUtils.isEmpty(mEditZipcodeContactView.getText())){
-                        cd = mEditZipcodeContactView.getText().toString();
-                    }
-                    adr.setStreet(rue);
-                    adr.setTown(ville);
-                    adr.setZipcode(cd);
-                    if(!TextUtils.isEmpty(mEditNomView.getText())){
-                        nom = mEditNomView.getText().toString();
-                    }
-                    if(!TextUtils.isEmpty(mEditPrenomView.getText())){
-                        prenom = mEditPrenomView.getText().toString();
-                    }
-                    if(!TextUtils.isEmpty(mEditAgeView.getText())){
-                        age = mEditAgeView.getText().toString();
-                    }
-                    MainActivity.updateContact.setNom(nom);
-                    MainActivity.updateContact.setPrenom(prenom);
-                    MainActivity.updateContact.setAge(age);
-                    MainActivity.updateContact.setAddr(adr);
-                    setResult(RESULT_OK, reply);
+                Address adr = new Address();
+                if(!TextUtils.isEmpty(mEditStreetContactView.getText())){
+                    rue = mEditStreetContactView.getText().toString();
                 }
+                if(!TextUtils.isEmpty(mEditTowContactView.getText())){
+                    ville = mEditTowContactView.getText().toString();
+                }
+                if(!TextUtils.isEmpty(mEditZipcodeContactView.getText())){
+                    cd = mEditZipcodeContactView.getText().toString();
+                }
+                adr.setStreet(rue);
+                adr.setTown(ville);
+                adr.setZipcode(cd);
+                if(!TextUtils.isEmpty(mEditNomView.getText())){
+                    nom = mEditNomView.getText().toString();
+                }
+                if(!TextUtils.isEmpty(mEditPrenomView.getText())){
+                    prenom = mEditPrenomView.getText().toString();
+                }
+                if(!TextUtils.isEmpty(mEditAgeView.getText())){
+                    age = mEditAgeView.getText().toString();
+                }
+                MainActivity.updateContact.setNom(nom);
+                MainActivity.updateContact.setPrenom(prenom);
+                MainActivity.updateContact.setAge(age);
+                MainActivity.updateContact.setAddr(adr);
+                setResult(RESULT_OK, reply);
                 finish();
             }
         });
+
+        final Button nN = findViewById(R.id.button_new_numero);
+        nN.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent intent = new Intent(InfoContactActivity.this, NewNumeroActiviry.class);
+                newNumero.setContactId(current.getId());
+                startActivityForResult(intent, NEW_NUMERO_TO_CONTACT_ACTIVITY_REQUEST_CODE);
+            }
+        });
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == NEW_NUMERO_TO_CONTACT_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
+            mNumeroViewModel.insert(newNumero);
+        }if ( requestCode == NEW_NUMERO_TO_CONTACT_ACTIVITY_REQUEST_CODE && resultCode == RETOUR_INFO_ACTIVITY_REQUEST_CODE){
+        } else {
+            Toast.makeText(
+                    getApplicationContext(),
+                    R.string.numero_not_saved,
+                    Toast.LENGTH_LONG).show();
+        }
     }
 
     public void removeNumero(Numero numero){

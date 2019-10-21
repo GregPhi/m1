@@ -136,7 +136,16 @@
                     tools:context=".InfoContactActivity"
                     tools:listitem="@layout/recyclerview_num_item" />
 
+                <Button
+                    android:id="@+id/button_new_numero"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/button_new_num"/>
             </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
             <Button
                 android:id="@+id/button_save"

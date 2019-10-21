@@ -133,7 +133,7 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:hint="@string/hint_zip" />
+                    android:hint="@string/hint_numero" />
 
                 <EditText
                     android:id="@+id/edit_cat"
@@ -141,7 +141,7 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:hint="@string/hint_zip" />
+                    android:hint="@string/hint_categotie" />
             </LinearLayout>
 
             <Space

@@ -2,17 +2,21 @@
     <string name="app_name">ProjetContact</string>
     <string name="action_settings">Settings</string>
     <string name="delete">Delete</string>
-    <!-- NEW -->
+    <!-- NEW CONTACT-->
     <string name="hint_nom">%s</string>
     <string name="hint_prenom">%s</string>
     <string name="hint_age">%s</string>
     <string name="hint_street">%s</string>
     <string name="hint_town">%s</string>
     <string name="hint_zip">%s</string>
+    <!-- NEW NUMERO-->
     <string name="hint_numero">%s</string>
     <string name="hint_categotie">%s</string>
+    <!---->
+    <string name="button_new_num">Nouveau numéro</string>
     <string name="button_save">Save</string>
-    <string name="empty_not_saved">Contact not saved because it is empty.</string>
+    <string name="contact_not_saved">Contact not saved because it is empty.</string>
+    <string name="numero_not_saved">Numero not saved because it is empty.</string>
     <!---->
     <string name="infos">Infos</string>
     <string name="modif">Modification</string>
