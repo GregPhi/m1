@@ -19,9 +19,6 @@ public interface NumeroDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(Numero numero);
 
-    @Update
-    void updateNumero(Numero... numeros);
-
     @Query("DELETE FROM numero_table")
     void deleteAll();
 

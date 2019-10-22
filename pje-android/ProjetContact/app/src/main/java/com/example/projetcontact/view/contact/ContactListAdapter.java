@@ -1,4 +1,4 @@
-package com.example.projetcontact;
+package com.example.projetcontact.view.contact;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -6,6 +6,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.projetcontact.MainActivity;
+import com.example.projetcontact.R;
 import com.example.projetcontact.objet.Contact;
 
 import java.util.List;

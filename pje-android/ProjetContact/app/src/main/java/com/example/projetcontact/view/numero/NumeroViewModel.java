@@ -1,4 +1,4 @@
-package com.example.projetcontact;
+package com.example.projetcontact.view.numero;
 
 import android.app.Application;
 

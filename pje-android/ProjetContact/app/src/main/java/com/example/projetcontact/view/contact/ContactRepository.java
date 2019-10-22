@@ -1,8 +1,9 @@
-package com.example.projetcontact;
+package com.example.projetcontact.view.contact;
 
 import android.app.Application;
 import android.os.AsyncTask;
 
+import com.example.projetcontact.ContactRoomDatabase;
 import com.example.projetcontact.dao.ContactDao;
 import com.example.projetcontact.objet.Contact;
 

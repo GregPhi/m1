@@ -1,5 +1,10 @@
 package com.example.projetcontact.objet;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.text.ParseException;
+
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
@@ -10,7 +15,18 @@ import androidx.room.PrimaryKey;
         foreignKeys = @ForeignKey(entity = Contact.class,
                                   parentColumns = "id",
                                   childColumns = "contact_id"))
-public class Numero {
+public class Numero implements Parcelable {
+
+    public static final Parcelable.Creator CREATOR = new Parcelable.Creator() {
+        public Numero createFromParcel(Parcel in) {
+            return new Numero(in);
+        }
+
+        public Numero[] newArray(int size) {
+            return new Numero[size];
+        }
+    };
+
     @NonNull
     @PrimaryKey
     private String numero;
@@ -56,5 +72,23 @@ public class Numero {
     @Override
     public String toString() {
         return "numero : " + this.numero + "category : " + this.categorie;
+    }
+
+    public Numero(Parcel in){
+        this.numero = in.readString();
+        this.categorie = in.readString();
+        this.contactId = in.readInt();
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.numero);
+        dest.writeString(this.categorie);
+        dest.writeInt(this.contactId);
     }
 }

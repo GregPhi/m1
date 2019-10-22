@@ -5,11 +5,15 @@ import android.os.Bundle;
 
 import com.example.projetcontact.objet.Contact;
 import com.example.projetcontact.objet.Numero;
+import com.example.projetcontact.view.contact.ContactListAdapter;
+import com.example.projetcontact.view.contact.ContactViewModel;
+import com.example.projetcontact.view.numero.NumeroViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -29,8 +33,6 @@ public class MainActivity extends AppCompatActivity {
     public static final int RETOUR_MAIN_ACTIVITY_REQUEST_CODE = 42;
 
     public static final int NEW_CONTACT_ACTIVITY_REQUEST_CODE = 1;
-    public static Contact newContact;
-    public static Numero newNumero = null;
 
     public static final int UPDATE_ACTIVITY_REQUEST_CODE = 2;
     public static Contact updateContact;
@@ -93,10 +95,12 @@ public class MainActivity extends AppCompatActivity {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == NEW_CONTACT_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
-            mContactViewModel.insert(newContact);
-            if(newNumero!=null){
-                newNumero.setContactId(newContact.getId());
-                mNumeroViewModel.insert(newNumero);
+            Contact contact = data.getParcelableExtra("Contact");
+            mContactViewModel.insert(contact);
+            Numero numero = data.getParcelableExtra("Numero");
+            if(numero!=null){
+                numero.setContactId(contact.getId());
+                mNumeroViewModel.insert(numero);
             }
         }  if (requestCode == UPDATE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK){
             mContactViewModel.insert(updateContact);
@@ -110,13 +114,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void infosContact(Contact contact){
-        //mContactViewModel.delete(contact);
         Intent intent = new Intent(this,InfoContactActivity.class);
         updateContact = contact;
         startActivityForResult(intent, UPDATE_ACTIVITY_REQUEST_CODE);
     }
 
     public void removeContact(Contact contact){
+        LiveData<List<Numero>> data = mNumeroViewModel.getAllNumeroForAContact(contact);
+        List<Numero> dataL = data.getValue();
+        if(dataL!=null){
+            for(Numero n : dataL){
+                mNumeroViewModel.delete(n);
+            }
+        }
         mContactViewModel.delete(contact);
     }
 }

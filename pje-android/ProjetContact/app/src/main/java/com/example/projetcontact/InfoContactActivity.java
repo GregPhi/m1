@@ -11,6 +11,8 @@ import android.widget.Toast;
 import com.example.projetcontact.objet.Address;
 import com.example.projetcontact.objet.Contact;
 import com.example.projetcontact.objet.Numero;
+import com.example.projetcontact.view.numero.NumeroListAdapter;
+import com.example.projetcontact.view.numero.NumeroViewModel;
 
 import java.util.List;
 
