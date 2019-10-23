@@ -5,9 +5,6 @@ import android.os.Bundle;
 
 import com.example.projetcontact.objet.Contact;
 import com.example.projetcontact.objet.Numero;
-import com.example.projetcontact.view.contact.ContactListAdapter;
-import com.example.projetcontact.view.contact.ContactViewModel;
-import com.example.projetcontact.view.numero.NumeroViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import androidx.annotation.Nullable;
@@ -94,14 +91,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        Contact contact = new Contact();
+        if(data.getBooleanExtra("Contact",true)){
+            contact = data.getParcelableExtra("Contact");
+        }
         if (requestCode == NEW_CONTACT_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
-            Contact contact = data.getParcelableExtra("Contact");
             mContactViewModel.insert(contact);
-            Numero numero = data.getParcelableExtra("Numero");
-            if(numero!=null){
-                numero.setContactId(contact.getId());
-                mNumeroViewModel.insert(numero);
-            }
         }  if (requestCode == UPDATE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK){
             mContactViewModel.insert(updateContact);
         }  if ( requestCode == NEW_CONTACT_ACTIVITY_REQUEST_CODE && resultCode == RETOUR_MAIN_ACTIVITY_REQUEST_CODE){
@@ -110,6 +105,11 @@ public class MainActivity extends AppCompatActivity {
                     getApplicationContext(),
                     R.string.contact_not_saved,
                     Toast.LENGTH_LONG).show();
+        }
+        Numero numero = data.getParcelableExtra("Numero");
+        if(numero!=null){
+            numero.setContactId(contact.getId());
+            mNumeroViewModel.insert(numero);
         }
     }
 
@@ -120,13 +120,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void removeContact(Contact contact){
-        LiveData<List<Numero>> data = mNumeroViewModel.getAllNumeroForAContact(contact);
-        List<Numero> dataL = data.getValue();
-        if(dataL!=null){
-            for(Numero n : dataL){
-                mNumeroViewModel.delete(n);
-            }
-        }
+        mNumeroViewModel.deleteNumerosForAContact(contact);
         mContactViewModel.delete(contact);
     }
 }

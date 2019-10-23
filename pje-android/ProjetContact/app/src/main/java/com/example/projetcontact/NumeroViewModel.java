@@ -1,7 +1,8 @@
-package com.example.projetcontact.view.numero;
+package com.example.projetcontact;
 
 import android.app.Application;
 
+import com.example.projetcontact.NumeroRepository;
 import com.example.projetcontact.objet.Contact;
 import com.example.projetcontact.objet.Numero;
 
@@ -27,4 +28,6 @@ public class NumeroViewModel extends AndroidViewModel {
     public void delete(Numero numero) { mRepository.delete(numero);}
 
     LiveData<List<Numero>>  getAllNumeroForAContact(Contact contact){ return mRepository.getAllNumeroForAContact(contact);}
+
+    public void deleteNumerosForAContact(Contact contact){mRepository.deleteNumerosForAContact(contact);}
 }

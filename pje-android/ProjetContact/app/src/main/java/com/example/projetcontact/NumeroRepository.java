@@ -1,9 +1,7 @@
-package com.example.projetcontact.view.numero;
+package com.example.projetcontact;
 
 import android.app.Application;
 import android.os.AsyncTask;
-
-import com.example.projetcontact.ContactRoomDatabase;
 import com.example.projetcontact.dao.NumeroDao;
 import com.example.projetcontact.objet.Contact;
 import com.example.projetcontact.objet.Numero;
@@ -27,6 +25,13 @@ public class NumeroRepository {
     LiveData<List<Numero>> getAllNumeroForAContact(Contact contact) {
         mNumerosForId = mNumeroDao.getAllNumeroForAContact(contact.getId());
         return  mNumerosForId;
+    }
+
+    List<Numero> getNumeros(){return mNumeroDao.getNumeros();}
+
+    public void deleteNumerosForAContact(Contact contact){
+        List<Numero> numeros = getNumeros();
+        new deleteNumsFContAsyncTask(mNumeroDao,contact,numeros).execute();
     }
 
     public void insert (Numero numero){ new insertAsyncTask(mNumeroDao).execute(numero);}
@@ -60,6 +65,32 @@ public class NumeroRepository {
         protected Void doInBackground(final Numero... params) {
             mAsyncTaskDao.delete(params[0]);
             return null;
+        }
+    }
+
+    private static class deleteNumsFContAsyncTask extends AsyncTask<Void, Void, Void>{
+        private NumeroDao mAsyncTaskDao;
+        private Contact contact;
+        private List<Numero> numeros;
+
+        deleteNumsFContAsyncTask(NumeroDao dao, Contact c, List<Numero> n) {
+            mAsyncTaskDao = dao;
+            contact = c;
+            numeros = n;
+        }
+
+        @Override
+        protected Void doInBackground(final Void... params){
+            this.del();
+            return null;
+        }
+
+        protected void del() {
+            for(Numero n : numeros){
+                if(n.getContactId() == contact.getId()){
+                    mAsyncTaskDao.delete(n);
+                }
+            }
         }
     }
 }

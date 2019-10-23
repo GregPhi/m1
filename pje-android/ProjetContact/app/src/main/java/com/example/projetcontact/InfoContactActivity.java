@@ -11,8 +11,6 @@ import android.widget.Toast;
 import com.example.projetcontact.objet.Address;
 import com.example.projetcontact.objet.Contact;
 import com.example.projetcontact.objet.Numero;
-import com.example.projetcontact.view.numero.NumeroListAdapter;
-import com.example.projetcontact.view.numero.NumeroViewModel;
 
 import java.util.List;
 
@@ -133,6 +131,7 @@ public class InfoContactActivity extends AppCompatActivity {
                 MainActivity.updateContact.setPrenom(prenom);
                 MainActivity.updateContact.setAge(age);
                 MainActivity.updateContact.setAddr(adr);
+                reply.putExtra("Contact",current);
                 setResult(RESULT_OK, reply);
                 finish();
             }

@@ -11,7 +11,6 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
-import androidx.room.Update;
 
 @Dao
 public interface NumeroDao {
@@ -23,9 +22,12 @@ public interface NumeroDao {
     void deleteAll();
 
     @Query("SELECT * FROM numero_table")
+    List<Numero> getNumeros();
+
+    @Query("SELECT * FROM numero_table")
     LiveData<List<Numero>> getAllNumeros();
 
-    @Query("SELECT * FROM numero_table WHERE contact_id LIKE :id")
+    @Query("SELECT * FROM numero_table WHERE contact_id =:id")
     LiveData<List<Numero>>  getAllNumeroForAContact(int id);
 
     @Delete

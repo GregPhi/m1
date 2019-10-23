@@ -1,7 +1,8 @@
-package com.example.projetcontact.view.contact;
+package com.example.projetcontact;
 
 import android.app.Application;
 
+import com.example.projetcontact.ContactRepository;
 import com.example.projetcontact.objet.Contact;
 
 import java.util.List;

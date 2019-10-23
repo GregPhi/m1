@@ -30,6 +30,7 @@ public abstract class ContactRoomDatabase extends RoomDatabase {
                             ContactRoomDatabase.class, "contact_database")
                             .addCallback(sRoomDatabaseCallback)
                             .fallbackToDestructiveMigration()
+                            .allowMainThreadQueries()
                             .build();
                 }
             }

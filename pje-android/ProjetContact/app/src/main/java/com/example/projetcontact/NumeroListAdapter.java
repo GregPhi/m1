@@ -1,4 +1,4 @@
-package com.example.projetcontact.view.numero;
+package com.example.projetcontact;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -6,8 +6,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.projetcontact.InfoContactActivity;
-import com.example.projetcontact.R;
 import com.example.projetcontact.objet.Numero;
 
 import java.util.List;

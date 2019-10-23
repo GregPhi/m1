@@ -1,4 +1,4 @@
-package com.example.projetcontact.view.contact;
+package com.example.projetcontact;
 
 import android.app.Application;
 import android.os.AsyncTask;
