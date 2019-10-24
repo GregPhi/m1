@@ -4,6 +4,7 @@ android {
     compileSdkVersion 28
     buildToolsVersion "29.0.2"
     defaultConfig {
+        vectorDrawables.useSupportLibrary = true
         applicationId "com.example.appliccontact"
         minSdkVersion 15
         targetSdkVersion 28
@@ -39,4 +40,5 @@ dependencies {
 
     // Testig
     androidTestImplementation "androidx.arch.core:core-testing:$rootProject.coreTestingVersion"
+
 }

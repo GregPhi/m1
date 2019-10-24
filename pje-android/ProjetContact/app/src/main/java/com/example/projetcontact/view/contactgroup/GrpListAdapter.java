@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.projetcontact.GroupActivity;
+import com.example.projetcontact.InfoContactActivity;
 import com.example.projetcontact.R;
 import com.example.projetcontact.objet.Groups;
 
@@ -30,18 +31,18 @@ public class GrpListAdapter extends RecyclerView.Adapter<GrpListAdapter.GroupVie
         }
     }
 
-    private final GroupActivity contextGroup;
+    private final InfoContactActivity contextGroup;
     private final LayoutInflater mInflater;
     private List<Groups> mAllGroups;
 
-    public GrpListAdapter(GroupActivity context) {
+    public GrpListAdapter(InfoContactActivity context) {
         mInflater = LayoutInflater.from(context);
         contextGroup = context;
     }
 
     @Override
     public GrpListAdapter.GroupViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = mInflater.inflate(R.layout.recyclerview_item, parent, false);
+        View itemView = mInflater.inflate(R.layout.recyclerview_group_item, parent, false);
         return new GrpListAdapter.GroupViewHolder(itemView);
     }
 
@@ -50,7 +51,7 @@ public class GrpListAdapter extends RecyclerView.Adapter<GrpListAdapter.GroupVie
         if (mAllGroups != null) {
             final Groups current = mAllGroups.get(position);
             holder.nomItemView.setText(current.getNom());
-            holder.bD.setOnClickListener(new View.OnClickListener(){
+            /*holder.bD.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View view){
                     contextGroup.removeGroup(current);
@@ -61,10 +62,10 @@ public class GrpListAdapter extends RecyclerView.Adapter<GrpListAdapter.GroupVie
                 public void onClick(View view){
                     contextGroup.infoGroup(current);
                 }
-            });
+            });*/
         } else {
             // Covers the case of data not being ready yet.
-            holder.nomItemView.setText("Numero");
+            holder.nomItemView.setText("Nom");
         }
     }
 

@@ -5,7 +5,9 @@ import android.os.Bundle;
 
 import com.example.projetcontact.objet.Contact;
 import com.example.projetcontact.objet.Groups;
+import com.example.projetcontact.view.contactgroup.ContactGroupViewModel;
 import com.example.projetcontact.view.group.GroupListAdapter;
+import com.example.projetcontact.view.group.GroupRepository;
 import com.example.projetcontact.view.group.GroupViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -19,16 +21,19 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.Toast;
 
 import java.util.List;
 
 public class GroupActivity extends AppCompatActivity {
     public static GroupViewModel mGroupViewModel;
+    public static ContactGroupViewModel mCtGrpViewModel;
 
     public static final int RETOUR_MAIN_ACTIVITY_REQUEST_CODE = 42;
 
     public static final int NEW_GROUP_ACTIVITY_REQUEST_CODE = 1;
+
     public static final int UPDATE_ACTIVITY_REQUEST_CODE = 2;
     public static Groups updateGroup;
 
@@ -48,7 +53,7 @@ public class GroupActivity extends AppCompatActivity {
             }
         });
 
-        RecyclerView recyclerView = findViewById(R.id.recyclerview);
+        RecyclerView recyclerView = findViewById(R.id.recyclerview_group);
         final GroupListAdapter adapter = new GroupListAdapter(this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -61,6 +66,8 @@ public class GroupActivity extends AppCompatActivity {
                 adapter.setGroups(groups);
             }
         });
+
+        mCtGrpViewModel = ViewModelProviders.of(this).get(ContactGroupViewModel.class);
     }
 
     @Override
@@ -92,13 +99,13 @@ public class GroupActivity extends AppCompatActivity {
         Groups groups = data.getParcelableExtra("Group");
         if (requestCode == NEW_GROUP_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
             mGroupViewModel.insert(groups);
-        }if (requestCode == UPDATE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK){
-                mGroupViewModel.insert(updateGroup);
-        }if ( requestCode == NEW_GROUP_ACTIVITY_REQUEST_CODE && resultCode == RETOUR_MAIN_ACTIVITY_REQUEST_CODE) {
+        } if (requestCode == UPDATE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK){
+            mGroupViewModel.insert(updateGroup);
+        } if ( requestCode == NEW_GROUP_ACTIVITY_REQUEST_CODE && resultCode == RETOUR_MAIN_ACTIVITY_REQUEST_CODE) {
         } else {
             Toast.makeText(
                     getApplicationContext(),
-                    R.string.contact_not_saved,
+                    R.string.group_not_saved,
                     Toast.LENGTH_LONG).show();
         }
     }
@@ -110,6 +117,7 @@ public class GroupActivity extends AppCompatActivity {
     }
 
     public void removeGroup(Groups group){
+        mCtGrpViewModel.deleteContactsJoinForGroup(group);
         mGroupViewModel.delete(group);
     }
 }

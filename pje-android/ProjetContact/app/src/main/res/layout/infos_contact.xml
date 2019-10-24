@@ -2,7 +2,8 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="@layout/recyclerview_num_item"
+    xmlns:num="@layout/recyclerview_num_item"
+    xmlns:grp="@layout/recyclerview_group_item"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -125,22 +126,51 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerview_num"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:background="@android:color/darker_gray"
-                    tools:context=".InfoContactActivity"
-                    tools:listitem="@layout/recyclerview_num_item" />
+                    num:context=".InfoContactActivity"
+                    num:listitem="@layout/recyclerview_num_item" />
 
                 <Button
                     android:id="@+id/button_new_numero"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/button_new_num"/>
+                    android:text="@string/button_new_num" />
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Informations Groupes"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:fontFamily="serif" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerview_grp_contact"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/darker_gray"
+                    grp:context=".InfoContactActivity"
+                    grp:listitem="@layout/recyclerview_group_item" />
+
             </LinearLayout>
 
             <Space

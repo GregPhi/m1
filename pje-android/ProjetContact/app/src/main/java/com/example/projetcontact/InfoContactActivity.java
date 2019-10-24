@@ -10,7 +10,10 @@ import android.widget.Toast;
 
 import com.example.projetcontact.objet.Address;
 import com.example.projetcontact.objet.Contact;
+import com.example.projetcontact.objet.Groups;
 import com.example.projetcontact.objet.Numero;
+import com.example.projetcontact.view.contactgroup.ContactGroupViewModel;
+import com.example.projetcontact.view.contactgroup.GrpListAdapter;
 import com.example.projetcontact.view.numero.NumeroListAdapter;
 import com.example.projetcontact.view.numero.NumeroViewModel;
 
@@ -19,11 +22,14 @@ import java.util.List;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class InfoContactActivity extends AppCompatActivity {
     public static NumeroViewModel mNumeroViewModel;
+    public static ContactGroupViewModel mJoinViewModel;
+
 
     public static final int RETOUR_INFO_ACTIVITY_REQUEST_CODE = 42;
 
@@ -77,17 +83,31 @@ public class InfoContactActivity extends AppCompatActivity {
         mEditZipcodeContactView = findViewById(R.id.info_zip);
         mEditZipcodeContactView.setText(cd);
 
-        RecyclerView recyclerView = findViewById(R.id.recyclerview_num);
-        final NumeroListAdapter adapter = new NumeroListAdapter(this);
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        RecyclerView recyclerViewNum = findViewById(R.id.recyclerview_num);
+        final NumeroListAdapter adapterNum = new NumeroListAdapter(this);
+        recyclerViewNum.setAdapter(adapterNum);
+        recyclerViewNum.setLayoutManager(new LinearLayoutManager(this));
 
         mNumeroViewModel = ContactActivity.mNumeroViewModel;
         mNumeroViewModel.getAllNumeroForAContact(current).observe(this, new Observer<List<Numero>>() {
             @Override
             public void onChanged(@Nullable final List<Numero> numeros) {
                 // Update the cached copy of the words in the adapter.
-                adapter.setNumeros(numeros);
+                adapterNum.setNumeros(numeros);
+            }
+        });
+
+        RecyclerView recyclerViewGrp = findViewById(R.id.recyclerview_grp_contact);
+        final GrpListAdapter adapterGrp = new GrpListAdapter(this);
+        recyclerViewGrp.setAdapter(adapterGrp);
+        recyclerViewGrp.setLayoutManager(new LinearLayoutManager(this));
+
+        mJoinViewModel = ViewModelProviders.of(this).get(ContactGroupViewModel.class);
+        mJoinViewModel.getGroupsForContact(current.getId()).observe(this, new Observer<List<Groups>>() {
+            @Override
+            public void onChanged(@Nullable final List<Groups> groups) {
+                // Update the cached copy of the words in the adapter.
+                adapterGrp.setGroups(groups);
             }
         });
 

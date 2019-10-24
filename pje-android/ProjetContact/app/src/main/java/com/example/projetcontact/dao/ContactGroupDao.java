@@ -25,6 +25,9 @@ public interface ContactGroupDao {
     @Query("DELETE FROM contact_group_table")
     void deleteAll();
 
+    @Query("Select * from contact_group_table")
+    List<ContactGroup> getAllContactGroup();
+
     @Query("SELECT * from contact_table "+
            "INNER JOIN contact_group_table "+
            "ON contact_table.id=contact_group_table.contactId "+
@@ -34,6 +37,6 @@ public interface ContactGroupDao {
     @Query("SELECT * from groupe_table "+
             "INNER JOIN contact_group_table "+
             "ON groupe_table.id=contact_group_table.groupId "+
-            "WHERE contact_group_table.groupId =:cId")
+            "WHERE contact_group_table.contactId =:cId")
     LiveData<List<Groups>> getGroupsForContact(final int cId);
 }

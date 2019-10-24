@@ -18,9 +18,12 @@
     <string name="hint_grp">Nom du groupe : ...</string>
     <!---->
     <string name="button_new_num">Nouveau numéro</string>
+    <string name="ajout_contact_dans_grp">Ajout contact dans groupe</string>
     <string name="button_save">Save</string>
     <string name="contact_not_saved">Contact not saved because it is empty.</string>
     <string name="numero_not_saved">Numero not saved because it is empty.</string>
+    <string name="group_not_saved">Group not saved because it is empty.</string>
+    <string name="contact_group_not_saved">Contact not saved in Group because it is empty.</string>
     <!---->
     <string name="infos">Infos</string>
     <string name="modif">Modification</string>

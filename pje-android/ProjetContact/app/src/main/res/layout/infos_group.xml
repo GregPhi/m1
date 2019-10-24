@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="@layout/recyclerview_item"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/textView6"
@@ -24,13 +25,13 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview_grp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:background="@android:color/darker_gray"
             tools:context=".InfoGroupActivity"
             tools:listitem="@layout/recyclerview_item" />
@@ -39,7 +40,8 @@
             android:id="@+id/button_new_numero"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/button_new_num"/>
+            android:text="@string/ajout_contact_dans_grp" />
+
     </LinearLayout>
 
     <Space
@@ -53,4 +55,11 @@
         android:background="@color/colorPrimary"
         android:text="@string/button_save"
         android:textColor="@color/buttonLabel" />
+
+    <Button
+        android:id="@+id/retour_main_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/main" />
+
 </LinearLayout>

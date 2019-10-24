@@ -132,7 +132,7 @@ public class ContactActivity extends AppCompatActivity {
 
     public void removeContact(Contact contact){
         mNumeroViewModel.deleteNumerosForAContact(contact);
-
+        mCtGrpViewModel.deleteGroupsJoinForContact(contact);
         mContactViewModel.delete(contact);
     }
 }
