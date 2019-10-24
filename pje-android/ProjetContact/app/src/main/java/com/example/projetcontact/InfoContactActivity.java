@@ -11,6 +11,8 @@ import android.widget.Toast;
 import com.example.projetcontact.objet.Address;
 import com.example.projetcontact.objet.Contact;
 import com.example.projetcontact.objet.Numero;
+import com.example.projetcontact.view.numero.NumeroListAdapter;
+import com.example.projetcontact.view.numero.NumeroViewModel;
 
 import java.util.List;
 
@@ -27,6 +29,9 @@ public class InfoContactActivity extends AppCompatActivity {
 
     public static final int NEW_NUMERO_TO_CONTACT_ACTIVITY_REQUEST_CODE = 1;
     public static Numero newNumero = new Numero();
+
+    public static final int UPDATE_ACTIVITY_REQUEST_CODE = 2;
+    public static Numero updateNumero;
 
     private EditText mEditNomView;
     private EditText mEditPrenomView;
@@ -46,7 +51,7 @@ public class InfoContactActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.infos_contact);
-        final Contact current = MainActivity.updateContact;
+        final Contact current = ContactActivity.updateContact;
         nom = current.getNom();
         prenom = current.getPrenom();
         age = current.getAge();
@@ -55,50 +60,36 @@ public class InfoContactActivity extends AppCompatActivity {
         cd = current.getAddr().getZipcode();
 
         mEditNomView = findViewById(R.id.info_nom);
-        mEditNomView.setHint(getString(R.string.hint_nom,nom));
+        mEditNomView.setText(nom);
 
         mEditPrenomView = findViewById(R.id.info_prenom);
-        mEditPrenomView.setHint(getString(R.string.hint_prenom,prenom));
+        mEditPrenomView.setText(prenom);
 
         mEditAgeView = findViewById(R.id.info_age);
-        mEditAgeView.setHint(getString(R.string.hint_age,age));
+        mEditAgeView.setText(age);
 
         mEditStreetContactView = findViewById(R.id.info_street);
-        if(rue==""){
-            mEditStreetContactView.setHint(getString(R.string.hint_street,"Rue : ..."));
-        }else{
-            mEditStreetContactView.setHint(getString(R.string.hint_street,rue));
-        }
+        mEditStreetContactView.setText(rue);
 
         mEditTowContactView = findViewById(R.id.info_town);
-        if(ville==""){
-            mEditTowContactView.setHint(getString(R.string.hint_town,"Ville : ..."));
-        }else{
-            mEditTowContactView.setHint(getString(R.string.hint_town,ville));
-        }
+        mEditTowContactView.setText(ville);
 
         mEditZipcodeContactView = findViewById(R.id.info_zip);
-        if(cd==""){
-            mEditZipcodeContactView.setHint(getString(R.string.hint_zip,"Code postal : ..."));
-        }else{
-            mEditZipcodeContactView.setHint(getString(R.string.hint_zip,cd));
-        }
+        mEditZipcodeContactView.setText(cd);
 
         RecyclerView recyclerView = findViewById(R.id.recyclerview_num);
         final NumeroListAdapter adapter = new NumeroListAdapter(this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        mNumeroViewModel = MainActivity.mNumeroViewModel;
-        if(current!=null){
-            mNumeroViewModel.getAllNumeroForAContact(current).observe(this, new Observer<List<Numero>>() {
-                @Override
-                public void onChanged(@Nullable final List<Numero> numeros) {
-                    // Update the cached copy of the words in the adapter.
-                    adapter.setNumeros(numeros);
-                }
-            });
-        }
+        mNumeroViewModel = ContactActivity.mNumeroViewModel;
+        mNumeroViewModel.getAllNumeroForAContact(current).observe(this, new Observer<List<Numero>>() {
+            @Override
+            public void onChanged(@Nullable final List<Numero> numeros) {
+                // Update the cached copy of the words in the adapter.
+                adapter.setNumeros(numeros);
+            }
+        });
 
         final Button button = findViewById(R.id.button_save);
         button.setOnClickListener(new View.OnClickListener() {
@@ -127,11 +118,10 @@ public class InfoContactActivity extends AppCompatActivity {
                 if(!TextUtils.isEmpty(mEditAgeView.getText())){
                     age = mEditAgeView.getText().toString();
                 }
-                MainActivity.updateContact.setNom(nom);
-                MainActivity.updateContact.setPrenom(prenom);
-                MainActivity.updateContact.setAge(age);
-                MainActivity.updateContact.setAddr(adr);
-                reply.putExtra("Contact",current);
+                ContactActivity.updateContact.setNom(nom);
+                ContactActivity.updateContact.setPrenom(prenom);
+                ContactActivity.updateContact.setAge(age);
+                ContactActivity.updateContact.setAddr(adr);
                 setResult(RESULT_OK, reply);
                 finish();
             }
@@ -151,7 +141,9 @@ public class InfoContactActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == NEW_NUMERO_TO_CONTACT_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
             mNumeroViewModel.insert(newNumero);
-        }if ( requestCode == NEW_NUMERO_TO_CONTACT_ACTIVITY_REQUEST_CODE && resultCode == RETOUR_INFO_ACTIVITY_REQUEST_CODE){
+        }if (requestCode == UPDATE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK){
+            mNumeroViewModel.insert(updateNumero);
+        } if ( requestCode == NEW_NUMERO_TO_CONTACT_ACTIVITY_REQUEST_CODE && resultCode == RETOUR_INFO_ACTIVITY_REQUEST_CODE){
         } else {
             Toast.makeText(
                     getApplicationContext(),
@@ -162,5 +154,12 @@ public class InfoContactActivity extends AppCompatActivity {
 
     public void removeNumero(Numero numero){
         mNumeroViewModel.delete(numero);
+    }
+
+    public void infosNumero(Numero numero){
+        Intent intent = new Intent(this,InfoNumeroActivity.class);
+        updateNumero = numero;
+        mNumeroViewModel.delete(numero);
+        startActivityForResult(intent, UPDATE_ACTIVITY_REQUEST_CODE);
     }
 }

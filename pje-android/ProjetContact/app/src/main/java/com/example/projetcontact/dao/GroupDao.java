@@ -9,21 +9,17 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
-import androidx.room.Update;
 
 @Dao
 public interface GroupDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(Groups group);
 
-    @Update
-    void updateContact(Groups... groups);
-
-    @Query("DELETE FROM contact_table")
+    @Query("DELETE FROM groupe_table")
     void deleteAll();
 
-    @Query("SELECT * from contact_table ORDER BY nom ASC")
-    LiveData<List<Groups>> getAllWords();
+    @Query("SELECT * from groupe_table ORDER BY nom ASC")
+    LiveData<List<Groups>> getAllGroups();
 
     @Delete
     void delete(Groups group);

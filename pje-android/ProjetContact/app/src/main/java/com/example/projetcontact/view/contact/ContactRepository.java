@@ -1,4 +1,4 @@
-package com.example.projetcontact;
+package com.example.projetcontact.view.contact;
 
 import android.app.Application;
 import android.os.AsyncTask;
@@ -19,10 +19,10 @@ public class ContactRepository {
     ContactRepository(Application application) {
         ContactRoomDatabase db = ContactRoomDatabase.getDatabase(application);
         mContactDao = db.contactDao();
-        mAllContacts = mContactDao.getAllWords();
+        mAllContacts = mContactDao.getmAllContacts();
     }
 
-    LiveData<List<Contact>> getAllWords() {
+    LiveData<List<Contact>> getmAllContacts() {
         return mAllContacts;
     }
 

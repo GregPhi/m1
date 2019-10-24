@@ -1,4 +1,4 @@
-package com.example.projetcontact;
+package com.example.projetcontact.view.group;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -6,26 +6,26 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.projetcontact.objet.Contact;
+import com.example.projetcontact.GroupActivity;
+import com.example.projetcontact.InfoContactActivity;
+import com.example.projetcontact.R;
+import com.example.projetcontact.objet.Groups;
+import com.example.projetcontact.view.numero.NumeroListAdapter;
 
 import java.util.List;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.ContactViewHolder> {
+public class GroupListAdapter extends RecyclerView.Adapter<GroupListAdapter.GroupViewHolder> {
 
-    class ContactViewHolder extends RecyclerView.ViewHolder {
+    class GroupViewHolder extends RecyclerView.ViewHolder {
         private final TextView nomItemView;
-        private final TextView prenomItemView;
-        private final TextView ageItemView;
         private final Button bD;
         private final Button bI;
 
-        private ContactViewHolder(final View itemView) {
+        private GroupViewHolder(final View itemView) {
             super(itemView);
             nomItemView = itemView.findViewById(R.id.nom);
-            prenomItemView = itemView.findViewById(R.id.prenom);
-            ageItemView = itemView.findViewById(R.id.age);
             bD = itemView.findViewById(R.id.delete);
             bD.setActivated(true);
             bI = itemView.findViewById(R.id.infos);
@@ -33,50 +33,47 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
         }
     }
 
-    private final MainActivity mContext;
+    private final GroupActivity mContext;
     private final LayoutInflater mInflater;
-    private List<Contact> mContacts; // Cached copy of words
+    private List<Groups> mGroups; // Cached copy of words
 
-    ContactListAdapter(MainActivity context) {
+    public GroupListAdapter(GroupActivity context) {
         mInflater = LayoutInflater.from(context);
         mContext = context;
     }
 
     @Override
-    public ContactViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = mInflater.inflate(R.layout.recyclerview_item, parent, false);
-        return new ContactViewHolder(itemView);
+    public GroupListAdapter.GroupViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View itemView = mInflater.inflate(R.layout.recyclerview_group_item, parent, false);
+        return new GroupListAdapter.GroupViewHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(ContactViewHolder holder, int position) {
-        if (mContacts != null) {
-            final Contact current = mContacts.get(position);
+    public void onBindViewHolder(GroupListAdapter.GroupViewHolder holder, int position) {
+        if (mGroups != null) {
+            final Groups current = mGroups.get(position);
             holder.nomItemView.setText(current.getNom());
-            holder.prenomItemView.setText(current.getPrenom());
-            holder.ageItemView.setText(current.getAge());
             holder.bD.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View view){
-                    mContext.removeContact(current);
+                    mContext.removeGroup(current);
                 }
             });
             holder.bI.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View view){
-                    mContext.infosContact(current);
+                    mContext.infoGroup(current);
                 }
             });
         } else {
             // Covers the case of data not being ready yet.
-            holder.nomItemView.setText("Nom");
-            holder.prenomItemView.setText("Prenom");
-            holder.ageItemView.setText("Age");
+            holder.nomItemView.setText("Numero");
         }
     }
 
-    void setContacts(List<Contact> contacts){
-        mContacts = contacts;
+
+    public void setGroups(List<Groups> groups) {
+        mGroups = groups;
         notifyDataSetChanged();
     }
 
@@ -84,9 +81,9 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
     // mWords has not been updated (means initially, it's null, and we can't return null).
     @Override
     public int getItemCount() {
-        if (mContacts != null)
-            return mContacts.size();
+        if (mGroups != null)
+            return mGroups.size();
         else return 0;
     }
-
 }
+

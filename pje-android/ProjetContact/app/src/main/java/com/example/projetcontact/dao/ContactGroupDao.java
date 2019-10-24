@@ -5,6 +5,8 @@ import com.example.projetcontact.objet.Groups;
 import com.example.projetcontact.objet.ContactGroup;
 
 import java.util.List;
+
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -20,15 +22,18 @@ public interface ContactGroupDao {
     @Delete
     void delete(ContactGroup... contactGroups);
 
+    @Query("DELETE FROM contact_group_table")
+    void deleteAll();
+
     @Query("SELECT * from contact_table "+
            "INNER JOIN contact_group_table "+
            "ON contact_table.id=contact_group_table.contactId "+
            "WHERE contact_group_table.groupId =:gId")
-    List<Contact> getContactsForGroup(final int gId);
+    LiveData<List<Contact>> getContactsForGroup(final int gId);
 
     @Query("SELECT * from groupe_table "+
             "INNER JOIN contact_group_table "+
             "ON groupe_table.id=contact_group_table.groupId "+
             "WHERE contact_group_table.groupId =:cId")
-    List<Groups> getGroupsForContact(final int cId);
+    LiveData<List<Groups>> getGroupsForContact(final int cId);
 }

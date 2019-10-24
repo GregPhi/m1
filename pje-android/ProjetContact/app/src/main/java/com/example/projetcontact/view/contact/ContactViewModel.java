@@ -1,8 +1,7 @@
-package com.example.projetcontact;
+package com.example.projetcontact.view.contact;
 
 import android.app.Application;
 
-import com.example.projetcontact.ContactRepository;
 import com.example.projetcontact.objet.Contact;
 
 import java.util.List;
@@ -18,10 +17,10 @@ public class ContactViewModel extends AndroidViewModel {
     public ContactViewModel(Application application) {
         super(application);
         mRepository = new ContactRepository(application);
-        mAllContacts = mRepository.getAllWords();
+        mAllContacts = mRepository.getmAllContacts();
     }
 
-    LiveData<List<Contact>> getmAllContacts() { return mAllContacts; }
+    public LiveData<List<Contact>> getmAllContacts() { return mAllContacts; }
 
     public void insert(Contact contact) { mRepository.insert(contact); }
 

@@ -4,17 +4,24 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:icon="@mipmap/ic_launcher"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".NewContactActivity"></activity>
         <activity android:name=".InfoContactActivity"></activity>
+        <activity android:name=".InfoNumeroActivity"></activity>
         <activity android:name=".NewNumeroActiviry"></activity>
+        <activity android:name=".NewGroupActivity"></activity>
+        <activity android:name=".InfoGroupActivity"></activity>
         <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name"
+            android:name=".GroupActivity"
+            android:label="@string/grp">
+        </activity>
+        <activity
+            android:name=".ContactActivity"
+            android:label="@string/cct"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

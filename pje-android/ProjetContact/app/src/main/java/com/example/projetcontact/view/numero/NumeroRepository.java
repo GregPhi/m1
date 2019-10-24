@@ -1,7 +1,9 @@
-package com.example.projetcontact;
+package com.example.projetcontact.view.numero;
 
 import android.app.Application;
 import android.os.AsyncTask;
+
+import com.example.projetcontact.ContactRoomDatabase;
 import com.example.projetcontact.dao.NumeroDao;
 import com.example.projetcontact.objet.Contact;
 import com.example.projetcontact.objet.Numero;
@@ -35,7 +37,7 @@ public class NumeroRepository {
     }
 
     public void insert (Numero numero){ new insertAsyncTask(mNumeroDao).execute(numero);}
-
+    public void update (Numero numero) { new updateAsyncTask(mNumeroDao).execute(numero);}
     public void delete (Numero numero) { new deleteAsyncTask(mNumeroDao).execute(numero);}
 
     private static class insertAsyncTask extends AsyncTask<Numero, Void, Void> {
@@ -49,6 +51,21 @@ public class NumeroRepository {
         @Override
         protected Void doInBackground(final Numero... params) {
             mAsyncTaskDao.insert(params[0]);
+            return null;
+        }
+    }
+
+    private static class updateAsyncTask extends AsyncTask<Numero, Void, Void> {
+
+        private NumeroDao mAsyncTaskDao;
+
+        updateAsyncTask(NumeroDao dao) {
+            mAsyncTaskDao = dao;
+        }
+
+        @Override
+        protected Void doInBackground(final Numero... params) {
+            mAsyncTaskDao.update(params[0]);
             return null;
         }
     }

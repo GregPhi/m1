@@ -1,4 +1,4 @@
-package com.example.projetcontact;
+package com.example.projetcontact.view.numero;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -6,6 +6,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.projetcontact.InfoContactActivity;
+import com.example.projetcontact.R;
 import com.example.projetcontact.objet.Numero;
 
 import java.util.List;
@@ -18,6 +20,7 @@ public class NumeroListAdapter extends RecyclerView.Adapter<NumeroListAdapter.Nu
         private final TextView numeroItemView;
         private final TextView categorieItemView;
         private final Button bD;
+        private final Button bI;
 
         private NumeroViewHolder(final View itemView) {
             super(itemView);
@@ -25,6 +28,8 @@ public class NumeroListAdapter extends RecyclerView.Adapter<NumeroListAdapter.Nu
             categorieItemView = itemView.findViewById(R.id.categorie);
             bD = itemView.findViewById(R.id.delete);
             bD.setActivated(true);
+            bI = itemView.findViewById(R.id.infos);
+            bI.setActivated(true);
         }
     }
 
@@ -32,7 +37,7 @@ public class NumeroListAdapter extends RecyclerView.Adapter<NumeroListAdapter.Nu
     private final LayoutInflater mInflater;
     private List<Numero> mNumeros; // Cached copy of words
 
-    NumeroListAdapter(InfoContactActivity context) {
+    public NumeroListAdapter(InfoContactActivity context) {
         mInflater = LayoutInflater.from(context);
         mContext = context;
     }
@@ -55,6 +60,12 @@ public class NumeroListAdapter extends RecyclerView.Adapter<NumeroListAdapter.Nu
                     mContext.removeNumero(current);
                 }
             });
+            holder.bI.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View view){
+                    mContext.infosNumero(current);
+                }
+            });
         } else {
             // Covers the case of data not being ready yet.
             holder.numeroItemView.setText("Numero");
@@ -64,7 +75,7 @@ public class NumeroListAdapter extends RecyclerView.Adapter<NumeroListAdapter.Nu
 
 
 
-    void setNumeros(List<Numero> numeros){
+    public void setNumeros(List<Numero> numeros){
         mNumeros = numeros;
         notifyDataSetChanged();
     }

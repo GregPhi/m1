@@ -1,17 +1,21 @@
 <resources>
+    <string name="cct">Contacts</string>
+    <string name="grp">Groups</string>
     <string name="app_name">ProjetContact</string>
     <string name="action_settings">Settings</string>
     <string name="delete">Delete</string>
-    <!-- NEW CONTACT-->
-    <string name="hint_nom">%s</string>
-    <string name="hint_prenom">%s</string>
-    <string name="hint_age">%s</string>
-    <string name="hint_street">%s</string>
-    <string name="hint_town">%s</string>
-    <string name="hint_zip">%s</string>
-    <!-- NEW NUMERO-->
-    <string name="hint_numero">%s</string>
-    <string name="hint_categotie">%s</string>
+    <!-- NEW CONTACT -->
+    <string name="hint_nom">Nom : ...</string>
+    <string name="hint_prenom">Prenom : ...</string>
+    <string name="hint_age">Age : ...</string>
+    <string name="hint_street">Rue : ...</string>
+    <string name="hint_town">Ville : ...</string>
+    <string name="hint_zip">Code postal : ...</string>
+    <!-- NEW NUMERO -->
+    <string name="hint_numero">Numero : ...</string>
+    <string name="hint_categotie">Categorie : ...</string>
+    <!-- NEW GROUP -->
+    <string name="hint_grp">Nom du groupe : ...</string>
     <!---->
     <string name="button_new_num">Nouveau numéro</string>
     <string name="button_save">Save</string>
@@ -21,17 +25,4 @@
     <string name="infos">Infos</string>
     <string name="modif">Modification</string>
     <string name="main">Retour main</string>
-    <!-- DELETE -->
-    <string name="text_age">%s</string>
-    <string name="text_prenom">%s</string>
-    <string name="text_nom">%s</string>
-    <!-- STRING -->
-    <string name="str_nom">Nom : ...</string>
-    <string name="str_prenom">Prenom : ...</string>
-    <string name="str_age">Age : ...</string>
-    <string name="str_rue">Rue : ...</string>
-    <string name="str_ville">Ville : ...</string>
-    <string name="str_cd">Code postal : ...</string>
-    <string name="str_num">Numero : ...</string>
-    <string name="str_cate">Categorie : ...</string>
 </resources>

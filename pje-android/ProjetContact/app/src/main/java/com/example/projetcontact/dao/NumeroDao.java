@@ -1,5 +1,6 @@
 package com.example.projetcontact.dao;
 
+import com.example.projetcontact.objet.Contact;
 import com.example.projetcontact.objet.Numero;
 
 import java.util.List;
@@ -11,12 +12,16 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
+import androidx.room.Update;
 
 @Dao
 public interface NumeroDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(Numero numero);
+
+    @Update
+    void update(Numero numero);
 
     @Query("DELETE FROM numero_table")
     void deleteAll();
