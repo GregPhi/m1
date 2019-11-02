@@ -129,7 +129,7 @@ public class ContactGroupRepository {
 
         protected void del() {
             for(ContactGroup n : groupsJ){
-                if(n.getContactId() == groups.getId()){
+                if(n.getGroupId() == groups.getId()){
                     mAsyncTaskDao.delete(n);
                 }
             }

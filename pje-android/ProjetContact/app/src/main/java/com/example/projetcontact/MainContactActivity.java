@@ -3,8 +3,8 @@ package com.example.projetcontact;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.projetcontact.objet.Address;
 import com.example.projetcontact.objet.Contact;
-import com.example.projetcontact.objet.ContactGroup;
 import com.example.projetcontact.objet.Numero;
 import com.example.projetcontact.view.contact.ContactListAdapter;
 import com.example.projetcontact.view.contact.ContactViewModel;
@@ -27,7 +27,7 @@ import android.widget.Toast;
 
 import java.util.List;
 
-public class ContactActivity extends AppCompatActivity {
+public class MainContactActivity extends AppCompatActivity {
     public static ContactViewModel mContactViewModel;
     public static NumeroViewModel mNumeroViewModel;
     public static ContactGroupViewModel mCtGrpViewModel;
@@ -50,7 +50,7 @@ public class ContactActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ContactActivity.this, NewContactActivity.class);
+                Intent intent = new Intent(MainContactActivity.this, NewContactActivity.class);
                 startActivityForResult(intent, NEW_CONTACT_ACTIVITY_REQUEST_CODE);
             }
         });
@@ -89,7 +89,7 @@ public class ContactActivity extends AppCompatActivity {
             case R.id.action_settings:
                 return true;
             case R.id.action_group:
-                Intent intent = new Intent(ContactActivity.this, GroupActivity.class);
+                Intent intent = new Intent(MainContactActivity.this, GroupActivity.class);
                 startActivity(intent);
                 return true;
             default:
@@ -102,7 +102,7 @@ public class ContactActivity extends AppCompatActivity {
         if (requestCode == NEW_CONTACT_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
             newContact(data);
         }  if (requestCode == UPDATE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK){
-            mContactViewModel.insert(updateContact);
+            mContactViewModel.insert(MainContactActivity.updateContact);
         }  if ( requestCode == NEW_CONTACT_ACTIVITY_REQUEST_CODE && resultCode == RETOUR_MAIN_ACTIVITY_REQUEST_CODE){
         } else {
             Toast.makeText(
@@ -119,7 +119,6 @@ public class ContactActivity extends AppCompatActivity {
         }
         Numero numero = data.getParcelableExtra("Numero");
         if(numero!=null){
-            //numero.setContactId(contact.getId());
             mNumeroViewModel.insert(numero);
         }
     }
@@ -131,8 +130,11 @@ public class ContactActivity extends AppCompatActivity {
     }
 
     public void removeContact(Contact contact){
-        mNumeroViewModel.deleteNumerosForAContact(contact);
         mCtGrpViewModel.deleteGroupsJoinForContact(contact);
+        System.out.println("Suppr groups");
+        mNumeroViewModel.deleteNumerosForAContact(contact);
+        System.out.println("Suppr nums");
         mContactViewModel.delete(contact);
+        System.out.println("Suppr contact");
     }
 }

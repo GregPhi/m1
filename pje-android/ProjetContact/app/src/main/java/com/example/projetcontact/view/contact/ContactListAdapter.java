@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.projetcontact.ContactActivity;
+import com.example.projetcontact.MainContactActivity;
 import com.example.projetcontact.R;
 import com.example.projetcontact.objet.Contact;
 
@@ -35,11 +35,11 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
         }
     }
 
-    private final ContactActivity mContext;
+    private final MainContactActivity mContext;
     private final LayoutInflater mInflater;
     private List<Contact> mContacts; // Cached copy of words
 
-    public ContactListAdapter(ContactActivity context) {
+    public ContactListAdapter(MainContactActivity context) {
         mInflater = LayoutInflater.from(context);
         mContext = context;
     }

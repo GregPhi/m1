@@ -6,7 +6,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.projetcontact.ContactActivity;
 import com.example.projetcontact.InfoGroupActivity;
 import com.example.projetcontact.R;
 import com.example.projetcontact.objet.Contact;
@@ -57,7 +56,7 @@ public class CtcListAdapter extends RecyclerView.Adapter<CtcListAdapter.ContactV
             holder.nomItemView.setText(current.getNom());
             holder.prenomItemView.setText(current.getPrenom());
             holder.ageItemView.setText(current.getAge());
-            /*holder.bD.setOnClickListener(new View.OnClickListener(){
+            holder.bD.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View view){
                     contextContact.removeContact(current);
@@ -68,7 +67,7 @@ public class CtcListAdapter extends RecyclerView.Adapter<CtcListAdapter.ContactV
                 public void onClick(View view){
                     contextContact.infosContact(current);
                 }
-            });*/
+            });
         } else {
             // Covers the case of data not being ready yet.
             holder.nomItemView.setText("Nom");

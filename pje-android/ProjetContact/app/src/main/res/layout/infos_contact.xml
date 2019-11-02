@@ -171,6 +171,12 @@
                     grp:context=".InfoContactActivity"
                     grp:listitem="@layout/recyclerview_group_item" />
 
+                <Button
+                    android:id="@+id/button_add_group"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ajout_group_dans_contact" />
+
             </LinearLayout>
 
             <Space

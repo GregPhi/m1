@@ -16,12 +16,13 @@
         <activity android:name=".NewGroupActivity"></activity>
         <activity android:name=".InfoGroupActivity"></activity>
         <activity android:name=".NewContactInGroup"></activity>
+        <activity android:name=".NewGroupInContact"></activity>
         <activity
             android:name=".GroupActivity"
             android:label="@string/grp">
         </activity>
         <activity
-            android:name=".ContactActivity"
+            android:name=".MainContactActivity"
             android:label="@string/cct"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

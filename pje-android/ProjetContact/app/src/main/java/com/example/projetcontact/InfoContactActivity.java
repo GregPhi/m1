@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.example.projetcontact.objet.Address;
 import com.example.projetcontact.objet.Contact;
+import com.example.projetcontact.objet.ContactGroup;
 import com.example.projetcontact.objet.Groups;
 import com.example.projetcontact.objet.Numero;
 import com.example.projetcontact.view.contactgroup.ContactGroupViewModel;
@@ -39,6 +40,8 @@ public class InfoContactActivity extends AppCompatActivity {
     public static final int UPDATE_ACTIVITY_REQUEST_CODE = 2;
     public static Numero updateNumero;
 
+    public static final int NEW_GROUP_TO_CONTACT_ACTIVITY_REQUEST_CODE = 666;
+
     private EditText mEditNomView;
     private EditText mEditPrenomView;
     private EditText mEditAgeView;
@@ -57,7 +60,8 @@ public class InfoContactActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.infos_contact);
-        final Contact current = ContactActivity.updateContact;
+        final Contact current = MainContactActivity.updateContact;
+        final Intent intent = getIntent();
         nom = current.getNom();
         prenom = current.getPrenom();
         age = current.getAge();
@@ -88,7 +92,7 @@ public class InfoContactActivity extends AppCompatActivity {
         recyclerViewNum.setAdapter(adapterNum);
         recyclerViewNum.setLayoutManager(new LinearLayoutManager(this));
 
-        mNumeroViewModel = ContactActivity.mNumeroViewModel;
+        mNumeroViewModel = MainContactActivity.mNumeroViewModel;
         mNumeroViewModel.getAllNumeroForAContact(current).observe(this, new Observer<List<Numero>>() {
             @Override
             public void onChanged(@Nullable final List<Numero> numeros) {
@@ -138,10 +142,10 @@ public class InfoContactActivity extends AppCompatActivity {
                 if(!TextUtils.isEmpty(mEditAgeView.getText())){
                     age = mEditAgeView.getText().toString();
                 }
-                ContactActivity.updateContact.setNom(nom);
-                ContactActivity.updateContact.setPrenom(prenom);
-                ContactActivity.updateContact.setAge(age);
-                ContactActivity.updateContact.setAddr(adr);
+                MainContactActivity.updateContact.setNom(nom);
+                MainContactActivity.updateContact.setPrenom(prenom);
+                MainContactActivity.updateContact.setAge(age);
+                MainContactActivity.updateContact.setAddr(adr);
                 setResult(RESULT_OK, reply);
                 finish();
             }
@@ -155,6 +159,14 @@ public class InfoContactActivity extends AppCompatActivity {
                 startActivityForResult(intent, NEW_NUMERO_TO_CONTACT_ACTIVITY_REQUEST_CODE);
             }
         });
+
+        final Button nG = findViewById(R.id.button_add_group);
+        nG.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent intent = new Intent(InfoContactActivity.this, NewGroupInContact.class);
+                startActivityForResult(intent, NEW_GROUP_TO_CONTACT_ACTIVITY_REQUEST_CODE);
+            }
+        });
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -163,6 +175,12 @@ public class InfoContactActivity extends AppCompatActivity {
             mNumeroViewModel.insert(newNumero);
         }if (requestCode == UPDATE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK){
             mNumeroViewModel.insert(updateNumero);
+        }if (requestCode == NEW_GROUP_TO_CONTACT_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK){
+            Groups groups = data.getParcelableExtra("Groups");
+            int id = data.getIntExtra("Id",0);
+            groups.setId(id);
+            ContactGroup cg = new ContactGroup(MainContactActivity.updateContact.getId(),groups.getId());
+            mJoinViewModel.insert(cg);
         } if ( requestCode == NEW_NUMERO_TO_CONTACT_ACTIVITY_REQUEST_CODE && resultCode == RETOUR_INFO_ACTIVITY_REQUEST_CODE){
         } else {
             Toast.makeText(
@@ -174,6 +192,11 @@ public class InfoContactActivity extends AppCompatActivity {
 
     public void removeNumero(Numero numero){
         mNumeroViewModel.delete(numero);
+    }
+
+    public void removeGroup(Groups groups){
+        ContactGroup cg = new ContactGroup(MainContactActivity.updateContact.getId(),groups.getId());
+        mJoinViewModel.delete(cg);
     }
 
     public void infosNumero(Numero numero){

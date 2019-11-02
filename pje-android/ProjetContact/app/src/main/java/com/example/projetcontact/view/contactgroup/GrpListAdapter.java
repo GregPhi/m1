@@ -19,15 +19,12 @@ public class GrpListAdapter extends RecyclerView.Adapter<GrpListAdapter.GroupVie
     class GroupViewHolder extends RecyclerView.ViewHolder {
         private final TextView nomItemView;
         private final Button bD;
-        private final Button bI;
 
         private GroupViewHolder(final View itemView) {
             super(itemView);
             nomItemView = itemView.findViewById(R.id.nom);
             bD = itemView.findViewById(R.id.delete);
             bD.setActivated(true);
-            bI = itemView.findViewById(R.id.infos);
-            bI.setActivated(true);
         }
     }
 
@@ -51,18 +48,12 @@ public class GrpListAdapter extends RecyclerView.Adapter<GrpListAdapter.GroupVie
         if (mAllGroups != null) {
             final Groups current = mAllGroups.get(position);
             holder.nomItemView.setText(current.getNom());
-            /*holder.bD.setOnClickListener(new View.OnClickListener(){
+            holder.bD.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View view){
                     contextGroup.removeGroup(current);
                 }
             });
-            holder.bI.setOnClickListener(new View.OnClickListener(){
-                @Override
-                public void onClick(View view){
-                    contextGroup.infoGroup(current);
-                }
-            });*/
         } else {
             // Covers the case of data not being ready yet.
             holder.nomItemView.setText("Nom");

@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.example.projetcontact.objet.Contact;
 import com.example.projetcontact.objet.ContactGroup;
 import com.example.projetcontact.objet.Groups;
+import com.example.projetcontact.view.contact.ContactViewModel;
 import com.example.projetcontact.view.contactgroup.ContactGroupViewModel;
 import com.example.projetcontact.view.contactgroup.CtcListAdapter;
 
@@ -25,9 +26,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class InfoGroupActivity extends AppCompatActivity {
     public static ContactGroupViewModel mJoinViewModel;
+    public static ContactViewModel mContactViewModel;
     private static Groups current;
 
     public static final int NEW_CONTACT_IN_GROUP_ACTIVITY_REQUEST_CODE = 666;
+    public static final int UPDATE_ACTIVITY_REQUEST_CODE = 2;
 
     private EditText mEditGroupView;
     private String nom = "";
@@ -45,6 +48,8 @@ public class InfoGroupActivity extends AppCompatActivity {
         final CtcListAdapter adapter = new CtcListAdapter(this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        mContactViewModel = ViewModelProviders.of(this).get(ContactViewModel.class);
 
         mJoinViewModel = ViewModelProviders.of(this).get(ContactGroupViewModel.class);
         mJoinViewModel.getContactsForGroup(current.getId()).observe(this, new Observer<List<Contact>>() {
@@ -92,17 +97,30 @@ public class InfoGroupActivity extends AppCompatActivity {
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Contact contact = data.getParcelableExtra("Contact");
-        int id = data.getIntExtra("Id",0);
-        contact.setId(id);
         if (requestCode == NEW_CONTACT_IN_GROUP_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK){
+            Contact contact = data.getParcelableExtra("Contact");
+            int id = data.getIntExtra("Id",0);
+            contact.setId(id);
             ContactGroup cg = new ContactGroup(contact.getId(),current.getId());
             mJoinViewModel.insert(cg);
+        } if (requestCode == UPDATE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK){
+            mContactViewModel.insert(MainContactActivity.updateContact);
         } else {
             Toast.makeText(
                     getApplicationContext(),
                     R.string.contact_group_not_saved,
                     Toast.LENGTH_LONG).show();
         }
+    }
+
+    public void infosContact(Contact contact){
+        Intent intent = new Intent(this,InfoContactActivity.class);
+        MainContactActivity.updateContact = contact;
+        startActivityForResult(intent, UPDATE_ACTIVITY_REQUEST_CODE);
+    }
+
+    public void removeContact(Contact contact){
+        ContactGroup cg = new ContactGroup(contact.getId(),current.getId());
+        mJoinViewModel.delete(cg);
     }
 }

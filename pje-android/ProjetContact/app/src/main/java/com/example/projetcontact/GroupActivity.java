@@ -3,11 +3,9 @@ package com.example.projetcontact;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.example.projetcontact.objet.Contact;
 import com.example.projetcontact.objet.Groups;
 import com.example.projetcontact.view.contactgroup.ContactGroupViewModel;
 import com.example.projetcontact.view.group.GroupListAdapter;
-import com.example.projetcontact.view.group.GroupRepository;
 import com.example.projetcontact.view.group.GroupViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -21,7 +19,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
 import android.widget.Toast;
 
 import java.util.List;
@@ -86,7 +83,7 @@ public class GroupActivity extends AppCompatActivity {
             case R.id.action_settings:
                 return true;
             case R.id.action_contact:
-                Intent intent = new Intent(GroupActivity.this, ContactActivity.class);
+                Intent intent = new Intent(GroupActivity.this, MainContactActivity.class);
                 startActivity(intent);
                 return true;
             default:
