@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:PapyrusJava="http://www.eclipse.org/papyrus/PapyrusJava/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <uml:Model xmi:id="_AOAvIPZmEemui-T0p80qcA" name="Info_num">
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_AOrdgPZmEemui-T0p80qcA">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Package" xmi:id="_2Ph3UPZmEemui-T0p80qcA" name="generated"/>
+    <packagedElement xmi:type="uml:Package" xmi:id="_5IEKsPZmEemui-T0p80qcA" name="pje3">
+      <packagedElement xmi:type="uml:Package" xmi:id="_5IFY0PZmEemui-T0p80qcA" name="com">
+        <packagedElement xmi:type="uml:Package" xmi:id="_5IF_4PZmEemui-T0p80qcA" name="example">
+          <packagedElement xmi:type="uml:Package" xmi:id="_5IF_4fZmEemui-T0p80qcA" name="projetcontact">
+            <packagedElement xmi:type="uml:Class" xmi:id="_5IF_4vZmEemui-T0p80qcA" name="InfoNumeroActivity" visibility="public">
+              <generalization xmi:type="uml:Generalization" xmi:id="_5KE84PZmEemui-T0p80qcA" general="_5IGm8_ZmEemui-T0p80qcA"/>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_5KGyEPZmEemui-T0p80qcA" name="mEditCategorieView" visibility="private" type="_5KE84_ZmEemui-T0p80qcA" isUnique="false"/>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_5KIAMfZmEemui-T0p80qcA" name="numero" visibility="private" type="_5KGyFPZmEemui-T0p80qcA" isUnique="false">
+                <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_5KIAMvZmEemui-T0p80qcA" name="defaultValue">
+                  <language>JAVA</language>
+                  <body>&quot;&quot;</body>
+                </defaultValue>
+              </ownedAttribute>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_5KIAM_ZmEemui-T0p80qcA" name="categorie" visibility="private" type="_5KGyFPZmEemui-T0p80qcA" isUnique="false">
+                <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_5KIANPZmEemui-T0p80qcA" name="defaultValue">
+                  <language>JAVA</language>
+                  <body>&quot;&quot;</body>
+                </defaultValue>
+              </ownedAttribute>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_5KJ1YPZmEemui-T0p80qcA" name="onCreate" specification="_5KJOUfZmEemui-T0p80qcA">
+                <language>JAVA</language>
+                <body>
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.infos_numero);
+    final Numero current = InfoContactActivity.updateNumero;
+    numero = current.getNumero();
+    categorie = current.getCategorie();
+    mEditNumeroView = findViewById(R.id.info_numero);
+    mEditNumeroView.setText(numero);
+    mEditCategorieView = findViewById(R.id.info_cat);
+    mEditCategorieView.setText(categorie);
+    final Button button = findViewById(R.id.button_save);
+    button.setOnClickListener(new View.OnClickListener() {
+
+        @Override
+        public void onClick(View v) {
+            Intent reply = new Intent();
+            if (!TextUtils.isEmpty(mEditNumeroView.getText())) {
+                numero = mEditNumeroView.getText().toString();
+            }
+            if (!TextUtils.isEmpty(mEditCategorieView.getText())) {
+                categorie = mEditCategorieView.getText().toString();
+            }
+            InfoContactActivity.updateNumero.setNumero(numero);
+            InfoContactActivity.updateNumero.setCategorie(categorie);
+            setResult(RESULT_OK, reply);
+            finish();
+        }
+    });
+</body>
+              </ownedBehavior>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_5KJOUfZmEemui-T0p80qcA" name="onCreate" visibility="protected" method="_5KJ1YPZmEemui-T0p80qcA">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_5KJOUvZmEemui-T0p80qcA" name="savedInstanceState" type="_5KIANvZmEemui-T0p80qcA"/>
+              </ownedOperation>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Package" xmi:id="_7HY-IPZmEemui-T0p80qcA" name="view">
+              <packagedElement xmi:type="uml:Package" xmi:id="_7HZlMPZmEemui-T0p80qcA" name="numero">
+                <packagedElement xmi:type="uml:Class" xmi:id="_7ICeYfZmEemui-T0p80qcA" name="Void"/>
+              </packagedElement>
+            </packagedElement>
+          </packagedElement>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_5IF_4_ZmEemui-T0p80qcA" name="importedTypes">
+      <packagedElement xmi:type="uml:Package" xmi:id="_5IGm8PZmEemui-T0p80qcA" name="androidx">
+        <packagedElement xmi:type="uml:Package" xmi:id="_5IGm8fZmEemui-T0p80qcA" name="appcompat">
+          <packagedElement xmi:type="uml:Package" xmi:id="_5IGm8vZmEemui-T0p80qcA" name="app">
+            <packagedElement xmi:type="uml:Class" xmi:id="_5IGm8_ZmEemui-T0p80qcA" name="AppCompatActivity"/>
+          </packagedElement>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_7H3fQfZmEemui-T0p80qcA" name="lifecycle">
+          <packagedElement xmi:type="uml:Class" xmi:id="_7H3fQvZmEemui-T0p80qcA" name="LiveData"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_7IZqwfZmEemui-T0p80qcA" name="AndroidViewModel"/>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_5KE84fZmEemui-T0p80qcA" name="android">
+        <packagedElement xmi:type="uml:Package" xmi:id="_5KE84vZmEemui-T0p80qcA" name="widget">
+          <packagedElement xmi:type="uml:Class" xmi:id="_5KE84_ZmEemui-T0p80qcA" name="EditText"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_7Hd2oPZmEemui-T0p80qcA" name="TextView"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_7Heds_ZmEemui-T0p80qcA" name="Button"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_5KIANfZmEemui-T0p80qcA" name="os">
+          <packagedElement xmi:type="uml:Class" xmi:id="_5KIANvZmEemui-T0p80qcA" name="Bundle"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_7H-M8PZmEemui-T0p80qcA" name="AsyncTask"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_7Hfr0_ZmEemui-T0p80qcA" name="view">
+          <packagedElement xmi:type="uml:Class" xmi:id="_7Hfr1PZmEemui-T0p80qcA" name="View"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_7HnAkvZmEemui-T0p80qcA" name="LayoutInflater"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_7Hr5EPZmEemui-T0p80qcA" name="ViewGroup"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_7H5Uc_ZmEemui-T0p80qcA" name="app">
+          <packagedElement xmi:type="uml:Class" xmi:id="_7H5UdPZmEemui-T0p80qcA" name="Application"/>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_7HaMQPZmEemui-T0p80qcA" name="RecyclerView">
+        <packagedElement xmi:type="uml:Class" xmi:id="_7HaMQfZmEemui-T0p80qcA" name="Adapter"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_7HcogvZmEemui-T0p80qcA" name="ViewHolder"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_7HlycPZmEemui-T0p80qcA" name="com">
+        <packagedElement xmi:type="uml:Package" xmi:id="_7HlycfZmEemui-T0p80qcA" name="example">
+          <packagedElement xmi:type="uml:Package" xmi:id="_7HlycvZmEemui-T0p80qcA" name="projetcontact">
+            <packagedElement xmi:type="uml:Class" xmi:id="_7Hlyc_ZmEemui-T0p80qcA" name="InfoContactActivity"/>
+            <packagedElement xmi:type="uml:Package" xmi:id="_7HoOsPZmEemui-T0p80qcA" name="objet">
+              <packagedElement xmi:type="uml:Class" xmi:id="_7HoOsfZmEemui-T0p80qcA" name="Numero"/>
+              <packagedElement xmi:type="uml:Class" xmi:id="_7H7JpfZmEemui-T0p80qcA" name="Contact"/>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Package" xmi:id="_7H4tYPZmEemui-T0p80qcA" name="dao">
+              <packagedElement xmi:type="uml:Class" xmi:id="_7H4tYfZmEemui-T0p80qcA" name="NumeroDao"/>
+            </packagedElement>
+          </packagedElement>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_5KGyEfZmEemui-T0p80qcA" name="java">
+      <packagedElement xmi:type="uml:Package" xmi:id="_5KGyEvZmEemui-T0p80qcA" name="java">
+        <packagedElement xmi:type="uml:Package" xmi:id="_5KGyE_ZmEemui-T0p80qcA" name="lang">
+          <packagedElement xmi:type="uml:Class" xmi:id="_5KGyFPZmEemui-T0p80qcA" name="String"/>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_2P8uEPZmEemui-T0p80qcA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2P8uEfZmEemui-T0p80qcA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/PapyrusJava/1#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://PapyrusJava_PROFILES/PapyrusJava.profile.uml#_j9REUByGEduN1bTiWJ0lyw"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_2QHtMPZmEemui-T0p80qcA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2QHtMfZmEemui-T0p80qcA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/Codegen/1#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://Codegen_PROFILES/Codegen.profile.uml#_fPDsIBa-EearhdjjJ6cVzQ"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_2QNz0PZmEemui-T0p80qcA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2QNz0fZmEemui-T0p80qcA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+  </uml:Model>
+  <PapyrusJava:External xmi:id="_5KDHsPZmEemui-T0p80qcA" name="androidx.appcompat.app.AppCompatActivity" base_Classifier="_5IGm8_ZmEemui-T0p80qcA"/>
+  <PapyrusJava:External xmi:id="_5KGLAPZmEemui-T0p80qcA" name="android.widget.EditText" base_Classifier="_5KE84_ZmEemui-T0p80qcA"/>
+  <PapyrusJava:External xmi:id="_5KIAMPZmEemui-T0p80qcA" name="java.lang.String" base_Classifier="_5KGyFPZmEemui-T0p80qcA"/>
+  <PapyrusJava:External xmi:id="_5KJOUPZmEemui-T0p80qcA" name="android.os.Bundle" base_Classifier="_5KIANvZmEemui-T0p80qcA"/>
+  <PapyrusJava:External xmi:id="_7HazUPZmEemui-T0p80qcA" name="RecyclerView.Adapter" base_Classifier="_7HaMQfZmEemui-T0p80qcA"/>
+  <PapyrusJava:External xmi:id="_7HdPkPZmEemui-T0p80qcA" name="RecyclerView.ViewHolder" base_Classifier="_7HcogvZmEemui-T0p80qcA"/>
+  <PapyrusJava:External xmi:id="_7HedsPZmEemui-T0p80qcA" name="android.widget.TextView" base_Classifier="_7Hd2oPZmEemui-T0p80qcA"/>
+  <PapyrusJava:External xmi:id="_7Hfr0PZmEemui-T0p80qcA" name="android.widget.Button" base_Classifier="_7Heds_ZmEemui-T0p80qcA"/>
+  <PapyrusJava:External xmi:id="_7Hg58PZmEemui-T0p80qcA" name="android.view.View" base_Classifier="_7Hfr1PZmEemui-T0p80qcA"/>
+  <PapyrusJava:External xmi:id="_7HnAkPZmEemui-T0p80qcA" name="com.example.projetcontact.InfoContactActivity" base_Classifier="_7Hlyc_ZmEemui-T0p80qcA"/>
+  <PapyrusJava:External xmi:id="_7HnnoPZmEemui-T0p80qcA" name="android.view.LayoutInflater" base_Classifier="_7HnAkvZmEemui-T0p80qcA"/>
+  <PapyrusJava:External xmi:id="_7Ho1wPZmEemui-T0p80qcA" name="com.example.projetcontact.objet.Numero" base_Classifier="_7HoOsfZmEemui-T0p80qcA"/>
+  <PapyrusJava:External xmi:id="_7HtHMPZmEemui-T0p80qcA" name="android.view.ViewGroup" base_Classifier="_7Hr5EPZmEemui-T0p80qcA"/>
+  <PapyrusJava:External xmi:id="_7H4GUPZmEemui-T0p80qcA" name="androidx.lifecycle.LiveData" base_Classifier="_7H3fQvZmEemui-T0p80qcA"/>
+  <PapyrusJava:External xmi:id="_7H5UcPZmEemui-T0p80qcA" name="com.example.projetcontact.dao.NumeroDao" base_Classifier="_7H4tYfZmEemui-T0p80qcA"/>
+  <PapyrusJava:External xmi:id="_7H57gPZmEemui-T0p80qcA" name="android.app.Application" base_Classifier="_7H5UdPZmEemui-T0p80qcA"/>
+  <PapyrusJava:External xmi:id="_7H7wsPZmEemui-T0p80qcA" name="com.example.projetcontact.objet.Contact" base_Classifier="_7H7JpfZmEemui-T0p80qcA"/>
+  <PapyrusJava:External xmi:id="_7H_bEPZmEemui-T0p80qcA" name="android.os.AsyncTask" base_Classifier="_7H-M8PZmEemui-T0p80qcA"/>
+  <PapyrusJava:External xmi:id="_7IDFcPZmEemui-T0p80qcA" name="Void" base_Classifier="_7ICeYfZmEemui-T0p80qcA"/>
+  <PapyrusJava:External xmi:id="_7Ia44PZmEemui-T0p80qcA" name="androidx.lifecycle.AndroidViewModel" base_Classifier="_7IZqwfZmEemui-T0p80qcA"/>
+</xmi:XMI>
