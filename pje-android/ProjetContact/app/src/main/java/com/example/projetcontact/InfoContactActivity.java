@@ -61,7 +61,6 @@ public class InfoContactActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.infos_contact);
         final Contact current = MainContactActivity.updateContact;
-        final Intent intent = getIntent();
         nom = current.getNom();
         prenom = current.getPrenom();
         age = current.getAge();

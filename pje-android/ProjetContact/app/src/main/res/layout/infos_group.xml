@@ -56,10 +56,4 @@
         android:text="@string/button_save"
         android:textColor="@color/buttonLabel" />
 
-    <Button
-        android:id="@+id/retour_main_group"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/main" />
-
 </LinearLayout>

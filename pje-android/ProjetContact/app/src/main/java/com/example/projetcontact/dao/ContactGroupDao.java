@@ -28,6 +28,12 @@ public interface ContactGroupDao {
     @Query("Select * from contact_group_table")
     List<ContactGroup> getAllContactGroup();
 
+    @Query("Select * from contact_group_table WHERE contactId =:cId")
+    List<ContactGroup> getListGroupsForContact(final int cId);
+
+    @Query("Select * from contact_group_table WHERE groupId =:gId")
+    List<ContactGroup> getListContactsForGroup(final int gId);
+
     @Query("SELECT * from contact_table "+
            "INNER JOIN contact_group_table "+
            "ON contact_table.id=contact_group_table.contactId "+

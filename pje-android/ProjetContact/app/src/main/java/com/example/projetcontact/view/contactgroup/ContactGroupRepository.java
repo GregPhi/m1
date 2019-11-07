@@ -40,14 +40,22 @@ public class ContactGroupRepository {
         return mAllGroups;
     }
 
+    List<ContactGroup> getListGroupsForContact(final int cId) {
+        return mDao.getListGroupsForContact(cId);
+    }
+
+    List<ContactGroup> getListContactsForGroup(final int gId) {
+        return mDao.getListContactsForGroup(gId);
+    }
+
     public void deleteGroupsJoinForContact(Contact contact){
-        List<ContactGroup> groupsJ = getmAllContactGroup();
-        new deleteGpJFContAsyncTask(mDao,contact,groupsJ).execute();
+        List<ContactGroup> groupsJ = getListGroupsForContact(contact.getId());
+        new deleteGpJFContAsyncTask(mDao,groupsJ).execute();
     }
 
     public void deleteContactsJoinForGroup(Groups groups){
-        List<ContactGroup> groupsJ = getmAllContactGroup();
-        new deleteCtJFGpAsyncTask(mDao,groups,groupsJ).execute();
+        List<ContactGroup> groupsJ = getListContactsForGroup(groups.getId());
+        new deleteCtJFGpAsyncTask(mDao,groupsJ).execute();
     }
 
     public void insert (ContactGroup ctgrp) { new ContactGroupRepository.insertAsyncTask(mDao).execute(ctgrp); }
@@ -86,53 +94,37 @@ public class ContactGroupRepository {
 
     private static class deleteGpJFContAsyncTask extends AsyncTask<Void, Void, Void>{
         private ContactGroupDao mAsyncTaskDao;
-        private Contact contact;
         private List<ContactGroup> groupsJ;
 
-        deleteGpJFContAsyncTask(ContactGroupDao dao, Contact c, List<ContactGroup> n) {
+        deleteGpJFContAsyncTask(ContactGroupDao dao, List<ContactGroup> n) {
             mAsyncTaskDao = dao;
-            contact = c;
             groupsJ = n;
         }
 
         @Override
         protected Void doInBackground(final Void... params){
-            this.del();
-            return null;
-        }
-
-        protected void del() {
             for(ContactGroup n : groupsJ){
-                if(n.getContactId() == contact.getId()){
-                    mAsyncTaskDao.delete(n);
-                }
+                new ContactGroupRepository.deleteAsyncTask(mAsyncTaskDao).execute(n);
             }
+            return null;
         }
     }
 
     private static class deleteCtJFGpAsyncTask extends AsyncTask<Void, Void, Void>{
         private ContactGroupDao mAsyncTaskDao;
-        private Groups groups;
         private List<ContactGroup> groupsJ;
 
-        deleteCtJFGpAsyncTask(ContactGroupDao dao, Groups c, List<ContactGroup> n) {
+        deleteCtJFGpAsyncTask(ContactGroupDao dao, List<ContactGroup> n) {
             mAsyncTaskDao = dao;
-            groups = c;
             groupsJ = n;
         }
 
         @Override
         protected Void doInBackground(final Void... params){
-            this.del();
-            return null;
-        }
-
-        protected void del() {
             for(ContactGroup n : groupsJ){
-                if(n.getGroupId() == groups.getId()){
-                    mAsyncTaskDao.delete(n);
-                }
+                new ContactGroupRepository.deleteAsyncTask(mAsyncTaskDao).execute(n);
             }
+            return null;
         }
     }
 }

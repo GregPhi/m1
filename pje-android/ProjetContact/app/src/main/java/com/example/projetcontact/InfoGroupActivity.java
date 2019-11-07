@@ -74,17 +74,6 @@ public class InfoGroupActivity extends AppCompatActivity {
             }
         });
 
-        final Button bM = findViewById(R.id.retour_main_group);
-        bM.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent reply = new Intent();
-                setResult(GroupActivity.RETOUR_MAIN_ACTIVITY_REQUEST_CODE, reply);
-                finish();
-            }
-        });
-
-
         final Button bN = findViewById(R.id.button_new_numero);
         bN.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -10,7 +10,7 @@ import com.example.projetcontact.objet.Groups;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class NewGroupActivity extends AppCompatActivity {
-    public static final int RETOUR_INFO_ACTIVITY_REQUEST_CODE = 42;
+    public static final int RETOUR_MAIN_ACTIVITY_REQUEST_CODE = 42;
 
     private Groups newGroup = new Groups();
 
@@ -46,7 +46,7 @@ public class NewGroupActivity extends AppCompatActivity {
         buttonR.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent reply = new Intent();
-                setResult(RETOUR_INFO_ACTIVITY_REQUEST_CODE, reply);
+                setResult(RETOUR_MAIN_ACTIVITY_REQUEST_CODE, reply);
                 finish();
             }
         });

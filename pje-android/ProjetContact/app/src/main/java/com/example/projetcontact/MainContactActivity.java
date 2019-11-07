@@ -102,7 +102,7 @@ public class MainContactActivity extends AppCompatActivity {
         if (requestCode == NEW_CONTACT_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
             newContact(data);
         }  if (requestCode == UPDATE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK){
-            mContactViewModel.insert(MainContactActivity.updateContact);
+            mContactViewModel.insert(updateContact);
         }  if ( requestCode == NEW_CONTACT_ACTIVITY_REQUEST_CODE && resultCode == RETOUR_MAIN_ACTIVITY_REQUEST_CODE){
         } else {
             Toast.makeText(
@@ -131,10 +131,7 @@ public class MainContactActivity extends AppCompatActivity {
 
     public void removeContact(Contact contact){
         mCtGrpViewModel.deleteGroupsJoinForContact(contact);
-        System.out.println("Suppr groups");
         mNumeroViewModel.deleteNumerosForAContact(contact);
-        System.out.println("Suppr nums");
         mContactViewModel.delete(contact);
-        System.out.println("Suppr contact");
     }
 }

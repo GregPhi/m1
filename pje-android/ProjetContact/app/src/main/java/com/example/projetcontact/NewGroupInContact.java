@@ -39,7 +39,6 @@ public class NewGroupInContact extends AppCompatActivity {
     }
 
     public void addGroup(int id, Groups groups){
-        System.out.println("addGroup id : "+id);
         Intent intent = new Intent(NewGroupInContact.this, InfoContactActivity.class);
         intent.putExtra("Id",id);
         intent.putExtra("Groups",groups);

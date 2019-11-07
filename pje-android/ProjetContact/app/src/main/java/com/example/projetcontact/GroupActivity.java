@@ -38,9 +38,7 @@ public class GroupActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_group);
-        /*Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-*/
+
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,17 +91,18 @@ public class GroupActivity extends AppCompatActivity {
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Groups groups = data.getParcelableExtra("Group");
-        if (requestCode == NEW_GROUP_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
-            mGroupViewModel.insert(groups);
-        } if (requestCode == UPDATE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK){
-            mGroupViewModel.insert(updateGroup);
-        } if ( requestCode == NEW_GROUP_ACTIVITY_REQUEST_CODE && resultCode == RETOUR_MAIN_ACTIVITY_REQUEST_CODE) {
-        } else {
+        if(resultCode == RESULT_CANCELED){
             Toast.makeText(
                     getApplicationContext(),
                     R.string.group_not_saved,
                     Toast.LENGTH_LONG).show();
+        }
+        if (requestCode == NEW_GROUP_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
+            Groups groups = data.getParcelableExtra("Group");
+            mGroupViewModel.insert(groups);
+        } if (requestCode == UPDATE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK){
+            mGroupViewModel.insert(updateGroup);
+        } if ( requestCode == NEW_GROUP_ACTIVITY_REQUEST_CODE && resultCode == RETOUR_MAIN_ACTIVITY_REQUEST_CODE) {
         }
     }
 
@@ -113,8 +112,12 @@ public class GroupActivity extends AppCompatActivity {
         startActivityForResult(intent, UPDATE_ACTIVITY_REQUEST_CODE);
     }
 
+    public void removeContactGroups(Groups g){
+        mCtGrpViewModel.deleteContactsJoinForGroup(g);
+    }
+
     public void removeGroup(Groups group){
-        mCtGrpViewModel.deleteContactsJoinForGroup(group);
+        removeContactGroups(group);
         mGroupViewModel.delete(group);
     }
 }
