@@ -1,0 +1,561 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:PapyrusJava="http://www.eclipse.org/papyrus/PapyrusJava/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:standard="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <uml:Model xmi:id="_5QfjYPZlEemui-T0p80qcA" name="Group_Activity" visibility="public">
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_5RGAUPZlEemui-T0p80qcA">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Package" xmi:id="_NRAHgPZqEemui-T0p80qcA" name="pje3">
+      <packagedElement xmi:type="uml:Package" xmi:id="_NRkIMPZqEemui-T0p80qcA" name="com">
+        <packagedElement xmi:type="uml:Package" xmi:id="_NRkIMfZqEemui-T0p80qcA" name="example">
+          <packagedElement xmi:type="uml:Package" xmi:id="_NRkIMvZqEemui-T0p80qcA" name="projetcontact">
+            <packagedElement xmi:type="uml:Package" xmi:id="_QY-lEPZqEemui-T0p80qcA" name="view">
+              <packagedElement xmi:type="uml:Package" xmi:id="_QY_MIPZqEemui-T0p80qcA" name="group">
+                <packagedElement xmi:type="uml:Class" xmi:id="_UPvbQ_ZqEemui-T0p80qcA" name="Void"/>
+                <packagedElement xmi:type="uml:Class" xmi:id="__E1iMP_JEemRUMqFygz9LA" name="GroupRepository" visibility="public">
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="__E2JQP_JEemRUMqFygz9LA" name="mGroupDao" visibility="private" type="_UPmRUfZqEemui-T0p80qcA" isUnique="false"/>
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="__E2JQf_JEemRUMqFygz9LA" name="mAllGroups" visibility="private" type="_QZDdkvZqEemui-T0p80qcA" isUnique="false"/>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__E3-cf_JEemRUMqFygz9LA" name="GroupRepository" specification="__E2wUP_JEemRUMqFygz9LA">
+                    <language>JAVA</language>
+                    <body>
+    ContactRoomDatabase db = ContactRoomDatabase.getDatabase(application);
+    mGroupDao = db.groupDao();
+    mAllGroups = mGroupDao.getAllGroups();
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__E4lgf_JEemRUMqFygz9LA" name="getAllGroups" specification="__E3-cv_JEemRUMqFygz9LA">
+                    <language>JAVA</language>
+                    <body>
+    return mAllGroups;
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__E5MkP_JEemRUMqFygz9LA" name="insert" specification="__E4lgv_JEemRUMqFygz9LA">
+                    <language>JAVA</language>
+                    <body>
+    new GroupRepository.insertAsyncTask(mGroupDao).execute(groups);
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__E5Mk__JEemRUMqFygz9LA" name="delete" specification="__E5Mkf_JEemRUMqFygz9LA">
+                    <language>JAVA</language>
+                    <body>
+    new GroupRepository.deleteAsyncTask(mGroupDao).execute(groups);
+</body>
+                  </ownedBehavior>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="__E2wUP_JEemRUMqFygz9LA" name="GroupRepository" visibility="private" method="__E3-cf_JEemRUMqFygz9LA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="__E3-cP_JEemRUMqFygz9LA" name="application" type="_QZEEo_ZqEemui-T0p80qcA"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="__E3-cv_JEemRUMqFygz9LA" name="getAllGroups" visibility="private" method="__E4lgf_JEemRUMqFygz9LA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="__E4lgP_JEemRUMqFygz9LA" type="_QZDdkvZqEemui-T0p80qcA" direction="return"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="__E4lgv_JEemRUMqFygz9LA" name="insert" visibility="public" method="__E5MkP_JEemRUMqFygz9LA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="__E4lg__JEemRUMqFygz9LA" name="groups" type="_NS_EgfZqEemui-T0p80qcA"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="__E5Mkf_JEemRUMqFygz9LA" name="delete" visibility="public" method="__E5Mk__JEemRUMqFygz9LA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="__E5Mkv_JEemRUMqFygz9LA" name="groups" type="_NS_EgfZqEemui-T0p80qcA"/>
+                  </ownedOperation>
+                  <nestedClassifier xmi:type="uml:Class" xmi:id="__E5zoP_JEemRUMqFygz9LA" name="insertAsyncTask" visibility="private">
+                    <generalization xmi:type="uml:Generalization" xmi:id="__E5zof_JEemRUMqFygz9LA" general="_UPs_AvZqEemui-T0p80qcA"/>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="__E7BwP_JEemRUMqFygz9LA" name="mAsyncTaskDao" visibility="private" type="_UPmRUfZqEemui-T0p80qcA" isUnique="false"/>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__E9eAP_JEemRUMqFygz9LA" name="insertAsyncTask" specification="__E7Bwf_JEemRUMqFygz9LA">
+                      <language>JAVA</language>
+                      <body>
+    mAsyncTaskDao = dao;
+</body>
+                    </ownedBehavior>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__FAhUf_JEemRUMqFygz9LA" name="doInBackground" specification="__E-FEP_JEemRUMqFygz9LA">
+                      <language>JAVA</language>
+                      <body>
+    mAsyncTaskDao.insert(params[0]);
+    return null;
+</body>
+                    </ownedBehavior>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="__E7Bwf_JEemRUMqFygz9LA" name="insertAsyncTask" visibility="private" method="__E9eAP_JEemRUMqFygz9LA">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="__E828P_JEemRUMqFygz9LA" name="dao" type="_UPmRUfZqEemui-T0p80qcA"/>
+                    </ownedOperation>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="__E-FEP_JEemRUMqFygz9LA" name="doInBackground" visibility="protected" method="__FAhUf_JEemRUMqFygz9LA">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="__E-sIP_JEemRUMqFygz9LA" type="_UPvbQ_ZqEemui-T0p80qcA" direction="return"/>
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="__E-sIf_JEemRUMqFygz9LA" name="params" type="_NS_EgfZqEemui-T0p80qcA"/>
+                    </ownedOperation>
+                  </nestedClassifier>
+                  <nestedClassifier xmi:type="uml:Class" xmi:id="__FAhUv_JEemRUMqFygz9LA" name="deleteAsyncTask" visibility="private">
+                    <generalization xmi:type="uml:Generalization" xmi:id="__FBIYP_JEemRUMqFygz9LA" general="_UPs_AvZqEemui-T0p80qcA"/>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="__FBvcf_JEemRUMqFygz9LA" name="mAsyncTaskDao" visibility="private" type="_UPmRUfZqEemui-T0p80qcA" isUnique="false"/>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__FC9kv_JEemRUMqFygz9LA" name="deleteAsyncTask" specification="__FBvcv_JEemRUMqFygz9LA">
+                      <language>JAVA</language>
+                      <body>
+    mAsyncTaskDao = dao;
+</body>
+                    </ownedBehavior>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__FFZ0f_JEemRUMqFygz9LA" name="doInBackground" specification="__FDkoP_JEemRUMqFygz9LA">
+                      <language>JAVA</language>
+                      <body>
+    mAsyncTaskDao.delete(params[0]);
+    return null;
+</body>
+                    </ownedBehavior>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="__FBvcv_JEemRUMqFygz9LA" name="deleteAsyncTask" visibility="private" method="__FC9kv_JEemRUMqFygz9LA">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="__FC9kf_JEemRUMqFygz9LA" name="dao" type="_UPmRUfZqEemui-T0p80qcA"/>
+                    </ownedOperation>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="__FDkoP_JEemRUMqFygz9LA" name="doInBackground" visibility="protected" method="__FFZ0f_JEemRUMqFygz9LA">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="__FDkof_JEemRUMqFygz9LA" type="_UPvbQ_ZqEemui-T0p80qcA" direction="return"/>
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="__FDkov_JEemRUMqFygz9LA" name="params" type="_NS_EgfZqEemui-T0p80qcA"/>
+                    </ownedOperation>
+                  </nestedClassifier>
+                </packagedElement>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Package" xmi:id="_6j7i0P_JEemRUMqFygz9LA" name="contactgroup">
+                <packagedElement xmi:type="uml:Class" xmi:id="_6j8w8P_JEemRUMqFygz9LA" name="ContactGroupViewModel" visibility="public">
+                  <generalization xmi:type="uml:Generalization" xmi:id="_6kAbUP_JEemRUMqFygz9LA" general="_6j8w8f_JEemRUMqFygz9LA"/>
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="_6kCQgf_JEemRUMqFygz9LA" name="mRepository" visibility="private" type="_6kBCYP_JEemRUMqFygz9LA" isUnique="false"/>
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="_A7tkQv_KEemRUMqFygz9LA" name="mRepository" type="_6kBCYP_JEemRUMqFygz9LA" aggregation="composite" association="_A7s9MP_KEemRUMqFygz9LA"/>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_6kDeof_JEemRUMqFygz9LA" name="ContactGroupViewModel" specification="_6kCQgv_JEemRUMqFygz9LA">
+                    <language>JAVA</language>
+                    <body>
+    super(application);
+    mRepository = new ContactGroupRepository(application);
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_6kFT0f_JEemRUMqFygz9LA" name="insert" specification="_6kEswf_JEemRUMqFygz9LA">
+                    <language>JAVA</language>
+                    <body>
+    mRepository.insert(ctgrp);
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_6kF64f_JEemRUMqFygz9LA" name="delete" specification="_6kFT0v_JEemRUMqFygz9LA">
+                    <language>JAVA</language>
+                    <body>
+    mRepository.delete(ctgrp);
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_6kHJAf_JEemRUMqFygz9LA" name="getContactsForGroup" specification="_6kF64v_JEemRUMqFygz9LA">
+                    <language>JAVA</language>
+                    <body>
+    return mRepository.getContactsForGroup(gId);
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_6kIXIf_JEemRUMqFygz9LA" name="getGroupsForContact" specification="_6kHJAv_JEemRUMqFygz9LA">
+                    <language>JAVA</language>
+                    <body>
+    return mRepository.getGroupsForContact(cId);
+</body>
+                  </ownedBehavior>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_6kCQgv_JEemRUMqFygz9LA" name="ContactGroupViewModel" visibility="public" method="_6kDeof_JEemRUMqFygz9LA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_6kDeoP_JEemRUMqFygz9LA" name="application" type="_QZEEo_ZqEemui-T0p80qcA"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_6kEswf_JEemRUMqFygz9LA" name="insert" visibility="public" method="_6kFT0f_JEemRUMqFygz9LA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_6kFT0P_JEemRUMqFygz9LA" name="ctgrp" type="_6kEFsP_JEemRUMqFygz9LA"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_6kFT0v_JEemRUMqFygz9LA" name="delete" visibility="public" method="_6kF64f_JEemRUMqFygz9LA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_6kF64P_JEemRUMqFygz9LA" name="ctgrp" type="_6kEFsP_JEemRUMqFygz9LA"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_6kF64v_JEemRUMqFygz9LA" name="getContactsForGroup" visibility="public" method="_6kHJAf_JEemRUMqFygz9LA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_6kF64__JEemRUMqFygz9LA" type="_QZDdkvZqEemui-T0p80qcA" direction="return"/>
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_6kF65P_JEemRUMqFygz9LA" name="gId">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_6kHJAv_JEemRUMqFygz9LA" name="getGroupsForContact" visibility="public" method="_6kIXIf_JEemRUMqFygz9LA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_6kHJA__JEemRUMqFygz9LA" type="_QZDdkvZqEemui-T0p80qcA" direction="return"/>
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_6kHwEP_JEemRUMqFygz9LA" name="cId">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                </packagedElement>
+                <packagedElement xmi:type="uml:Class" xmi:id="_6kBCYP_JEemRUMqFygz9LA" name="ContactGroupRepository" visibility="public">
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="_9RTIAP_JEemRUMqFygz9LA" name="mDao" visibility="private" type="_9RR54P_JEemRUMqFygz9LA" isUnique="false"/>
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="_9RTvEP_JEemRUMqFygz9LA" name="mAllContacts" visibility="private" type="_QZDdkvZqEemui-T0p80qcA" isUnique="false"/>
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="_9RTvEf_JEemRUMqFygz9LA" name="mAllGroups" visibility="private" type="_QZDdkvZqEemui-T0p80qcA" isUnique="false"/>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_9RU9Mv_JEemRUMqFygz9LA" name="ContactGroupRepository" specification="_9RTvEv_JEemRUMqFygz9LA">
+                    <language>JAVA</language>
+                    <body>
+    ContactRoomDatabase db = ContactRoomDatabase.getDatabase(application);
+    mDao = db.contact_groupDao();
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_9RWyYf_JEemRUMqFygz9LA" name="getContactsForGroup" specification="_9RU9M__JEemRUMqFygz9LA">
+                    <language>JAVA</language>
+                    <body>
+    mAllContacts = mDao.getContactsForGroup(gId);
+    return mAllContacts;
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_9RYAgf_JEemRUMqFygz9LA" name="getGroupsForContact" specification="_9RWyYv_JEemRUMqFygz9LA">
+                    <language>JAVA</language>
+                    <body>
+    mAllGroups = mDao.getGroupsForContact(cId);
+    return mAllGroups;
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_9RYnkv_JEemRUMqFygz9LA" name="insert" specification="_9RYnkP_JEemRUMqFygz9LA">
+                    <language>JAVA</language>
+                    <body>
+    new ContactGroupRepository.insertAsyncTask(mDao).execute(ctgrp);
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_9RZOof_JEemRUMqFygz9LA" name="delete" specification="_9RYnk__JEemRUMqFygz9LA">
+                    <language>JAVA</language>
+                    <body>
+    new ContactGroupRepository.deleteAsyncTask(mDao).execute(ctgrp);
+</body>
+                  </ownedBehavior>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_9RTvEv_JEemRUMqFygz9LA" name="ContactGroupRepository" visibility="private" method="_9RU9Mv_JEemRUMqFygz9LA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_9RU9Mf_JEemRUMqFygz9LA" name="application" type="_QZEEo_ZqEemui-T0p80qcA"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_9RU9M__JEemRUMqFygz9LA" name="getContactsForGroup" visibility="private" method="_9RWyYf_JEemRUMqFygz9LA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_9RVkQP_JEemRUMqFygz9LA" type="_QZDdkvZqEemui-T0p80qcA" direction="return"/>
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_9RVkQf_JEemRUMqFygz9LA" name="gId">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_9RWyYv_JEemRUMqFygz9LA" name="getGroupsForContact" visibility="private" method="_9RYAgf_JEemRUMqFygz9LA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_9RWyY__JEemRUMqFygz9LA" type="_QZDdkvZqEemui-T0p80qcA" direction="return"/>
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_9RXZcP_JEemRUMqFygz9LA" name="cId">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_9RYnkP_JEemRUMqFygz9LA" name="insert" visibility="public" method="_9RYnkv_JEemRUMqFygz9LA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_9RYnkf_JEemRUMqFygz9LA" name="ctgrp" type="_6kEFsP_JEemRUMqFygz9LA"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_9RYnk__JEemRUMqFygz9LA" name="delete" visibility="public" method="_9RZOof_JEemRUMqFygz9LA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_9RZOoP_JEemRUMqFygz9LA" name="ctgrp" type="_6kEFsP_JEemRUMqFygz9LA"/>
+                  </ownedOperation>
+                  <nestedClassifier xmi:type="uml:Class" xmi:id="_9RZOov_JEemRUMqFygz9LA" name="insertAsyncTask" visibility="private">
+                    <generalization xmi:type="uml:Generalization" xmi:id="_9RZOo__JEemRUMqFygz9LA" general="_UPs_AvZqEemui-T0p80qcA"/>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="_9RbD0P_JEemRUMqFygz9LA" name="mAsyncTaskDao" visibility="private" type="_9RR54P_JEemRUMqFygz9LA" isUnique="false"/>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_9ReHIf_JEemRUMqFygz9LA" name="insertAsyncTask" specification="_9RcR8P_JEemRUMqFygz9LA">
+                      <language>JAVA</language>
+                      <body>
+    mAsyncTaskDao = dao;
+</body>
+                    </ownedBehavior>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_9Rhxgf_JEemRUMqFygz9LA" name="doInBackground" specification="_9ReuMP_JEemRUMqFygz9LA">
+                      <language>JAVA</language>
+                      <body>
+    mAsyncTaskDao.insert(params[0]);
+    return null;
+</body>
+                    </ownedBehavior>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="_9RcR8P_JEemRUMqFygz9LA" name="insertAsyncTask" visibility="private" method="_9ReHIf_JEemRUMqFygz9LA">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_9ReHIP_JEemRUMqFygz9LA" name="dao" type="_9RR54P_JEemRUMqFygz9LA"/>
+                    </ownedOperation>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="_9ReuMP_JEemRUMqFygz9LA" name="doInBackground" visibility="protected" method="_9Rhxgf_JEemRUMqFygz9LA">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_9Rf8UP_JEemRUMqFygz9LA" type="_9ReuMf_JEemRUMqFygz9LA" direction="return"/>
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_9Rf8Uf_JEemRUMqFygz9LA" name="params" type="_6kEFsP_JEemRUMqFygz9LA"/>
+                    </ownedOperation>
+                  </nestedClassifier>
+                  <nestedClassifier xmi:type="uml:Class" xmi:id="_9RiYkP_JEemRUMqFygz9LA" name="deleteAsyncTask" visibility="private">
+                    <generalization xmi:type="uml:Generalization" xmi:id="_9RiYkf_JEemRUMqFygz9LA" general="_UPs_AvZqEemui-T0p80qcA"/>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="_9Rk00P_JEemRUMqFygz9LA" name="mAsyncTaskDao" visibility="private" type="_9RR54P_JEemRUMqFygz9LA" isUnique="false"/>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_9RnREP_JEemRUMqFygz9LA" name="deleteAsyncTask" specification="_9Rlb4P_JEemRUMqFygz9LA">
+                      <language>JAVA</language>
+                      <body>
+    mAsyncTaskDao = dao;
+</body>
+                    </ownedBehavior>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_9RpGQf_JEemRUMqFygz9LA" name="doInBackground" specification="_9RnREf_JEemRUMqFygz9LA">
+                      <language>JAVA</language>
+                      <body>
+    mAsyncTaskDao.delete(params[0]);
+    return null;
+</body>
+                    </ownedBehavior>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="_9Rlb4P_JEemRUMqFygz9LA" name="deleteAsyncTask" visibility="private" method="_9RnREP_JEemRUMqFygz9LA">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_9RmqAf_JEemRUMqFygz9LA" name="dao" type="_9RR54P_JEemRUMqFygz9LA"/>
+                    </ownedOperation>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="_9RnREf_JEemRUMqFygz9LA" name="doInBackground" visibility="protected" method="_9RpGQf_JEemRUMqFygz9LA">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_9RnREv_JEemRUMqFygz9LA" type="_9ReuMf_JEemRUMqFygz9LA" direction="return"/>
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_9RnRE__JEemRUMqFygz9LA" name="params" type="_6kEFsP_JEemRUMqFygz9LA"/>
+                    </ownedOperation>
+                  </nestedClassifier>
+                </packagedElement>
+                <packagedElement xmi:type="uml:Class" xmi:id="_9ReuMf_JEemRUMqFygz9LA" name="Void"/>
+              </packagedElement>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Class" xmi:id="_msgFYP_JEemRUMqFygz9LA" name="GroupActivity" visibility="public">
+              <generalization xmi:type="uml:Generalization" xmi:id="_mskW0P_JEemRUMqFygz9LA" general="_msgscP_JEemRUMqFygz9LA"/>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_msk94P_JEemRUMqFygz9LA" name="mGroupViewModel" visibility="public" isStatic="true" type="_NS16kPZqEemui-T0p80qcA" isUnique="false" aggregation="composite" association="_otu9UP_JEemRUMqFygz9LA"/>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_msk94f_JEemRUMqFygz9LA" name="RETOUR_MAIN_ACTIVITY_REQUEST_CODE" visibility="public" isLeaf="true" isStatic="true" isUnique="false">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_mslk8P_JEemRUMqFygz9LA" name="defaultValue">
+                  <language>JAVA</language>
+                  <body>42</body>
+                </defaultValue>
+              </ownedAttribute>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_msmMAP_JEemRUMqFygz9LA" name="NEW_GROUP_ACTIVITY_REQUEST_CODE" visibility="public" isLeaf="true" isStatic="true" isUnique="false">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_msmMAf_JEemRUMqFygz9LA" name="defaultValue">
+                  <language>JAVA</language>
+                  <body>1</body>
+                </defaultValue>
+              </ownedAttribute>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_msmMAv_JEemRUMqFygz9LA" name="UPDATE_ACTIVITY_REQUEST_CODE" visibility="public" isLeaf="true" isStatic="true" isUnique="false">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_msmMA__JEemRUMqFygz9LA" name="defaultValue">
+                  <language>JAVA</language>
+                  <body>2</body>
+                </defaultValue>
+              </ownedAttribute>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_msmzEP_JEemRUMqFygz9LA" name="updateGroup" visibility="public" isStatic="true" type="_NS_EgfZqEemui-T0p80qcA" isUnique="false"/>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="__tdBYv_JEemRUMqFygz9LA" name="mCtGrpViewModel" type="_6j8w8P_JEemRUMqFygz9LA" aggregation="composite" association="__tcaUP_JEemRUMqFygz9LA"/>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_msooQP_JEemRUMqFygz9LA" name="onCreate" specification="_msnaIP_JEemRUMqFygz9LA">
+                <language>JAVA</language>
+                <body>
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.main_group);
+    /*Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+*/
+    FloatingActionButton fab = findViewById(R.id.fab);
+    fab.setOnClickListener(new View.OnClickListener() {
+
+        @Override
+        public void onClick(View view) {
+            Intent intent = new Intent(GroupActivity.this, NewGroupActivity.class);
+            startActivityForResult(intent, NEW_GROUP_ACTIVITY_REQUEST_CODE);
+        }
+    });
+    RecyclerView recyclerView = findViewById(R.id.recyclerview);
+    final GroupListAdapter adapter = new GroupListAdapter(this);
+    recyclerView.setAdapter(adapter);
+    recyclerView.setLayoutManager(new LinearLayoutManager(this));
+    mGroupViewModel = ViewModelProviders.of(this).get(GroupViewModel.class);
+    mGroupViewModel.getmAllGroups().observe(this, new Observer&lt;List&lt;Groups>>() {
+
+        @Override
+        public void onChanged(@Nullable final List&lt;Groups> groups) {
+            // Update the cached copy of the words in the adapter.
+            adapter.setGroups(groups);
+        }
+    });
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mspPUf_JEemRUMqFygz9LA" name="onCreateOptionsMenu" specification="_msooQf_JEemRUMqFygz9LA">
+                <language>JAVA</language>
+                <body>
+    // Inflate the menu; this adds items to the action bar if it is present.
+    getMenuInflater().inflate(R.menu.menu_main, menu);
+    return true;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_msp2YP_JEemRUMqFygz9LA" name="onOptionsItemSelected" specification="_mspPUv_JEemRUMqFygz9LA">
+                <language>JAVA</language>
+                <body>
+    // as you specify a parent activity in AndroidManifest.xml.
+    switch(item.getItemId()) {
+        case R.id.action_settings:
+            return true;
+        case R.id.action_contact:
+            Intent intent = new Intent(GroupActivity.this, ContactActivity.class);
+            startActivity(intent);
+            return true;
+        default:
+            return super.onOptionsItemSelected(item);
+    }
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_msqdcf_JEemRUMqFygz9LA" name="onActivityResult" specification="_msp2Yf_JEemRUMqFygz9LA">
+                <language>JAVA</language>
+                <body>
+    super.onActivityResult(requestCode, resultCode, data);
+    Groups groups = data.getParcelableExtra(&quot;Group&quot;);
+    if (requestCode == NEW_GROUP_ACTIVITY_REQUEST_CODE &amp;&amp; resultCode == RESULT_OK) {
+        mGroupViewModel.insert(groups);
+    }
+    if (requestCode == UPDATE_ACTIVITY_REQUEST_CODE &amp;&amp; resultCode == RESULT_OK) {
+        mGroupViewModel.insert(updateGroup);
+    }
+    if (requestCode == NEW_GROUP_ACTIVITY_REQUEST_CODE &amp;&amp; resultCode == RETOUR_MAIN_ACTIVITY_REQUEST_CODE) {
+    } else {
+        Toast.makeText(getApplicationContext(), R.string.contact_not_saved, Toast.LENGTH_LONG).show();
+    }
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_msrEgP_JEemRUMqFygz9LA" name="infoGroup" specification="_msqdcv_JEemRUMqFygz9LA">
+                <language>JAVA</language>
+                <body>
+    Intent intent = new Intent(this, InfoGroupActivity.class);
+    updateGroup = groups;
+    startActivityForResult(intent, UPDATE_ACTIVITY_REQUEST_CODE);
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_msrEg__JEemRUMqFygz9LA" name="removeGroup" specification="_msrEgf_JEemRUMqFygz9LA">
+                <language>JAVA</language>
+                <body>
+    mGroupViewModel.delete(group);
+</body>
+              </ownedBehavior>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_msnaIP_JEemRUMqFygz9LA" name="onCreate" visibility="protected" method="_msooQP_JEemRUMqFygz9LA">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_msoBMP_JEemRUMqFygz9LA" name="savedInstanceState" type="_NTA5sPZqEemui-T0p80qcA"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_msooQf_JEemRUMqFygz9LA" name="onCreateOptionsMenu" visibility="public" method="_mspPUf_JEemRUMqFygz9LA">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_msooQv_JEemRUMqFygz9LA" direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+                </ownedParameter>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_mspPUP_JEemRUMqFygz9LA" name="menu" type="_NTCu4fZqEemui-T0p80qcA"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_mspPUv_JEemRUMqFygz9LA" name="onOptionsItemSelected" visibility="public" method="_msp2YP_JEemRUMqFygz9LA">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_mspPU__JEemRUMqFygz9LA" direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+                </ownedParameter>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_mspPVP_JEemRUMqFygz9LA" name="item" type="_NTEkEPZqEemui-T0p80qcA"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_msp2Yf_JEemRUMqFygz9LA" name="onActivityResult" visibility="public" method="_msqdcf_JEemRUMqFygz9LA">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_msp2Yv_JEemRUMqFygz9LA" name="requestCode">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                </ownedParameter>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_msp2Y__JEemRUMqFygz9LA" name="resultCode">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                </ownedParameter>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_msqdcP_JEemRUMqFygz9LA" name="data" type="_NTGZQvZqEemui-T0p80qcA"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_msqdcv_JEemRUMqFygz9LA" name="infoGroup" visibility="public" method="_msrEgP_JEemRUMqFygz9LA">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_msqdc__JEemRUMqFygz9LA" name="groups" type="_NS_EgfZqEemui-T0p80qcA"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_msrEgf_JEemRUMqFygz9LA" name="removeGroup" visibility="public" method="_msrEg__JEemRUMqFygz9LA">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_msrEgv_JEemRUMqFygz9LA" name="group" type="_NS_EgfZqEemui-T0p80qcA"/>
+              </ownedOperation>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Association" xmi:id="_otu9UP_JEemRUMqFygz9LA" name="A_mGroupViewModel_groupActivity" memberEnd="_msk94P_JEemRUMqFygz9LA _otwygP_JEemRUMqFygz9LA">
+              <ownedEnd xmi:type="uml:Property" xmi:id="_otwygP_JEemRUMqFygz9LA" name="groupActivity" type="_msgFYP_JEemRUMqFygz9LA" association="_otu9UP_JEemRUMqFygz9LA">
+                <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_otxZkP_JEemRUMqFygz9LA"/>
+                <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_otxZkf_JEemRUMqFygz9LA" value="1"/>
+              </ownedEnd>
+            </packagedElement>
+          </packagedElement>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_NRkINPZqEemui-T0p80qcA" name="importedTypes">
+      <packagedElement xmi:type="uml:Package" xmi:id="_NRkvQPZqEemui-T0p80qcA" name="androidx">
+        <packagedElement xmi:type="uml:Package" xmi:id="_NRkvQfZqEemui-T0p80qcA" name="appcompat">
+          <packagedElement xmi:type="uml:Package" xmi:id="_NRkvQvZqEemui-T0p80qcA" name="app">
+            <packagedElement xmi:type="uml:Class" xmi:id="_msgscP_JEemRUMqFygz9LA" name="AppCompatActivity"/>
+          </packagedElement>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_QY_zMfZqEemui-T0p80qcA" name="lifecycle">
+          <packagedElement xmi:type="uml:Class" xmi:id="_QZDdkvZqEemui-T0p80qcA" name="LiveData"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_6j8w8f_JEemRUMqFygz9LA" name="AndroidViewModel"/>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_NS1TgfZqEemui-T0p80qcA" name="com">
+        <packagedElement xmi:type="uml:Package" xmi:id="_NS1TgvZqEemui-T0p80qcA" name="example">
+          <packagedElement xmi:type="uml:Package" xmi:id="_NS1Tg_ZqEemui-T0p80qcA" name="projetcontact">
+            <packagedElement xmi:type="uml:Package" xmi:id="_NS1ThPZqEemui-T0p80qcA" name="view">
+              <packagedElement xmi:type="uml:Package" xmi:id="_NS1ThfZqEemui-T0p80qcA" name="group">
+                <packagedElement xmi:type="uml:Class" xmi:id="_NS16kPZqEemui-T0p80qcA" name="GroupViewModel">
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="_AYW_kv_KEemRUMqFygz9LA" name="mRepository" type="__E1iMP_JEemRUMqFygz9LA" aggregation="composite" association="_AYWYgP_KEemRUMqFygz9LA"/>
+                </packagedElement>
+              </packagedElement>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Package" xmi:id="_NS_EgPZqEemui-T0p80qcA" name="objet">
+              <packagedElement xmi:type="uml:Class" xmi:id="_NS_EgfZqEemui-T0p80qcA" name="Groups"/>
+              <packagedElement xmi:type="uml:Class" xmi:id="_6kEFsP_JEemRUMqFygz9LA" name="ContactGroup"/>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Package" xmi:id="_UPmRUPZqEemui-T0p80qcA" name="dao">
+              <packagedElement xmi:type="uml:Class" xmi:id="_UPmRUfZqEemui-T0p80qcA" name="GroupDao"/>
+              <packagedElement xmi:type="uml:Class" xmi:id="_9RR54P_JEemRUMqFygz9LA" name="ContactGroupDao"/>
+            </packagedElement>
+          </packagedElement>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_NTASofZqEemui-T0p80qcA" name="android">
+        <packagedElement xmi:type="uml:Package" xmi:id="_NTASovZqEemui-T0p80qcA" name="os">
+          <packagedElement xmi:type="uml:Class" xmi:id="_NTA5sPZqEemui-T0p80qcA" name="Bundle"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_UPs_AvZqEemui-T0p80qcA" name="AsyncTask"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_NTCu4PZqEemui-T0p80qcA" name="view">
+          <packagedElement xmi:type="uml:Class" xmi:id="_NTCu4fZqEemui-T0p80qcA" name="Menu"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_NTEkEPZqEemui-T0p80qcA" name="MenuItem"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_NTGZQfZqEemui-T0p80qcA" name="content">
+          <packagedElement xmi:type="uml:Class" xmi:id="_NTGZQvZqEemui-T0p80qcA" name="Intent"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_QZEEovZqEemui-T0p80qcA" name="app">
+          <packagedElement xmi:type="uml:Class" xmi:id="_QZEEo_ZqEemui-T0p80qcA" name="Application"/>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_gB09IP_JEemRUMqFygz9LA" name="generated"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="__tcaUP_JEemRUMqFygz9LA" memberEnd="__tdBYv_JEemRUMqFygz9LA __tdBZf_JEemRUMqFygz9LA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__tdBYP_JEemRUMqFygz9LA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="__tdBYf_JEemRUMqFygz9LA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="__tdBZf_JEemRUMqFygz9LA" name="groupactivity" type="_msgFYP_JEemRUMqFygz9LA" association="__tcaUP_JEemRUMqFygz9LA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_GX1OsP_KEemRUMqFygz9LA"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_AYWYgP_KEemRUMqFygz9LA" memberEnd="_AYW_kv_KEemRUMqFygz9LA _AYXmov_KEemRUMqFygz9LA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_AYW_kP_KEemRUMqFygz9LA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_AYW_kf_KEemRUMqFygz9LA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_AYXmov_KEemRUMqFygz9LA" name="groupviewmodel" type="_NS16kPZqEemui-T0p80qcA" association="_AYWYgP_KEemRUMqFygz9LA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Jvo4AP_KEemRUMqFygz9LA"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_A7s9MP_KEemRUMqFygz9LA" memberEnd="_A7tkQv_KEemRUMqFygz9LA _A7uLUf_KEemRUMqFygz9LA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_A7tkQP_KEemRUMqFygz9LA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_A7tkQf_KEemRUMqFygz9LA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_A7uLUf_KEemRUMqFygz9LA" name="contactgroupviewmodel" type="_6j8w8P_JEemRUMqFygz9LA" association="_A7s9MP_KEemRUMqFygz9LA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IwFfgP_KEemRUMqFygz9LA"/>
+      </ownedEnd>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_NRU3oPZqEemui-T0p80qcA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_NRU3ofZqEemui-T0p80qcA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/PapyrusJava/1#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://PapyrusJava_PROFILES/PapyrusJava.profile.uml#_j9REUByGEduN1bTiWJ0lyw"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_NReBkPZqEemui-T0p80qcA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_NReBkfZqEemui-T0p80qcA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/Codegen/1#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://Codegen_PROFILES/Codegen.profile.uml#_fPDsIBa-EearhdjjJ6cVzQ"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_NRi6EPZqEemui-T0p80qcA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_NRjhIPZqEemui-T0p80qcA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+  </uml:Model>
+  <PapyrusJava:External xmi:id="_NS2hoPZqEemui-T0p80qcA" name="com.example.projetcontact.view.group.GroupViewModel" base_Classifier="_NS16kPZqEemui-T0p80qcA"/>
+  <PapyrusJava:External xmi:id="_NS_rkPZqEemui-T0p80qcA" name="com.example.projetcontact.objet.Groups" base_Classifier="_NS_EgfZqEemui-T0p80qcA"/>
+  <PapyrusJava:External xmi:id="_NTBgwPZqEemui-T0p80qcA" name="android.os.Bundle" base_Classifier="_NTA5sPZqEemui-T0p80qcA"/>
+  <PapyrusJava:External xmi:id="_NTDV8PZqEemui-T0p80qcA" name="android.view.Menu" base_Classifier="_NTCu4fZqEemui-T0p80qcA"/>
+  <PapyrusJava:External xmi:id="_NTFLIPZqEemui-T0p80qcA" name="android.view.MenuItem" base_Classifier="_NTEkEPZqEemui-T0p80qcA"/>
+  <PapyrusJava:External xmi:id="_NTHnYPZqEemui-T0p80qcA" name="android.content.Intent" base_Classifier="_NTGZQvZqEemui-T0p80qcA"/>
+  <PapyrusJava:External xmi:id="_QZEEoPZqEemui-T0p80qcA" name="androidx.lifecycle.LiveData" base_Classifier="_QZDdkvZqEemui-T0p80qcA"/>
+  <PapyrusJava:External xmi:id="_QZErsPZqEemui-T0p80qcA" name="android.app.Application" base_Classifier="_QZEEo_ZqEemui-T0p80qcA"/>
+  <PapyrusJava:External xmi:id="_UPm4YPZqEemui-T0p80qcA" name="com.example.projetcontact.dao.GroupDao" base_Classifier="_UPmRUfZqEemui-T0p80qcA"/>
+  <PapyrusJava:External xmi:id="_UPtmEPZqEemui-T0p80qcA" name="android.os.AsyncTask" base_Classifier="_UPs_AvZqEemui-T0p80qcA"/>
+  <PapyrusJava:External xmi:id="_UPwCUPZqEemui-T0p80qcA" name="Void" base_Classifier="_UPvbQ_ZqEemui-T0p80qcA"/>
+  <PapyrusJava:External xmi:id="_msh6kP_JEemRUMqFygz9LA" name="androidx.appcompat.app.AppCompatActivity" base_Classifier="_msgscP_JEemRUMqFygz9LA"/>
+  <PapyrusJava:External xmi:id="_6j9_EP_JEemRUMqFygz9LA" name="androidx.lifecycle.AndroidViewModel" base_Classifier="_6j8w8f_JEemRUMqFygz9LA"/>
+  <PapyrusJava:External xmi:id="_6kCQgP_JEemRUMqFygz9LA" name="ContactGroupRepository" base_Classifier="_6kBCYP_JEemRUMqFygz9LA"/>
+  <standard:Create xmi:id="_6kC3kP_JEemRUMqFygz9LA" base_BehavioralFeature="_6kCQgv_JEemRUMqFygz9LA"/>
+  <PapyrusJava:External xmi:id="_6kEswP_JEemRUMqFygz9LA" name="com.example.projetcontact.objet.ContactGroup" base_Classifier="_6kEFsP_JEemRUMqFygz9LA"/>
+  <PapyrusJava:Final xmi:id="_6kHJAP_JEemRUMqFygz9LA" base_Parameter="_6kF65P_JEemRUMqFygz9LA"/>
+  <PapyrusJava:Final xmi:id="_6kIXIP_JEemRUMqFygz9LA" base_Parameter="_6kHwEP_JEemRUMqFygz9LA"/>
+  <PapyrusJava:External xmi:id="_9RSg8P_JEemRUMqFygz9LA" name="com.example.projetcontact.dao.ContactGroupDao" base_Classifier="_9RR54P_JEemRUMqFygz9LA"/>
+  <standard:Create xmi:id="_9RU9MP_JEemRUMqFygz9LA" base_BehavioralFeature="_9RTvEv_JEemRUMqFygz9LA"/>
+  <PapyrusJava:Final xmi:id="_9RWyYP_JEemRUMqFygz9LA" base_Parameter="_9RVkQf_JEemRUMqFygz9LA"/>
+  <PapyrusJava:Final xmi:id="_9RYAgP_JEemRUMqFygz9LA" base_Parameter="_9RXZcP_JEemRUMqFygz9LA"/>
+  <PapyrusJava:StaticClassifier xmi:id="_9RacwP_JEemRUMqFygz9LA" base_Classifier="_9RZOov_JEemRUMqFygz9LA"/>
+  <standard:Create xmi:id="_9RdgEP_JEemRUMqFygz9LA" base_BehavioralFeature="_9RcR8P_JEemRUMqFygz9LA"/>
+  <PapyrusJava:External xmi:id="_9RfVQP_JEemRUMqFygz9LA" name="Void" base_Classifier="_9ReuMf_JEemRUMqFygz9LA"/>
+  <PapyrusJava:Variadic xmi:id="_9RgjYP_JEemRUMqFygz9LA" base_Parameter="_9Rf8Uf_JEemRUMqFygz9LA"/>
+  <PapyrusJava:Final xmi:id="_9RhxgP_JEemRUMqFygz9LA" base_Parameter="_9Rf8Uf_JEemRUMqFygz9LA"/>
+  <PapyrusJava:StaticClassifier xmi:id="_9RjmsP_JEemRUMqFygz9LA" base_Classifier="_9RiYkP_JEemRUMqFygz9LA"/>
+  <standard:Create xmi:id="_9RmqAP_JEemRUMqFygz9LA" base_BehavioralFeature="_9Rlb4P_JEemRUMqFygz9LA"/>
+  <PapyrusJava:Variadic xmi:id="_9RofMP_JEemRUMqFygz9LA" base_Parameter="_9RnRE__JEemRUMqFygz9LA"/>
+  <PapyrusJava:Final xmi:id="_9RpGQP_JEemRUMqFygz9LA" base_Parameter="_9RnRE__JEemRUMqFygz9LA"/>
+  <standard:Create xmi:id="__E3XYP_JEemRUMqFygz9LA" base_BehavioralFeature="__E2wUP_JEemRUMqFygz9LA"/>
+  <PapyrusJava:StaticClassifier xmi:id="__E6asP_JEemRUMqFygz9LA" base_Classifier="__E5zoP_JEemRUMqFygz9LA"/>
+  <standard:Create xmi:id="__E8P4P_JEemRUMqFygz9LA" base_BehavioralFeature="__E7Bwf_JEemRUMqFygz9LA"/>
+  <PapyrusJava:Variadic xmi:id="__E_TMP_JEemRUMqFygz9LA" base_Parameter="__E-sIf_JEemRUMqFygz9LA"/>
+  <PapyrusJava:Final xmi:id="__FAhUP_JEemRUMqFygz9LA" base_Parameter="__E-sIf_JEemRUMqFygz9LA"/>
+  <PapyrusJava:StaticClassifier xmi:id="__FBvcP_JEemRUMqFygz9LA" base_Classifier="__FAhUv_JEemRUMqFygz9LA"/>
+  <standard:Create xmi:id="__FC9kP_JEemRUMqFygz9LA" base_BehavioralFeature="__FBvcv_JEemRUMqFygz9LA"/>
+  <PapyrusJava:Variadic xmi:id="__FEywP_JEemRUMqFygz9LA" base_Parameter="__FDkov_JEemRUMqFygz9LA"/>
+  <PapyrusJava:Final xmi:id="__FFZ0P_JEemRUMqFygz9LA" base_Parameter="__FDkov_JEemRUMqFygz9LA"/>
+</xmi:XMI>

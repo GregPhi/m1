@@ -1,0 +1,667 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:PapyrusJava="http://www.eclipse.org/papyrus/PapyrusJava/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:standard="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <uml:Model xmi:id="_zWsFIPZqEemui-T0p80qcA" name="New_Contact">
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_zXZ20PZqEemui-T0p80qcA">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Package" xmi:id="_C2nW0PZrEemui-T0p80qcA" name="pje3">
+      <packagedElement xmi:type="uml:Package" xmi:id="_C5Y-APZrEemui-T0p80qcA" name="com">
+        <packagedElement xmi:type="uml:Package" xmi:id="_C5Y-AfZrEemui-T0p80qcA" name="example">
+          <packagedElement xmi:type="uml:Package" xmi:id="_C5Y-AvZrEemui-T0p80qcA" name="projetcontact">
+            <packagedElement xmi:type="uml:Class" xmi:id="_C5ZlEPZrEemui-T0p80qcA" name="NewContactActivity" visibility="public">
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_C6kpwPZrEemui-T0p80qcA" name="RETOUR_MAIN_ACTIVITY_REQUEST_CODE" visibility="public" isLeaf="true" isStatic="true" isUnique="false">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_C6lQ0PZrEemui-T0p80qcA" name="defaultValue">
+                  <language>JAVA</language>
+                  <body>42</body>
+                </defaultValue>
+              </ownedAttribute>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_C6me8PZrEemui-T0p80qcA" name="newContact" visibility="private" type="_C6lQ1fZrEemui-T0p80qcA" isUnique="false">
+                <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_C6me8fZrEemui-T0p80qcA" name="defaultValue">
+                  <language>JAVA</language>
+                  <body>new Contact()</body>
+                </defaultValue>
+              </ownedAttribute>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_C6ntEPZrEemui-T0p80qcA" name="newNumero" visibility="private" type="_C6me8vZrEemui-T0p80qcA" isUnique="false">
+                <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_C6ntEfZrEemui-T0p80qcA" name="defaultValue">
+                  <language>JAVA</language>
+                  <body>null</body>
+                </defaultValue>
+              </ownedAttribute>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_C6o7MfZrEemui-T0p80qcA" name="mEditNomView" visibility="private" type="_C6oUIfZrEemui-T0p80qcA" isUnique="false"/>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_C6piQPZrEemui-T0p80qcA" name="mEditPrenomView" visibility="private" type="_C6oUIfZrEemui-T0p80qcA" isUnique="false"/>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_C6qJUPZrEemui-T0p80qcA" name="mEditAgeView" visibility="private" type="_C6oUIfZrEemui-T0p80qcA" isUnique="false"/>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_C6qwYPZrEemui-T0p80qcA" name="mEditStreetContactView" visibility="private" type="_C6oUIfZrEemui-T0p80qcA" isUnique="false"/>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_C6qwYfZrEemui-T0p80qcA" name="mEditZipcodeContactView" visibility="private" type="_C6oUIfZrEemui-T0p80qcA" isUnique="false"/>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_C6rXcPZrEemui-T0p80qcA" name="mEditTowContactView" visibility="private" type="_C6oUIfZrEemui-T0p80qcA" isUnique="false"/>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_C6rXcfZrEemui-T0p80qcA" name="mEditNumeroView" visibility="private" type="_C6oUIfZrEemui-T0p80qcA" isUnique="false"/>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_C6r-gPZrEemui-T0p80qcA" name="mEditCategorieView" visibility="private" type="_C6oUIfZrEemui-T0p80qcA" isUnique="false"/>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_8G7fQP_MEemRUMqFygz9LA" name="newContact" type="_pduIcP_MEemRUMqFygz9LA" aggregation="composite" association="_8G5qEP_MEemRUMqFygz9LA"/>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_9BNWMP_MEemRUMqFygz9LA" name="newNumero" type="_qQ21kP_MEemRUMqFygz9LA" association="_9BMIEP_MEemRUMqFygz9LA"/>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_C6tzsvZrEemui-T0p80qcA" name="onCreate" specification="_C6tzsPZrEemui-T0p80qcA">
+                <language>JAVA</language>
+                <body>
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.new_contact);
+    mEditNomView = findViewById(R.id.edit_nom);
+    mEditPrenomView = findViewById(R.id.edit_prenom);
+    mEditAgeView = findViewById(R.id.edit_age);
+    mEditStreetContactView = findViewById(R.id.edit_street);
+    mEditTowContactView = findViewById(R.id.edit_town);
+    mEditZipcodeContactView = findViewById(R.id.edit_zip);
+    mEditNumeroView = findViewById(R.id.edit_num);
+    mEditCategorieView = findViewById(R.id.edit_cat);
+    final Button button = findViewById(R.id.button_save);
+    button.setOnClickListener(new View.OnClickListener() {
+
+        public void onClick(View view) {
+            Intent replyIntent = new Intent();
+            if ((TextUtils.isEmpty(mEditNomView.getText()) || TextUtils.isEmpty(mEditPrenomView.getText())) &amp;&amp; TextUtils.isEmpty(mEditAgeView.getText())) {
+                setResult(RESULT_CANCELED, replyIntent);
+            } else {
+                String nom = mEditNomView.getText().toString();
+                String pre = mEditPrenomView.getText().toString();
+                String age = mEditAgeView.getText().toString();
+                String rue = &quot;&quot;;
+                String ville = &quot;&quot;;
+                String cd = &quot;&quot;;
+                Address adr = new Address();
+                if (!TextUtils.isEmpty(mEditStreetContactView.getText())) {
+                    rue = mEditStreetContactView.getText().toString();
+                }
+                if (!TextUtils.isEmpty(mEditTowContactView.getText())) {
+                    ville = mEditTowContactView.getText().toString();
+                }
+                if (!TextUtils.isEmpty(mEditZipcodeContactView.getText())) {
+                    cd = mEditZipcodeContactView.getText().toString();
+                }
+                adr.setStreet(rue);
+                adr.setTown(ville);
+                adr.setZipcode(cd);
+                newContact.setNom(nom);
+                newContact.setPrenom(pre);
+                newContact.setAge(age);
+                newContact.setAddr(adr);
+                replyIntent.putExtra(&quot;Contact&quot;, newContact);
+                String num = &quot;&quot;;
+                String categorie = &quot;&quot;;
+                if (!TextUtils.isEmpty(mEditNumeroView.getText()) &amp;&amp; !TextUtils.isEmpty(mEditCategorieView.getText())) {
+                    newNumero = new Numero();
+                    num = mEditNumeroView.getText().toString();
+                    categorie = mEditCategorieView.getText().toString();
+                    newNumero.setNumero(num);
+                    newNumero.setCategorie(categorie);
+                    newNumero.setContactId(newContact.getId());
+                }
+                replyIntent.putExtra(&quot;Numero&quot;, newNumero);
+                setResult(RESULT_OK, replyIntent);
+            }
+            finish();
+        }
+    });
+    final Button buttonR = findViewById(R.id.retour_main);
+    buttonR.setOnClickListener(new View.OnClickListener() {
+
+        public void onClick(View view) {
+            Intent reply = new Intent();
+            setResult(RETOUR_MAIN_ACTIVITY_REQUEST_CODE, reply);
+            finish();
+        }
+    });
+</body>
+              </ownedBehavior>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_C6tzsPZrEemui-T0p80qcA" name="onCreate" visibility="public" method="_C6tzsvZrEemui-T0p80qcA">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_C6tzsfZrEemui-T0p80qcA" name="savedInstanceState" type="_C6r-gvZrEemui-T0p80qcA"/>
+              </ownedOperation>
+              <nestedClassifier xmi:type="uml:Class" xmi:id="_DbiBwPZrEemui-T0p80qcA" name="Class15"/>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Package" xmi:id="_pdsTQP_MEemRUMqFygz9LA" name="objet">
+              <packagedElement xmi:type="uml:Class" xmi:id="_pduIcP_MEemRUMqFygz9LA" name="Contact" visibility="public">
+                <ownedAttribute xmi:type="uml:Property" xmi:id="_pdzoAf_MEemRUMqFygz9LA" name="CREATOR" visibility="public" isLeaf="true" isStatic="true" type="_pdyZ4f_MEemRUMqFygz9LA" isUnique="false">
+                  <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_pd0PEP_MEemRUMqFygz9LA" name="defaultValue">
+                    <language>JAVA</language>
+                    <body>new Parcelable.Creator() {
+
+    public Contact createFromParcel(Parcel in) {
+        return new Contact(in);
+    }
+
+    public Contact[] newArray(int size) {
+        return new Contact[size];
+    }
+}</body>
+                  </defaultValue>
+                </ownedAttribute>
+                <ownedAttribute xmi:type="uml:Property" xmi:id="_pd0PEf_MEemRUMqFygz9LA" name="id" visibility="private" isUnique="false">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:type="uml:Property" xmi:id="_pfNWMf_MEemRUMqFygz9LA" name="nom" visibility="private" type="_pfMIEv_MEemRUMqFygz9LA" isUnique="false"/>
+                <ownedAttribute xmi:type="uml:Property" xmi:id="_pfNWMv_MEemRUMqFygz9LA" name="prenom" visibility="private" type="_pfMIEv_MEemRUMqFygz9LA" isUnique="false"/>
+                <ownedAttribute xmi:type="uml:Property" xmi:id="_pfN9QP_MEemRUMqFygz9LA" name="age" visibility="private" type="_pfMIEv_MEemRUMqFygz9LA" isUnique="false"/>
+                <ownedAttribute xmi:type="uml:Property" xmi:id="_pfPycP_MEemRUMqFygz9LA" name="addr" visibility="public" type="_pfN9Qf_MEemRUMqFygz9LA" isUnique="false"/>
+                <ownedAttribute xmi:type="uml:Property" xmi:id="_8jAXQP_MEemRUMqFygz9LA" name="addr" type="_pfN9Qf_MEemRUMqFygz9LA" aggregation="composite" association="_8i_JIP_MEemRUMqFygz9LA"/>
+                <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_pdxy0P_MEemRUMqFygz9LA" name="Contact implements Parcelable" client="_pduIcP_MEemRUMqFygz9LA" supplier="_pduIcf_MEemRUMqFygz9LA" contract="_pduIcf_MEemRUMqFygz9LA"/>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_pfRAkf_MEemRUMqFygz9LA" name="Contact" specification="_pfPycf_MEemRUMqFygz9LA">
+                  <language>JAVA</language>
+                  <body>
+    this.nom = &quot;&quot;;
+    this.prenom = &quot;&quot;;
+    this.age = &quot;&quot;;
+    this.addr = new Address();
+</body>
+                </ownedBehavior>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_pfTc0v_MEemRUMqFygz9LA" name="Contact" specification="_pfRnoP_MEemRUMqFygz9LA">
+                  <language>JAVA</language>
+                  <body>
+    this.nom = nom;
+    this.prenom = prenom;
+    this.age = age;
+    this.addr = addr;
+</body>
+                </ownedBehavior>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_pfV5Ef_MEemRUMqFygz9LA" name="Contact" specification="_pfUD4P_MEemRUMqFygz9LA">
+                  <language>JAVA</language>
+                  <body>
+    this.nom = nom;
+    this.prenom = p;
+    this.age = a;
+    this.addr = new Address();
+</body>
+                </ownedBehavior>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_pfV5FP_MEemRUMqFygz9LA" name="setId" specification="_pfV5Ev_MEemRUMqFygz9LA">
+                  <language>JAVA</language>
+                  <body>
+    this.id = i;
+</body>
+                </ownedBehavior>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_pfWgIv_MEemRUMqFygz9LA" name="setNom" specification="_pfWgIP_MEemRUMqFygz9LA">
+                  <language>JAVA</language>
+                  <body>
+    this.nom = n;
+</body>
+                </ownedBehavior>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_pfXHMP_MEemRUMqFygz9LA" name="setPrenom" specification="_pfWgI__MEemRUMqFygz9LA">
+                  <language>JAVA</language>
+                  <body>
+    this.prenom = p;
+</body>
+                </ownedBehavior>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_pfXHM__MEemRUMqFygz9LA" name="setAge" specification="_pfXHMf_MEemRUMqFygz9LA">
+                  <language>JAVA</language>
+                  <body>
+    this.age = a;
+</body>
+                </ownedBehavior>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_pfXuQv_MEemRUMqFygz9LA" name="setAddr" specification="_pfXuQP_MEemRUMqFygz9LA">
+                  <language>JAVA</language>
+                  <body>
+    this.addr = a;
+</body>
+                </ownedBehavior>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_pfY8YP_MEemRUMqFygz9LA" name="getId" specification="_pfYVUP_MEemRUMqFygz9LA">
+                  <language>JAVA</language>
+                  <body>
+    return this.id;
+</body>
+                </ownedBehavior>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_pfY8Y__MEemRUMqFygz9LA" name="getNom" specification="_pfY8Yf_MEemRUMqFygz9LA">
+                  <language>JAVA</language>
+                  <body>
+    return this.nom;
+</body>
+                </ownedBehavior>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_pfZjcf_MEemRUMqFygz9LA" name="getAge" specification="_pfY8ZP_MEemRUMqFygz9LA">
+                  <language>JAVA</language>
+                  <body>
+    return this.age;
+</body>
+                </ownedBehavior>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_pfaKgP_MEemRUMqFygz9LA" name="getPrenom" specification="_pfZjcv_MEemRUMqFygz9LA">
+                  <language>JAVA</language>
+                  <body>
+    return this.prenom;
+</body>
+                </ownedBehavior>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_pfaKg__MEemRUMqFygz9LA" name="getAddr" specification="_pfaKgf_MEemRUMqFygz9LA">
+                  <language>JAVA</language>
+                  <body>
+    return this.addr;
+</body>
+                </ownedBehavior>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_pfaxkf_MEemRUMqFygz9LA" name="toString" specification="_pfaKhP_MEemRUMqFygz9LA">
+                  <language>JAVA</language>
+                  <body>
+    return &quot;Nom -> &quot; + nom + &quot; || Prenom -> &quot; + prenom + &quot; || Age -> &quot; + age + &quot;&quot;;
+</body>
+                </ownedBehavior>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_pfdN0f_MEemRUMqFygz9LA" name="Contact" specification="_pfb_sP_MEemRUMqFygz9LA">
+                  <language>JAVA</language>
+                  <body>
+    this.nom = in.readString();
+    this.prenom = in.readString();
+    this.age = in.readString();
+    this.addr = new Address();
+</body>
+                </ownedBehavior>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_pfdN1P_MEemRUMqFygz9LA" name="describeContents" specification="_pfdN0v_MEemRUMqFygz9LA">
+                  <language>JAVA</language>
+                  <body>
+    return 0;
+</body>
+                </ownedBehavior>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_pfd04__MEemRUMqFygz9LA" name="writeToParcel" specification="_pfd04P_MEemRUMqFygz9LA">
+                  <language>JAVA</language>
+                  <body>
+    dest.writeString(this.nom);
+    dest.writeString(this.prenom);
+    dest.writeString(this.age);
+</body>
+                </ownedBehavior>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_pfPycf_MEemRUMqFygz9LA" name="Contact" visibility="public" method="_pfRAkf_MEemRUMqFygz9LA"/>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_pfRnoP_MEemRUMqFygz9LA" name="Contact" visibility="public" method="_pfTc0v_MEemRUMqFygz9LA">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_pfS1wf_MEemRUMqFygz9LA" name="nom" type="_pfMIEv_MEemRUMqFygz9LA"/>
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_pfS1wv_MEemRUMqFygz9LA" name="prenom" type="_pfMIEv_MEemRUMqFygz9LA"/>
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_pfTc0P_MEemRUMqFygz9LA" name="age" type="_pfMIEv_MEemRUMqFygz9LA"/>
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_pfTc0f_MEemRUMqFygz9LA" name="addr" type="_pfN9Qf_MEemRUMqFygz9LA"/>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_pfUD4P_MEemRUMqFygz9LA" name="Contact" visibility="public" method="_pfV5Ef_MEemRUMqFygz9LA">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_pfVSAf_MEemRUMqFygz9LA" name="nom" type="_pfMIEv_MEemRUMqFygz9LA"/>
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_pfVSAv_MEemRUMqFygz9LA" name="p" type="_pfMIEv_MEemRUMqFygz9LA"/>
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_pfV5EP_MEemRUMqFygz9LA" name="a" type="_pfMIEv_MEemRUMqFygz9LA"/>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_pfV5Ev_MEemRUMqFygz9LA" name="setId" visibility="public" method="_pfV5FP_MEemRUMqFygz9LA">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_pfV5E__MEemRUMqFygz9LA" name="i">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_pfWgIP_MEemRUMqFygz9LA" name="setNom" visibility="public" method="_pfWgIv_MEemRUMqFygz9LA">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_pfWgIf_MEemRUMqFygz9LA" name="n" type="_pfMIEv_MEemRUMqFygz9LA"/>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_pfWgI__MEemRUMqFygz9LA" name="setPrenom" visibility="public" method="_pfXHMP_MEemRUMqFygz9LA">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_pfWgJP_MEemRUMqFygz9LA" name="p" type="_pfMIEv_MEemRUMqFygz9LA"/>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_pfXHMf_MEemRUMqFygz9LA" name="setAge" visibility="public" method="_pfXHM__MEemRUMqFygz9LA">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_pfXHMv_MEemRUMqFygz9LA" name="a" type="_pfMIEv_MEemRUMqFygz9LA"/>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_pfXuQP_MEemRUMqFygz9LA" name="setAddr" visibility="public" method="_pfXuQv_MEemRUMqFygz9LA">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_pfXuQf_MEemRUMqFygz9LA" name="a" type="_pfN9Qf_MEemRUMqFygz9LA"/>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_pfYVUP_MEemRUMqFygz9LA" name="getId" visibility="public" method="_pfY8YP_MEemRUMqFygz9LA">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_pfYVUf_MEemRUMqFygz9LA" direction="return">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_pfY8Yf_MEemRUMqFygz9LA" name="getNom" visibility="public" method="_pfY8Y__MEemRUMqFygz9LA">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_pfY8Yv_MEemRUMqFygz9LA" type="_pfMIEv_MEemRUMqFygz9LA" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_pfY8ZP_MEemRUMqFygz9LA" name="getAge" visibility="public" method="_pfZjcf_MEemRUMqFygz9LA">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_pfZjcP_MEemRUMqFygz9LA" type="_pfMIEv_MEemRUMqFygz9LA" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_pfZjcv_MEemRUMqFygz9LA" name="getPrenom" visibility="public" method="_pfaKgP_MEemRUMqFygz9LA">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_pfZjc__MEemRUMqFygz9LA" type="_pfMIEv_MEemRUMqFygz9LA" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_pfaKgf_MEemRUMqFygz9LA" name="getAddr" visibility="public" method="_pfaKg__MEemRUMqFygz9LA">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_pfaKgv_MEemRUMqFygz9LA" type="_pfN9Qf_MEemRUMqFygz9LA" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_pfaKhP_MEemRUMqFygz9LA" name="toString" visibility="public" method="_pfaxkf_MEemRUMqFygz9LA">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_pfaxkP_MEemRUMqFygz9LA" type="_pfMIEv_MEemRUMqFygz9LA" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_pfb_sP_MEemRUMqFygz9LA" name="Contact" visibility="public" method="_pfdN0f_MEemRUMqFygz9LA">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_pfdN0P_MEemRUMqFygz9LA" name="in" type="_pfaxkv_MEemRUMqFygz9LA"/>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_pfdN0v_MEemRUMqFygz9LA" name="describeContents" visibility="public" method="_pfdN1P_MEemRUMqFygz9LA">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_pfdN0__MEemRUMqFygz9LA" direction="return">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_pfd04P_MEemRUMqFygz9LA" name="writeToParcel" visibility="public" method="_pfd04__MEemRUMqFygz9LA">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_pfd04f_MEemRUMqFygz9LA" name="dest" type="_pfaxkv_MEemRUMqFygz9LA"/>
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_pfd04v_MEemRUMqFygz9LA" name="flags">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                  </ownedParameter>
+                </ownedOperation>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Class" xmi:id="_pfN9Qf_MEemRUMqFygz9LA" name="Address" visibility="public">
+                <ownedAttribute xmi:type="uml:Property" xmi:id="_xQ7mEP_MEemRUMqFygz9LA" name="street" visibility="private" type="_pfMIEv_MEemRUMqFygz9LA" isUnique="false"/>
+                <ownedAttribute xmi:type="uml:Property" xmi:id="_xQ8NIP_MEemRUMqFygz9LA" name="zipcode" visibility="private" type="_pfMIEv_MEemRUMqFygz9LA" isUnique="false"/>
+                <ownedAttribute xmi:type="uml:Property" xmi:id="_xQ8NIf_MEemRUMqFygz9LA" name="town" visibility="private" type="_pfMIEv_MEemRUMqFygz9LA" isUnique="false"/>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_xRAekP_MEemRUMqFygz9LA" name="Address" specification="_xQ8NIv_MEemRUMqFygz9LA">
+                  <language>JAVA</language>
+                  <body>
+    this.street = s;
+    this.zipcode = z;
+    this.town = t;
+</body>
+                </ownedBehavior>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_xRBFof_MEemRUMqFygz9LA" name="Address" specification="_xRAekf_MEemRUMqFygz9LA">
+                  <language>JAVA</language>
+                  <body>
+    this.street = &quot;&quot;;
+    this.zipcode = &quot;&quot;;
+    this.town = &quot;&quot;;
+</body>
+                </ownedBehavior>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_xRBssP_MEemRUMqFygz9LA" name="getStreet" specification="_xRBFov_MEemRUMqFygz9LA">
+                  <language>JAVA</language>
+                  <body>
+    return street;
+</body>
+                </ownedBehavior>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_xRBss__MEemRUMqFygz9LA" name="setStreet" specification="_xRBssf_MEemRUMqFygz9LA">
+                  <language>JAVA</language>
+                  <body>
+    this.street = street;
+</body>
+                </ownedBehavior>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_xRBstv_MEemRUMqFygz9LA" name="getTown" specification="_xRBstP_MEemRUMqFygz9LA">
+                  <language>JAVA</language>
+                  <body>
+    return town;
+</body>
+                </ownedBehavior>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_xRCTwf_MEemRUMqFygz9LA" name="setTown" specification="_xRBst__MEemRUMqFygz9LA">
+                  <language>JAVA</language>
+                  <body>
+    this.town = town;
+</body>
+                </ownedBehavior>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_xRC60f_MEemRUMqFygz9LA" name="getZipcode" specification="_xRCTwv_MEemRUMqFygz9LA">
+                  <language>JAVA</language>
+                  <body>
+    return zipcode;
+</body>
+                </ownedBehavior>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_xRC61P_MEemRUMqFygz9LA" name="setZipcode" specification="_xRC60v_MEemRUMqFygz9LA">
+                  <language>JAVA</language>
+                  <body>
+    this.zipcode = zipcode;
+</body>
+                </ownedBehavior>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_xRDh4v_MEemRUMqFygz9LA" name="toString" specification="_xRDh4P_MEemRUMqFygz9LA">
+                  <language>JAVA</language>
+                  <body>
+    return &quot;rue : &quot; + this.street + &quot;ville : &quot; + this.getTown() + &quot;numéro de département : &quot; + this.getZipcode();
+</body>
+                </ownedBehavior>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_xQ8NIv_MEemRUMqFygz9LA" name="Address" visibility="public" method="_xRAekP_MEemRUMqFygz9LA">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_xQ_3gP_MEemRUMqFygz9LA" name="s" type="_pfMIEv_MEemRUMqFygz9LA"/>
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_xQ_3gf_MEemRUMqFygz9LA" name="t" type="_pfMIEv_MEemRUMqFygz9LA"/>
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_xQ_3gv_MEemRUMqFygz9LA" name="z" type="_pfMIEv_MEemRUMqFygz9LA"/>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_xRAekf_MEemRUMqFygz9LA" name="Address" visibility="public" method="_xRBFof_MEemRUMqFygz9LA"/>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_xRBFov_MEemRUMqFygz9LA" name="getStreet" visibility="public" method="_xRBssP_MEemRUMqFygz9LA">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_xRBFo__MEemRUMqFygz9LA" type="_pfMIEv_MEemRUMqFygz9LA" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_xRBssf_MEemRUMqFygz9LA" name="setStreet" visibility="public" method="_xRBss__MEemRUMqFygz9LA">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_xRBssv_MEemRUMqFygz9LA" name="street" type="_pfMIEv_MEemRUMqFygz9LA"/>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_xRBstP_MEemRUMqFygz9LA" name="getTown" visibility="public" method="_xRBstv_MEemRUMqFygz9LA">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_xRBstf_MEemRUMqFygz9LA" type="_pfMIEv_MEemRUMqFygz9LA" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_xRBst__MEemRUMqFygz9LA" name="setTown" visibility="public" method="_xRCTwf_MEemRUMqFygz9LA">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_xRCTwP_MEemRUMqFygz9LA" name="town" type="_pfMIEv_MEemRUMqFygz9LA"/>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_xRCTwv_MEemRUMqFygz9LA" name="getZipcode" visibility="public" method="_xRC60f_MEemRUMqFygz9LA">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_xRC60P_MEemRUMqFygz9LA" type="_pfMIEv_MEemRUMqFygz9LA" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_xRC60v_MEemRUMqFygz9LA" name="setZipcode" visibility="public" method="_xRC61P_MEemRUMqFygz9LA">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_xRC60__MEemRUMqFygz9LA" name="zipcode" type="_pfMIEv_MEemRUMqFygz9LA"/>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_xRDh4P_MEemRUMqFygz9LA" name="toString" visibility="public" method="_xRDh4v_MEemRUMqFygz9LA">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_xRDh4f_MEemRUMqFygz9LA" type="_pfMIEv_MEemRUMqFygz9LA" direction="return"/>
+                </ownedOperation>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Class" xmi:id="_qQ21kP_MEemRUMqFygz9LA" name="Numero" visibility="public">
+                <ownedAttribute xmi:type="uml:Property" xmi:id="_qQ4Dsf_MEemRUMqFygz9LA" name="CREATOR" visibility="public" isLeaf="true" isStatic="true" type="_pdyZ4f_MEemRUMqFygz9LA" isUnique="false">
+                  <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_qQ4Dsv_MEemRUMqFygz9LA" name="defaultValue">
+                    <language>JAVA</language>
+                    <body>new Parcelable.Creator() {
+
+    public Numero createFromParcel(Parcel in) {
+        return new Numero(in);
+    }
+
+    public Numero[] newArray(int size) {
+        return new Numero[size];
+    }
+}</body>
+                  </defaultValue>
+                </ownedAttribute>
+                <ownedAttribute xmi:type="uml:Property" xmi:id="_qQ4qwP_MEemRUMqFygz9LA" name="numero" visibility="private" type="_pfMIEv_MEemRUMqFygz9LA" isUnique="false"/>
+                <ownedAttribute xmi:type="uml:Property" xmi:id="_qQ4qwf_MEemRUMqFygz9LA" name="categorie" visibility="private" type="_pfMIEv_MEemRUMqFygz9LA" isUnique="false"/>
+                <ownedAttribute xmi:type="uml:Property" xmi:id="_qQ4qwv_MEemRUMqFygz9LA" name="contactId" visibility="public" isUnique="false">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                </ownedAttribute>
+                <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_qQ4DsP_MEemRUMqFygz9LA" name="Numero implements Parcelable" client="_qQ21kP_MEemRUMqFygz9LA" supplier="_pduIcf_MEemRUMqFygz9LA" contract="_pduIcf_MEemRUMqFygz9LA"/>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_qQ6f8__MEemRUMqFygz9LA" name="Numero" specification="_qQ5R0P_MEemRUMqFygz9LA">
+                  <language>JAVA</language>
+                  <body>
+    this.numero = num;
+    this.categorie = category;
+    this.contactId = id;
+</body>
+                </ownedBehavior>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_qQ7uEf_MEemRUMqFygz9LA" name="Numero" specification="_qQ7HAP_MEemRUMqFygz9LA">
+                  <language>JAVA</language>
+                  <body>
+    this.numero = &quot;&quot;;
+    this.categorie = &quot;&quot;;
+    this.contactId = 0;
+</body>
+                </ownedBehavior>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_qQ7uFP_MEemRUMqFygz9LA" name="getCategorie" specification="_qQ7uEv_MEemRUMqFygz9LA">
+                  <language>JAVA</language>
+                  <body>
+    return categorie;
+</body>
+                </ownedBehavior>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_qQ8VIv_MEemRUMqFygz9LA" name="getNumero" specification="_qQ8VIP_MEemRUMqFygz9LA">
+                  <language>JAVA</language>
+                  <body>
+    return numero;
+</body>
+                </ownedBehavior>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_qQ8VJf_MEemRUMqFygz9LA" name="setCategorie" specification="_qQ8VI__MEemRUMqFygz9LA">
+                  <language>JAVA</language>
+                  <body>
+    this.categorie = category;
+</body>
+                </ownedBehavior>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_qQ88Mf_MEemRUMqFygz9LA" name="getContactId" specification="_qQ8VJv_MEemRUMqFygz9LA">
+                  <language>JAVA</language>
+                  <body>
+    return contactId;
+</body>
+                </ownedBehavior>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_qQ88NP_MEemRUMqFygz9LA" name="setContactId" specification="_qQ88Mv_MEemRUMqFygz9LA">
+                  <language>JAVA</language>
+                  <body>
+    this.contactId = id;
+</body>
+                </ownedBehavior>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_qQ9jQv_MEemRUMqFygz9LA" name="setNumero" specification="_qQ9jQP_MEemRUMqFygz9LA">
+                  <language>JAVA</language>
+                  <body>
+    this.numero = numero;
+</body>
+                </ownedBehavior>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_qQ9jRf_MEemRUMqFygz9LA" name="toString" specification="_qQ9jQ__MEemRUMqFygz9LA">
+                  <language>JAVA</language>
+                  <body>
+    return &quot;numero : &quot; + this.numero + &quot;category : &quot; + this.categorie;
+</body>
+                </ownedBehavior>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_qQ__gf_MEemRUMqFygz9LA" name="Numero" specification="_qQ-KUP_MEemRUMqFygz9LA">
+                  <language>JAVA</language>
+                  <body>
+    this.numero = in.readString();
+    this.categorie = in.readString();
+    this.contactId = in.readInt();
+</body>
+                </ownedBehavior>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_qRBNoP_MEemRUMqFygz9LA" name="describeContents" specification="_qRAmkP_MEemRUMqFygz9LA">
+                  <language>JAVA</language>
+                  <body>
+    return 0;
+</body>
+                </ownedBehavior>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_qRB0s__MEemRUMqFygz9LA" name="writeToParcel" specification="_qRB0sP_MEemRUMqFygz9LA">
+                  <language>JAVA</language>
+                  <body>
+    dest.writeString(this.numero);
+    dest.writeString(this.categorie);
+    dest.writeInt(this.contactId);
+</body>
+                </ownedBehavior>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_qQ5R0P_MEemRUMqFygz9LA" name="Numero" visibility="public" method="_qQ6f8__MEemRUMqFygz9LA">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_qQ6f8P_MEemRUMqFygz9LA" name="num" type="_pfMIEv_MEemRUMqFygz9LA"/>
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_qQ6f8f_MEemRUMqFygz9LA" name="category" type="_pfMIEv_MEemRUMqFygz9LA"/>
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_qQ6f8v_MEemRUMqFygz9LA" name="id">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_qQ7HAP_MEemRUMqFygz9LA" name="Numero" visibility="public" method="_qQ7uEf_MEemRUMqFygz9LA"/>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_qQ7uEv_MEemRUMqFygz9LA" name="getCategorie" visibility="public" method="_qQ7uFP_MEemRUMqFygz9LA">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_qQ7uE__MEemRUMqFygz9LA" type="_pfMIEv_MEemRUMqFygz9LA" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_qQ8VIP_MEemRUMqFygz9LA" name="getNumero" visibility="public" method="_qQ8VIv_MEemRUMqFygz9LA">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_qQ8VIf_MEemRUMqFygz9LA" type="_pfMIEv_MEemRUMqFygz9LA" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_qQ8VI__MEemRUMqFygz9LA" name="setCategorie" visibility="public" method="_qQ8VJf_MEemRUMqFygz9LA">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_qQ8VJP_MEemRUMqFygz9LA" name="category" type="_pfMIEv_MEemRUMqFygz9LA"/>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_qQ8VJv_MEemRUMqFygz9LA" name="getContactId" visibility="public" method="_qQ88Mf_MEemRUMqFygz9LA">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_qQ88MP_MEemRUMqFygz9LA" direction="return">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_qQ88Mv_MEemRUMqFygz9LA" name="setContactId" visibility="public" method="_qQ88NP_MEemRUMqFygz9LA">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_qQ88M__MEemRUMqFygz9LA" name="id">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_qQ9jQP_MEemRUMqFygz9LA" name="setNumero" visibility="public" method="_qQ9jQv_MEemRUMqFygz9LA">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_qQ9jQf_MEemRUMqFygz9LA" name="numero" type="_pfMIEv_MEemRUMqFygz9LA"/>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_qQ9jQ__MEemRUMqFygz9LA" name="toString" visibility="public" method="_qQ9jRf_MEemRUMqFygz9LA">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_qQ9jRP_MEemRUMqFygz9LA" type="_pfMIEv_MEemRUMqFygz9LA" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_qQ-KUP_MEemRUMqFygz9LA" name="Numero" visibility="public" method="_qQ__gf_MEemRUMqFygz9LA">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_qQ__gP_MEemRUMqFygz9LA" name="in" type="_pfaxkv_MEemRUMqFygz9LA"/>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_qRAmkP_MEemRUMqFygz9LA" name="describeContents" visibility="public" method="_qRBNoP_MEemRUMqFygz9LA">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_qRAmkf_MEemRUMqFygz9LA" direction="return">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_qRB0sP_MEemRUMqFygz9LA" name="writeToParcel" visibility="public" method="_qRB0s__MEemRUMqFygz9LA">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_qRB0sf_MEemRUMqFygz9LA" name="dest" type="_pfaxkv_MEemRUMqFygz9LA"/>
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_qRB0sv_MEemRUMqFygz9LA" name="flags">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                  </ownedParameter>
+                </ownedOperation>
+              </packagedElement>
+            </packagedElement>
+          </packagedElement>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_C5ZlEfZrEemui-T0p80qcA" name="importedTypes">
+      <packagedElement xmi:type="uml:Package" xmi:id="_C5ZlEvZrEemui-T0p80qcA" name="androidx">
+        <packagedElement xmi:type="uml:Package" xmi:id="_C5aMIPZrEemui-T0p80qcA" name="appcompat">
+          <packagedElement xmi:type="uml:Package" xmi:id="_C5aMIfZrEemui-T0p80qcA" name="app"/>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_C6lQ0fZrEemui-T0p80qcA" name="com">
+        <packagedElement xmi:type="uml:Package" xmi:id="_C6lQ0vZrEemui-T0p80qcA" name="example">
+          <packagedElement xmi:type="uml:Package" xmi:id="_C6lQ0_ZrEemui-T0p80qcA" name="projetcontact">
+            <packagedElement xmi:type="uml:Package" xmi:id="_C6lQ1PZrEemui-T0p80qcA" name="objet">
+              <packagedElement xmi:type="uml:Class" xmi:id="_C6lQ1fZrEemui-T0p80qcA" name="Contact"/>
+              <packagedElement xmi:type="uml:Class" xmi:id="_C6me8vZrEemui-T0p80qcA" name="Numero"/>
+            </packagedElement>
+          </packagedElement>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_C6ntEvZrEemui-T0p80qcA" name="android">
+        <packagedElement xmi:type="uml:Package" xmi:id="_C6oUIPZrEemui-T0p80qcA" name="widget">
+          <packagedElement xmi:type="uml:Class" xmi:id="_C6oUIfZrEemui-T0p80qcA" name="EditText"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_C6r-gfZrEemui-T0p80qcA" name="os">
+          <packagedElement xmi:type="uml:Class" xmi:id="_C6r-gvZrEemui-T0p80qcA" name="Bundle"/>
+          <packagedElement xmi:type="uml:Interface" xmi:id="_pduIcf_MEemRUMqFygz9LA" name="Parcelable"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_pfaxkv_MEemRUMqFygz9LA" name="Parcel"/>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_pdyZ4P_MEemRUMqFygz9LA" name="Parcelable">
+        <packagedElement xmi:type="uml:Class" xmi:id="_pdyZ4f_MEemRUMqFygz9LA" name="Creator"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_pd02IP_MEemRUMqFygz9LA" name="java">
+      <packagedElement xmi:type="uml:Package" xmi:id="_pfMIEP_MEemRUMqFygz9LA" name="java">
+        <packagedElement xmi:type="uml:Package" xmi:id="_pfMIEf_MEemRUMqFygz9LA" name="lang">
+          <packagedElement xmi:type="uml:Class" xmi:id="_pfMIEv_MEemRUMqFygz9LA" name="String"/>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_8G5qEP_MEemRUMqFygz9LA" memberEnd="_8G7fQP_MEemRUMqFygz9LA _8G8GUv_MEemRUMqFygz9LA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_8G64MP_MEemRUMqFygz9LA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_8G64Mf_MEemRUMqFygz9LA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_8G8GUv_MEemRUMqFygz9LA" name="newcontactactivity" type="_C5ZlEPZrEemui-T0p80qcA" association="_8G5qEP_MEemRUMqFygz9LA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_-pVKkP_MEemRUMqFygz9LA"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_8i_JIP_MEemRUMqFygz9LA" memberEnd="_8jAXQP_MEemRUMqFygz9LA _8jA-UP_MEemRUMqFygz9LA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_8i_wMP_MEemRUMqFygz9LA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_8i_wMf_MEemRUMqFygz9LA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_8jA-UP_MEemRUMqFygz9LA" name="contact" type="_pduIcP_MEemRUMqFygz9LA" association="_8i_JIP_MEemRUMqFygz9LA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__VJHsP_MEemRUMqFygz9LA"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_9BMIEP_MEemRUMqFygz9LA" visibility="package" memberEnd="_9BNWMP_MEemRUMqFygz9LA _9BN9Qv_MEemRUMqFygz9LA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_9BMvIP_MEemRUMqFygz9LA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_9BMvIf_MEemRUMqFygz9LA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_9BN9Qv_MEemRUMqFygz9LA" name="newcontactactivity" type="_C5ZlEPZrEemui-T0p80qcA" association="_9BMIEP_MEemRUMqFygz9LA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_CK5z4P_NEemRUMqFygz9LA"/>
+      </ownedEnd>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_C48SEPZrEemui-T0p80qcA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_C5BKkPZrEemui-T0p80qcA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/PapyrusJava/1#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://PapyrusJava_PROFILES/PapyrusJava.profile.uml#_j9REUByGEduN1bTiWJ0lyw"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_C5GDEPZrEemui-T0p80qcA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_C5GDEfZrEemui-T0p80qcA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/Codegen/1#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://Codegen_PROFILES/Codegen.profile.uml#_fPDsIBa-EearhdjjJ6cVzQ"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_C5K7kPZrEemui-T0p80qcA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_C5Xv4PZrEemui-T0p80qcA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+  </uml:Model>
+  <PapyrusJava:External xmi:id="_C6l34PZrEemui-T0p80qcA" name="com.example.projetcontact.objet.Contact" base_Classifier="_C6lQ1fZrEemui-T0p80qcA"/>
+  <PapyrusJava:External xmi:id="_C6nGAPZrEemui-T0p80qcA" name="com.example.projetcontact.objet.Numero" base_Classifier="_C6me8vZrEemui-T0p80qcA"/>
+  <PapyrusJava:External xmi:id="_C6o7MPZrEemui-T0p80qcA" name="android.widget.EditText" base_Classifier="_C6oUIfZrEemui-T0p80qcA"/>
+  <PapyrusJava:External xmi:id="_C6tMoPZrEemui-T0p80qcA" name="android.os.Bundle" base_Classifier="_C6r-gvZrEemui-T0p80qcA"/>
+  <PapyrusJava:External xmi:id="_pdvWkP_MEemRUMqFygz9LA" name="android.os.Parcelable" base_Classifier="_pduIcf_MEemRUMqFygz9LA"/>
+  <PapyrusJava:External xmi:id="_pdzoAP_MEemRUMqFygz9LA" name="Parcelable.Creator" base_Classifier="_pdyZ4f_MEemRUMqFygz9LA"/>
+  <PapyrusJava:External xmi:id="_pfNWMP_MEemRUMqFygz9LA" name="java.lang.String" base_Classifier="_pfMIEv_MEemRUMqFygz9LA"/>
+  <PapyrusJava:External xmi:id="_pfPLYP_MEemRUMqFygz9LA" name="Address" base_Classifier="_pfN9Qf_MEemRUMqFygz9LA"/>
+  <standard:Create xmi:id="_pfRAkP_MEemRUMqFygz9LA" base_BehavioralFeature="_pfPycf_MEemRUMqFygz9LA"/>
+  <standard:Create xmi:id="_pfS1wP_MEemRUMqFygz9LA" base_BehavioralFeature="_pfRnoP_MEemRUMqFygz9LA"/>
+  <standard:Create xmi:id="_pfVSAP_MEemRUMqFygz9LA" base_BehavioralFeature="_pfUD4P_MEemRUMqFygz9LA"/>
+  <PapyrusJava:External xmi:id="_pfbYoP_MEemRUMqFygz9LA" name="android.os.Parcel" base_Classifier="_pfaxkv_MEemRUMqFygz9LA"/>
+  <standard:Create xmi:id="_pfcmwP_MEemRUMqFygz9LA" base_BehavioralFeature="_pfb_sP_MEemRUMqFygz9LA"/>
+  <standard:Create xmi:id="_qQ544P_MEemRUMqFygz9LA" base_BehavioralFeature="_qQ5R0P_MEemRUMqFygz9LA"/>
+  <standard:Create xmi:id="_qQ7uEP_MEemRUMqFygz9LA" base_BehavioralFeature="_qQ7HAP_MEemRUMqFygz9LA"/>
+  <standard:Create xmi:id="_qQ_YcP_MEemRUMqFygz9LA" base_BehavioralFeature="_qQ-KUP_MEemRUMqFygz9LA"/>
+  <standard:Create xmi:id="_xQ80MP_MEemRUMqFygz9LA" base_BehavioralFeature="_xQ8NIv_MEemRUMqFygz9LA"/>
+  <standard:Create xmi:id="_xRBFoP_MEemRUMqFygz9LA" base_BehavioralFeature="_xRAekf_MEemRUMqFygz9LA"/>
+</xmi:XMI>
