@@ -86,6 +86,12 @@ public class InfoGroupActivity extends AppCompatActivity {
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode == RESULT_CANCELED){
+            Toast.makeText(
+                    getApplicationContext(),
+                    R.string.contact_group_not_saved,
+                    Toast.LENGTH_LONG).show();
+        }
         if (requestCode == NEW_CONTACT_IN_GROUP_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK){
             Contact contact = data.getParcelableExtra("Contact");
             int id = data.getIntExtra("Id",0);
@@ -94,11 +100,6 @@ public class InfoGroupActivity extends AppCompatActivity {
             mJoinViewModel.insert(cg);
         } if (requestCode == UPDATE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK){
             mContactViewModel.insert(MainContactActivity.updateContact);
-        } else {
-            Toast.makeText(
-                    getApplicationContext(),
-                    R.string.contact_group_not_saved,
-                    Toast.LENGTH_LONG).show();
         }
     }
 
@@ -112,4 +113,5 @@ public class InfoGroupActivity extends AppCompatActivity {
         ContactGroup cg = new ContactGroup(contact.getId(),current.getId());
         mJoinViewModel.delete(cg);
     }
+
 }

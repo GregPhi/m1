@@ -170,6 +170,12 @@ public class InfoContactActivity extends AppCompatActivity {
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode == RESULT_CANCELED){
+            Toast.makeText(
+                    getApplicationContext(),
+                    R.string.numero_not_saved,
+                    Toast.LENGTH_LONG).show();
+        }
         if (requestCode == NEW_NUMERO_TO_CONTACT_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
             mNumeroViewModel.insert(newNumero);
         }if (requestCode == UPDATE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK){
@@ -181,11 +187,6 @@ public class InfoContactActivity extends AppCompatActivity {
             ContactGroup cg = new ContactGroup(MainContactActivity.updateContact.getId(),groups.getId());
             mJoinViewModel.insert(cg);
         } if ( requestCode == NEW_NUMERO_TO_CONTACT_ACTIVITY_REQUEST_CODE && resultCode == RETOUR_INFO_ACTIVITY_REQUEST_CODE){
-        } else {
-            Toast.makeText(
-                    getApplicationContext(),
-                    R.string.numero_not_saved,
-                    Toast.LENGTH_LONG).show();
         }
     }
 

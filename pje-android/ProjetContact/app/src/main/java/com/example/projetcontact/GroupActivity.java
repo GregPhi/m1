@@ -112,12 +112,9 @@ public class GroupActivity extends AppCompatActivity {
         startActivityForResult(intent, UPDATE_ACTIVITY_REQUEST_CODE);
     }
 
-    public void removeContactGroups(Groups g){
-        mCtGrpViewModel.deleteContactsJoinForGroup(g);
-    }
 
     public void removeGroup(Groups group){
-        removeContactGroups(group);
+        mCtGrpViewModel.deleteContactsJoinForGroup(group);
         mGroupViewModel.delete(group);
     }
 }

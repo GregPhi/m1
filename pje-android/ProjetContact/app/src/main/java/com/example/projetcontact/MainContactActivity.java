@@ -99,16 +99,17 @@ public class MainContactActivity extends AppCompatActivity {
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode == RESULT_CANCELED){
+            Toast.makeText(
+                    getApplicationContext(),
+                    R.string.contact_not_saved,
+                    Toast.LENGTH_LONG).show();
+        }
         if (requestCode == NEW_CONTACT_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
             newContact(data);
         }  if (requestCode == UPDATE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK){
             mContactViewModel.insert(updateContact);
         }  if ( requestCode == NEW_CONTACT_ACTIVITY_REQUEST_CODE && resultCode == RETOUR_MAIN_ACTIVITY_REQUEST_CODE){
-        } else {
-            Toast.makeText(
-                    getApplicationContext(),
-                    R.string.contact_not_saved,
-                    Toast.LENGTH_LONG).show();
         }
     }
 
