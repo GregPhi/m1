@@ -199,6 +199,12 @@ public class InfoContactActivity extends AppCompatActivity {
         mJoinViewModel.delete(cg);
     }
 
+    public void infoGroup(Groups group){
+        Intent intent = new Intent(this,InfoGroupActivity.class);
+        GroupActivity.updateGroup = group;
+        startActivityForResult(intent, UPDATE_ACTIVITY_REQUEST_CODE);
+    }
+
     public void infosNumero(Numero numero){
         Intent intent = new Intent(this,InfoNumeroActivity.class);
         updateNumero = numero;
