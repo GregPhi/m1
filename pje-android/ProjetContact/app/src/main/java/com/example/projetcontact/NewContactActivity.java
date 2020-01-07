@@ -17,7 +17,8 @@ public class NewContactActivity extends AppCompatActivity {
 
     public static final int RETOUR_MAIN_ACTIVITY_REQUEST_CODE = 42;
     private Contact newContact = new Contact();
-    private Numero newNumero = null;
+    public static Numero NnewNumero = null;
+    public static Address NnewAdress = null;
 
     private EditText mEditNomView;
     private  EditText mEditPrenomView;
@@ -58,7 +59,7 @@ public class NewContactActivity extends AppCompatActivity {
                     String rue = "";
                     String ville = "";
                     String cd = "";
-                    Address adr = new Address();
+                    NnewAdress = new Address();
                     if(!TextUtils.isEmpty(mEditStreetContactView.getText())){
                         rue = mEditStreetContactView.getText().toString();
                     }
@@ -68,26 +69,26 @@ public class NewContactActivity extends AppCompatActivity {
                     if(!TextUtils.isEmpty(mEditZipcodeContactView.getText())){
                         cd = mEditZipcodeContactView.getText().toString();
                     }
-                    adr.setStreet(rue);
-                    adr.setTown(ville);
-                    adr.setZipcode(cd);
+                    NnewAdress.setStreet(rue);
+                    NnewAdress.setTown(ville);
+                    NnewAdress.setZipcode(cd);
                     newContact.setNom(nom);
                     newContact.setPrenom(pre);
                     newContact.setAge(age);
-                    newContact.setAddr(adr);
                     replyIntent.putExtra("Contact",newContact);
 
                     String num = "";
                     String categorie = "";
-                    if(!TextUtils.isEmpty(mEditNumeroView.getText()) && !TextUtils.isEmpty(mEditCategorieView.getText())){
-                        newNumero = new Numero();
+                    if(!TextUtils.isEmpty(mEditNumeroView.getText())){
+                        NnewNumero = new Numero();
                         num = mEditNumeroView.getText().toString();
-                        categorie = mEditCategorieView.getText().toString();
-                        newNumero.setNumero(num);
-                        newNumero.setCategorie(categorie);
-                        newNumero.setContactId(newContact.getId());
+                        if(!TextUtils.isEmpty(mEditCategorieView.getText())){
+                            categorie = mEditCategorieView.getText().toString();
+                        }
+                        NnewNumero.setNumero(num);
+                        NnewNumero.setCategorie(categorie);
+                        NnewNumero.setContactId(newContact.getId());
                     }
-                    replyIntent.putExtra("Numero",newNumero);
                     setResult(RESULT_OK, replyIntent);
                 }
                 finish();

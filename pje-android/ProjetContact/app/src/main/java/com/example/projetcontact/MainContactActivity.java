@@ -116,8 +116,10 @@ public class MainContactActivity extends AppCompatActivity {
     public void newContact(Intent data){
         Contact contact = data.getParcelableExtra("Contact");
         if(contact!=null){
+            Address adress = NewContactActivity.NnewAdress;
+            contact.setAddr(adress);
             mContactViewModel.insert(contact);
-            Numero numero = data.getParcelableExtra("Numero");
+            Numero numero = NewContactActivity.NnewNumero;
             if(numero!=null){
                 numero.setContactId(contact.getId());
                 mNumeroViewModel.insert(numero);
