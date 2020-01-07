@@ -117,12 +117,13 @@ public class MainContactActivity extends AppCompatActivity {
         Contact contact = data.getParcelableExtra("Contact");
         if(contact!=null){
             mContactViewModel.insert(contact);
+            Numero numero = data.getParcelableExtra("Numero");
+            if(numero!=null){
+                numero.setContactId(contact.getId());
+                mNumeroViewModel.insert(numero);
+            }
         }
-        Numero numero = data.getParcelableExtra("Numero");
-        if(numero!=null){
-            numero.setContactId(contact.getId());
-            mNumeroViewModel.insert(numero);
-        }
+
     }
 
     public void infosContact(Contact contact){
