@@ -120,6 +120,7 @@ public class MainContactActivity extends AppCompatActivity {
         }
         Numero numero = data.getParcelableExtra("Numero");
         if(numero!=null){
+            numero.setContactId(contact.getId());
             mNumeroViewModel.insert(numero);
         }
     }
